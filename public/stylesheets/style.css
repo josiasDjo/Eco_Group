@@ -12,4 +12,5 @@
 
 nav #two-part ul li:hover {
   border-bottom: solid 2px #fd6420;
+  padding-bottom: 5px;
 }
