@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-
+const port = 3000;
 
 const indexRouter = require('./backend/routes/index');
 const usersRouter = require('./backend/routes/users');
@@ -43,5 +43,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(port, () => {
+  console.log(`✅ App is listening on port ${port}`);
+})
 
 module.exports = app;
