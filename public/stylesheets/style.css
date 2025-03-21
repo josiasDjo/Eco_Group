@@ -40,3 +40,29 @@ nav #two-part ul li:hover {
   opacity: 15%;
   clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
+
+#bordure_incl {
+  position: relative;
+  display: inline-block;
+  padding: 0.5em 1em;
+  font-size: 2em;
+}
+
+#bordure_incl::before,
+#bordure_incl::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px; /* Ajustez la largeur selon vos besoins */
+  background-color: #000; /* Couleur de la "peinture" */
+  transform: skewY(-20deg); /* Inclinaison de la bordure */
+}
+
+#bordure_incl::before {
+  left: -15px; /* Positionnement à gauche */
+}
+
+#bordure_incl::after {
+  right: -15px; /* Positionnement à droite */
+}
