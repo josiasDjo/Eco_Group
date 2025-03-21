@@ -31,3 +31,9 @@ nav #two-part ul li:hover::after {
 nav #two-part ul li:hover {
   /* border-bottom: solid 2px #fd6420; */
 }
+
+.parallelogram {
+  background: #fd6420;
+  opacity: 15%;
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
