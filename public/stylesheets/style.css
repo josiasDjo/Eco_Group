@@ -6,7 +6,14 @@
   font-style: normal;
 }
 .height_header {
-  height: 500px;
+  height: 300px;
+}
+.header_bg_image {
+  height: 30rem;
+  background-image: url('/images/bg_header2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .bg_navbar {
   background-color: #e0e0e0f6 ;
@@ -14,7 +21,15 @@
 .btn_bg_color {
   background-color: #fd6420;
 }
-
+.color_blue {
+  color: #1655f2;
+}
+.color_blue_foncé {
+  color: #0f1eaf;
+}
+.color_yellow_ {
+  color: #fdbd28
+}
 nav #two-part ul li::after {
   content: "";
   position: absolute;
@@ -36,7 +51,8 @@ nav #two-part ul li:hover {
 }
 
 .parallelogram {
-  background: #fd6420;
-  opacity: 15%;
+  /* background: #fd6420; */
+  background: white;
+  opacity: 50%;
   clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
