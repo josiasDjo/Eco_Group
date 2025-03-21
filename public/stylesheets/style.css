@@ -10,7 +10,22 @@
   background-color: #fd6420;
 }
 
+nav #two-part ul li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #fd6420;
+  left: 0;
+  bottom: -10px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+nav #two-part ul li:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
 nav #two-part ul li:hover {
-  border-bottom: solid 2px #fd6420;
-  padding-bottom: 5px;
+  /* border-bottom: solid 2px #fd6420; */
 }
