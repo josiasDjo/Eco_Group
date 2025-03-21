@@ -1,0 +1,12 @@
+# Autorise tous les robots à explorer le site
+User-agent: *
+
+# Autorise l'accès à toutes les pages
+Allow: /
+
+# Bloque l'accès aux dossiers sensibles ou inutiles à l'indexation
+Disallow: /admin/
+Disallow: /private/
+
+# Indique l'emplacement du sitemap
+Sitemap: https://impactecogroup.org/sitemap.xml
