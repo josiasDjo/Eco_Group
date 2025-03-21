@@ -52,7 +52,7 @@ nav #two-part ul li:hover {
 
 .parallelogram {
   /* background: #fd6420; */
-  background: white;
-  opacity: 50%;
+  background: rgb(255, 255, 255, 0.5);
   clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  
 }
