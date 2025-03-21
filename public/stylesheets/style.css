@@ -5,7 +5,9 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
-
+.height_header {
+  height: 500px;
+}
 .btn_bg_color {
   background-color: #fd6420;
 }
