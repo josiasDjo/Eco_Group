@@ -3,16 +3,16 @@
 <%- include('head') %>
 <body>
     <header class="w-full height_header">
-        <nav id="navbarContainer" class="bg-white h-16 lg:h-20 flex flex-row px-5 lg:px-10 py-3 justify-between">
+        <nav id="navbarContainer" class="bg-white h-16 lg:h-20 flex flex-col lg:flex-row px-5 lg:px-10 py-3 justify-between">
             <div class="h-10 lg:h-16 lg:py-2 items-center flex">
                 <img src="/images/IEG-logo.webp" alt="Loge de l'entreprise Impact Eco Group" class="logo_nav h-full w-auto object-contain">
             </div>
-            <div class="flex items-center" id="two-part">
+            <div class="flex mt-5 lg:items-center lg:mt-0" id="two-part">
                 <ul class="lg:hidden">
-                    <button id="fa_bars_menu" onclick="navbarShowH('open');" class="text-3xl lg:hidden"><li><i class="fa-solid fa-bars"></i></li></button>
+                    <button id="fa_bars_menu" onclick="navbarShowH('open');" class="text-3xl absolute top-3 right-3 lg:hidden"><li><i class="fa-solid fa-bars"></i></li></button>
                     <button id="fa_xmark_menu" onclick="navbarShowH('close');" class="text-3xl hidden lg:hidden"><li><i class="fa-solid fa-xmark"></i></li></button>
                 </ul>
-                <ul id="navbar_part2" class="hidden lg:flex flex-col lg:flex-row items-center relative">
+                <ul id="navbar_part2" class="hidden flex flex-col lg:flex-row lg:items-center relative">
                     <li class="text_navbar_annim mx-3 text-lg dm_sans font-medium relative cursor-pointer"><a href="#">Accueil</a></li>
                     <li class="text_navbar_annim mx-3 text-lg dm_sans font-medium relative cursor-pointer"><a href="#">Nos Projets</a></li>
                     <li class="text_navbar_annim mx-3 text-lg dm_sans font-medium relative cursor-pointer"><a href="#">A Propos</a></li>
