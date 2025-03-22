@@ -10,7 +10,6 @@
   height: 300px;
 }
 .header_bg_image {
-  height: 30rem;
   background-image: url('/images/bg_header2.webp');
   background-position: center;
   background-repeat: no-repeat;
