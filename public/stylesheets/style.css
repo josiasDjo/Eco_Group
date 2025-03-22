@@ -19,6 +19,9 @@
 .bg_navbar {
   background-color: #e0e0e0f6 ;
 }
+.bg-white_opac {
+  background: rgb(255, 255, 255, 0.5);
+}
 .btn_bg_color {
   background-color: #fd6420;
 }
