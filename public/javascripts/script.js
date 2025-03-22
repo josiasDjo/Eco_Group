@@ -8,4 +8,4 @@ gsap.to(".spinner_svg", {
     rotation: "+=360",duration: 2, ease: "none", repeat: -1, repeatDelay: 0.02  
 });
 
-gsap.to('svg_bounce', {});
+gsap.to('.svg_bounce', { duration: 0.6, y:-20, ease:"bounce.out", yoyo: true, repeat: -1});
