@@ -9,6 +9,9 @@
 .height_header {
   height: 300px;
 }
+.height_about {
+  height: 40rem;
+}
 .header_bg_image {
   background-image: url('/images/bg_header2.webp');
   background-position: center;
