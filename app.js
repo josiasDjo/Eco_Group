@@ -1,10 +1,13 @@
+require('dotenv').config();
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const port = 3000;
+const session = require('express-session');
+// const jwt = require('jsonwebtoken');
 
 //Importer les modèles
 const Users = require('./backend/models/Users');
@@ -14,6 +17,7 @@ const indexRouter = require('./backend/routes/index');
 const usersRouter = require('./backend/routes/users');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // view engine setup
 app.set('views', [
