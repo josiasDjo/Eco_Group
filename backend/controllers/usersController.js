@@ -44,7 +44,11 @@ exports.getUser = async (req, res) => {
 }
 
 exports.updateUser = async (req, res) => {
+    try {
+        const { fist_name,last_name,email } = req.body;
+    } catch(err) {
 
+    }
 }
 
 exports.resetPassword = async (req, res) => {
