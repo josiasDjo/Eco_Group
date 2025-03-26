@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/login', (req, res) => {
   console.log('Page de connexion');
   // res.render('/custom/signin.html');
-  res.sendFile('/custom/signin.html');
+  res.sendFile("../../custom/signin.html");
 });
 
 module.exports = router;
