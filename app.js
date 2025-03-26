@@ -35,7 +35,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
 //configuration de la session
-
+app.use(session({
+  secret: process.env.SECRET_SESSION,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+    maxAge: 1000 * 60 * 60 * 24 * 15
+  }
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
