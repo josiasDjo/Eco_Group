@@ -34,5 +34,12 @@ if (newusersignup) {
 
 const userSignin = document.getElementById('userSignin');
 if (userSignin) {
-    
+    userSignin.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        let msg_result = document.getElementById('msg_result');
+
+    });
 }
