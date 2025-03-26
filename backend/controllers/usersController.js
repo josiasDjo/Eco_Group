@@ -73,6 +73,8 @@ exports.resetPassword = async (req, res) => {
 exports.deleteAccount = async (req, res) => {
     try {
         const { user_id, email } = req.body;
+        const userExist = await User.findOne({where: {user_id, email}});
+        if(!userExist) return res.json({ success: false, message: 'Une erreur s\'est produite, Veillez réessayer plus tard'})
     } catch(err) {
         console.log('Une erreur s\'est produite : ', err);
         return res.json({ success: false, message: 'Une erreur s\'est produite'});
