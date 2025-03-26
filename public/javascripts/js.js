@@ -8,7 +8,7 @@ if (newusersignup) {
         const last_name = document.getElementById('lastName').value;
         const email = document.getElementById('email').value;
         const password_user = document.getElementById('password').value;
-        const msg_result = document.getElementById('msg_result');
+        let msg_result = document.getElementById('msg_result');
 
         if (fist_name && last_name && email && password_user && msg_result) {
             const response = await fetch("/users/new-user", {
@@ -30,4 +30,9 @@ if (newusersignup) {
             msg_result.style.color = 'red';
         }
     })
+}
+
+const userSignin = document.getElementById('userSignin');
+if (userSignin) {
+    
 }
