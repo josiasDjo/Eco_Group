@@ -6,6 +6,10 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const port = 3000;
 
+//Importer les modèles
+const Users = require('./backend/models/Users');
+
+//Importer les routes
 const indexRouter = require('./backend/routes/index');
 const usersRouter = require('./backend/routes/users');
 
