@@ -3,10 +3,11 @@ const bcrypt = require('bcrypt');
 
 exports.createUser = async (req, res) => {
     try {
-        const { fist_name,last_name,email,password	} = req.body;
+        let { fist_name,last_name,email,password_user } = req.body;
         const emailExist = await User.findOne({where: {email}});
         if (emailExist) return res.json({ success: false, message: 'Cet email existe déjà !!'});
-
+        const saltRounds = 10;
+        const password = await bcrypt.hash(password_user, saltRounds);
         await User.create({fist_name,last_name,email,password})
     } catch (err) {
         console.log('Une erreur s\'est produite : ', err);
