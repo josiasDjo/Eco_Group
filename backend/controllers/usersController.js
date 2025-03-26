@@ -70,4 +70,6 @@ exports.resetPassword = async (req, res) => {
     }
 }
 
-exports.
+exports.deleteAccount = async (req, res) => {
+    
+}
