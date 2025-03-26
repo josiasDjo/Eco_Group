@@ -16,7 +16,7 @@ exports.createUser = async (req, res) => {
             last_name: newUser.last_name,
             email: newUser.email
         }
-        const name = newUser.first_name;
+        const name = newUser.fist_name;
         console.log('Name : ', name);
         return res.json({ success: true, message: 'Nouvel utilisateur ajouter avec succès'});
     } catch (err) {

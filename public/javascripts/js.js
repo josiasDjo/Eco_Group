@@ -2,7 +2,7 @@ const newusersignup = document.getElementById('newusersignup');
 if (newusersignup) {
     newusersignup.addEventListener('submit', async (event) => {
         event.preventDefault();
-        alert('Submited');
+        // alert('Submited');
 
         const fist_name = document.getElementById('firstName').value;
         const last_name = document.getElementById('lastName').value;
