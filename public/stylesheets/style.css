@@ -7,11 +7,11 @@
   font-style: normal;
 }
 .height_header {
-  height: 50rem;
+  height: 36rem;
 }
-.height_about {
+/* .height_about {
   height: 40rem;
-}
+} */
 .header_bg_image {
   background-image: url('/images/bg_header2.webp');
   background-position: center;
