@@ -42,3 +42,7 @@ exports.getUser = async (req, res) => {
         return res.json({ success: false, message: 'Une erreur s\'est produite'});
     }
 }
+
+exports.resetPassword = async (req, res) => {
+    
+}
