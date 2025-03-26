@@ -36,7 +36,7 @@ const userSignin = document.getElementById('userSignin');
 if (userSignin) {
     userSignin.addEventListener('submit', async (event) => {
         event.preventDefault();
-
+        alert('submit connexion');
         const email = document.getElementById('email').value;
         const password_user = document.getElementById('password').value;
         let msg_result = document.getElementById('msg_result');
