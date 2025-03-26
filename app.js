@@ -50,7 +50,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.usr('/login', sign);
+app.use('/login', sign);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
