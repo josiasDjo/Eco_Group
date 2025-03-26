@@ -1,0 +1,1 @@
+const newusersignup = document.getElementById('newusersignup');
