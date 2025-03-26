@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 // Get connexion page
 router.get('/login', (req, res) => {
   console.log('Page de connexion');
-  res.render('/custom/signin.html');
+  // res.render('/custom/signin.html');
+  res.sendFile('/custom/signin.html');
 });
 
 module.exports = router;
