@@ -26,5 +26,11 @@ exports.createUser = async (req, res) => {
 }
 
 exports.getUser = async (req, res) => {
-    
+    try {  
+        const { email, password } = req.body;
+        const userExist = await 
+    } catch(err) {
+        console.log('Une erreur s\'est produite : ', err);
+        return res.json({ success: false, message: 'Une erreur s\'est produite'});
+    }
 }
