@@ -45,7 +45,10 @@ exports.getUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     try {
-        const { fist_name,last_name,email } = req.body;
+        const { user_id, fist_name,last_name,email } = req.body;
+        const userExist = await User.findByPk(user_id);
+        if (!userExist) return res.json({ success: false, message: 'Une erreur s\'est produite'});
+        await User.update({fist_name,last_name,email}, {where:{user_id:user_id}});
     } catch(err) {
 
     }
@@ -57,7 +60,7 @@ exports.resetPassword = async (req, res) => {
         const EmailExist = await User.findOne({ where: {email}});
         if(!EmailExist) return res.json({ success: false, message: 'Email incorrect'});
         const user_id = EmailExist.user_id;
-        await User.update({password, where: {user_id}});
+        await User.update({password}, {where: {user_id}});
         return res.json({ success: true, message: 'Mise à jour du mot de passe réussie'});
     } catch (err) {
         console.log('Une erreur s\'est produite : ', err);
