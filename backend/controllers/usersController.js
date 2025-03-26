@@ -27,8 +27,8 @@ exports.createUser = async (req, res) => {
 
 exports.getUser = async (req, res) => {
     try {  
-        const { email, password } = req.body;
-        const userExist = await User.findOne({ where: {email, password}});
+        const { email, password_user } = req.body;
+        const userExist = await User.findOne({ where: {email, password:password_user}});
         if (!userExist) return res.json({ success: false, message: 'Email ou mot de passe incorrect'});
         req.session.user = {
             user_id: userExist.user_id,
@@ -36,6 +36,7 @@ exports.getUser = async (req, res) => {
             last_name: userExist.last_name,
             email: userExist.email
         }
+        console.log(userExist);
         return res.json({ success: true, message: 'Connexion réussie'});
     } catch(err) {
         console.log('Une erreur s\'est produite : ', err);

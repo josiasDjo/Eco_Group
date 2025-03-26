@@ -43,7 +43,7 @@ if (userSignin) {
 
         if (email && email != "" && password_user && password_user != "" && msg_result) {
             const response = await fetch("/users/", {
-                method: "GET",
+                method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email,password_user })
             });
