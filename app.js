@@ -6,7 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const session = require('express-session');
+// const session = require('express-session');
 // const jwt = require('jsonwebtoken');
 
 //Importer les modèles
@@ -35,15 +35,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
 //configuration de la session
-app.use(session({
-  secret: process.env.SECRET_SESSION,
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    secure: false,
-    maxAge: 1000 * 60 * 60 * 24 * 15
-  }
-}))
+// app.use(session({
+//   secret: process.env.SECRET_SESSION,
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: {
+//     secure: false,
+//     maxAge: 1000 * 60 * 60 * 24 * 15
+//   }
+// }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
