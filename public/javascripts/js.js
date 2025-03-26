@@ -42,7 +42,11 @@ if (userSignin) {
         let msg_result = document.getElementById('msg_result');
 
         if (email && email != "" && password && password != "" && msg_result) {
-            const response = 
+            const response = await fetch("", {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ fist_name,last_name,email,password_user })
+            })
         } else {
             msg_result.innerText = "Tous les champs sont réquis";
             msg_result.style.color = "red";
