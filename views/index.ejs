@@ -23,7 +23,7 @@
                 </ul>
             </div>
         </nav>
-        <div id="heroHeader" class="w-auto h-96 header_bg_image relative text-center justify-center items-center flex relative overflow-visible">
+        <div id="heroHeader" class="w-full h-96 header_bg_image relative text-center justify-center items-center flex flex-col relative">
             <img src="/images/undraw_in-progress_cdfz.svg" alt="" class="svg_inProgress h-42 absolute left-1/6 bottom-0 opacity-90">
             <img src="/images/validation-svgrepo-com.svg" alt="" class="svg_bounce h-8 absolute right-30 bottom-10 opacity-90">
 
@@ -37,20 +37,25 @@
                     <path d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-
+            <h1 class="text_heroHeader text-center text-black font-medium dm_sans text-xl md:text-3xl lg:text-4xl z-40">
+                Ensemble, propulsons la RD Congo vers un  <br>avenir  <span class="txt_color_orange font-bold px-2">audacieux</span> grâce à des projets <br> novateurs et <span class="txt_color_orange font-bold px-2">durables.</span>
+            </h1>
+            <button type="button" class="btn_HeroHeader my-4 relative text-lg mx-2 dm_sans btn_bg_color py-2 px-3 rounded-lg text-white font-medium cursor-pointer">
+                Découvrez-nous
+            </button>
             <div class="bg-white_opac parallelogram w-full h-96 md:w-11/12 lg:w-8/12 justify-center align-center flex flex-col items-center text-right absolute right-0 z-30">
-                <h1 class="text_heroHeader text-center text-black font-medium dm_sans text-xl md:text-3xl lg:text-4xl z-40 opacity-90">
-                    Ensemble, propulsons la RD Congo vers un  <br>avenir  <span class="txt_color_orange font-bold px-2">audacieux</span> grâce à des projets <br> novateurs et <span class="txt_color_orange font-bold px-2">durables.</span>
-                </h1>
-                <button type="button" class="btn_HeroHeader my-4 relative text-lg mx-2 dm_sans btn_bg_color py-2 px-3 rounded-lg text-white font-medium cursor-pointer">
-                    Découvrez-nous
-                </button>
+
             </div>
         </div>
     </header>
 
-    <section id="about" class="w-full height_about pt-24 items-center justify-center flex bg-red-200">
-        <%- include('aboutCompagny') %>
-    </section>
+    <main class="relative w-full pt-96">
+        <section id="about" class="w-full self-auto items-center justify-center flex bg-red-200 relative">
+            <img src="/images/image1.jpg" alt="">
+            <!-- <div class="w-10/12 h-96 bg-red-500">
+                
+            </div> -->
+        </section>
+    </main>
 </body>
 </html>
