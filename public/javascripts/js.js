@@ -38,15 +38,24 @@ if (userSignin) {
         event.preventDefault();
 
         const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        const password_user = document.getElementById('password').value;
         let msg_result = document.getElementById('msg_result');
 
-        if (email && email != "" && password && password != "" && msg_result) {
-            const response = await fetch("", {
+        if (email && email != "" && password_user && password_user != "" && msg_result) {
+            const response = await fetch("/users/", {
                 method: "GET",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ fist_name,last_name,email,password_user })
-            })
+                body: JSON.stringify({ email,password_user })
+            });
+
+            const data = response.json();
+            if(data.success) {
+                msg_result.innerText = data.message;
+                msg_result.style.color = "green";
+            } else {
+                msg_result.innerText = data.message;
+                msg_result.style.color = "red";
+            }
         } else {
             msg_result.innerText = "Tous les champs sont réquis";
             msg_result.style.color = "red";
