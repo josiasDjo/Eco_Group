@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const sequelize = require('./backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -46,7 +47,7 @@ app.use(session({
   }
 }));
 
-app.use('/', indexRouter);
+app.use(indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
