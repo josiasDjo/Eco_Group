@@ -43,6 +43,10 @@ exports.getUser = async (req, res) => {
     }
 }
 
+exports.updateUser = async (req, res) => {
+
+}
+
 exports.resetPassword = async (req, res) => {
     try {
         const { email, password } = req.body;
