@@ -23,7 +23,8 @@ const port = process.env.PORT || 3000;
 app.set('views', [
   path.join(__dirname, 'views'),
   path.join(__dirname, 'includes'),
-  path.join(__dirname, 'views/admin')
+  path.join(__dirname, 'views/admin'),
+  path.join(__dirname, '/views/modals')
 ]);
 app.set('view engine', 'ejs');
 
@@ -67,5 +68,10 @@ app.use(function(err, req, res, next) {
 app.listen(port, () => {
   console.log(`✅ App is listening on port ${port}`);
 })
+
+// Synchronisation avec MySQL
+sequelize.sync({ force: false })
+    .then(() => console.log('✅ Base de données synchronisée avec Sequelize !'))
+    .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
 
 module.exports = app;
