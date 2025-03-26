@@ -42,9 +42,10 @@ if (userSignin) {
         let msg_result = document.getElementById('msg_result');
 
         if (email && email != "" && password && password != "" && msg_result) {
-
+            const response = 
         } else {
-            
+            msg_result.innerText = "Tous les champs sont réquis";
+            msg_result.style.color = "red";
         }
     });
 }
