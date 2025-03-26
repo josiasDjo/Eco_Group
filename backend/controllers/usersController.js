@@ -45,7 +45,12 @@ exports.getUser = async (req, res) => {
 
 exports.resetPassword = async (req, res) => {
     try {
-
+        const { email, password } = req.body;
+        const EmailExist = await User.findOne({ where: {email}});
+        if(!EmailExist) return res.json({ success: false, message: 'Email incorrect'});
+        const user_id = EmailExist.user_id;
+        await User.update({password, where: {user_id}});
+        return res.json({ success: true, message: 'Mise à jour du mot de passe réussie'});
     } catch (err) {
         console.log('Une erreur s\'est produite : ', err);
         return res.json({ success: false, message: 'Une erreur s\'est produite'});
