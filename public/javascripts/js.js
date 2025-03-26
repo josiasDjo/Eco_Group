@@ -41,5 +41,10 @@ if (userSignin) {
         const password = document.getElementById('password').value;
         let msg_result = document.getElementById('msg_result');
 
+        if (email && email != "" && password && password != "" && msg_result) {
+
+        } else {
+            
+        }
     });
 }
