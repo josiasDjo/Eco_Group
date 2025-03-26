@@ -38,14 +38,14 @@ if (userSignin) {
         event.preventDefault();
         alert('submit connexion');
         const email = document.getElementById('email').value;
-        const password_user = document.getElementById('password').value;
+        const password = document.getElementById('password').value;
         let msg_result = document.getElementById('msg_result');
 
-        if (email && email != "" && password_user && password_user != "" && msg_result) {
+        if (email && email != "" && password && password != "" && msg_result) {
             const response = await fetch("/users/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email,password_user })
+                body: JSON.stringify({ email,password })
             });
 
             const data = response.json();
@@ -53,7 +53,7 @@ if (userSignin) {
                 console.log('Message : ',data.message)
                 msg_result.innerText = data.message;
                 msg_result.style.color = "green";
-                alert('Connexion réussie')
+                alert('Connexion réussie');
             } else {
                 console.log('Message : ',data.message)
                 msg_result.innerText = 'Email ou mot de passe incorrect';

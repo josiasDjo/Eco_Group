@@ -27,8 +27,8 @@ exports.createUser = async (req, res) => {
 
 exports.getUser = async (req, res) => {
     try {  
-        const { email, password_user } = req.body;
-        const userExist = await User.findOne({ where: {email, password:password_user}});
+        const { email, password } = req.body;
+        const userExist = await User.findOne({ where: {email, password}});
         if (!userExist) return res.json({ success: false, message: 'Email ou mot de passe incorrect'});
         req.session.user = {
             user_id: userExist.user_id,
