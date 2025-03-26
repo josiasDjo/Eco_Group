@@ -11,9 +11,13 @@ if (newusersignup) {
         const msg_result = document.getElementById('msg_result');
 
         if (first_name && last_name && email && password && msg_result) {
-            const response = await ("", {
-                
+            const response = await fetch("", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ first_name,last_name,email,password })
             });
+
+            const data = response.json();
         } else {
             msg_result.innerText = 'Tous les champs sont réquis';
             msg_result.style.color = 'red';
