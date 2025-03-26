@@ -7,14 +7,14 @@ if (newusersignup) {
         const first_name = document.getElementById('firstName').value;
         const last_name = document.getElementById('lastName').value;
         const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        const password_user = document.getElementById('password').value;
         const msg_result = document.getElementById('msg_result');
 
-        if (first_name && last_name && email && password && msg_result) {
+        if (first_name && last_name && email && password_user && msg_result) {
             const response = await fetch("/users/new-user", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ first_name,last_name,email,password })
+                body: JSON.stringify({ first_name,last_name,email,password_user })
             });
 
             const data = response.json();
