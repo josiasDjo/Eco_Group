@@ -49,8 +49,10 @@ exports.updateUser = async (req, res) => {
         const userExist = await User.findByPk(user_id);
         if (!userExist) return res.json({ success: false, message: 'Une erreur s\'est produite'});
         await User.update({fist_name,last_name,email}, {where:{user_id:user_id}});
+        return res.json({ success: true, message: 'Mise à jour réussie'});
     } catch(err) {
-
+        console.log('Une erreur s\'est produite : ', err);
+        return res.json({ success: false, message: 'Une erreur s\'est produite'});
     }
 }
 
@@ -67,3 +69,5 @@ exports.resetPassword = async (req, res) => {
         return res.json({ success: false, message: 'Une erreur s\'est produite'});
     }
 }
+
+exports.
