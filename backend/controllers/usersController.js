@@ -29,6 +29,14 @@ exports.getUser = async (req, res) => {
     try {  
         const { email, password } = req.body;
         const userExist = await User.findOne({ where: {email, password}});
+        if (!userExist) return res.json({ success: false, message: 'Email ou mot de passe incorrect'});
+        req.session.user = {
+            user_id: userExist.user_id,
+            fist_name: userExist.fist_name,
+            last_name: userExist.last_name,
+            email: userExist.email
+        }
+        return res.json({ success: true, message: 'Connexion réussie'});
     } catch(err) {
         console.log('Une erreur s\'est produite : ', err);
         return res.json({ success: false, message: 'Une erreur s\'est produite'});
