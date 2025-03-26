@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 // Get connexion page
 router.get('/login', (req, res) => {
   console.log('Page de connexion');
-  res.render('signup');
+  res.render('sign');
   // return res.sendFile("../../custom/signin.html");
 });
 
