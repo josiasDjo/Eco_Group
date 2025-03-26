@@ -53,10 +53,12 @@ if (userSignin) {
                 console.log('Message : ',data.message)
                 msg_result.innerText = data.message;
                 msg_result.style.color = "green";
+                alert('Connexion réussie')
             } else {
                 console.log('Message : ',data.message)
-                msg_result.innerText = data.message;
+                msg_result.innerText = 'Email ou mot de passe incorrect';
                 msg_result.style.color = "red";
+                alert('Email ou mot de passe incorrect');
             }
         } else {
             msg_result.innerText = "Tous les champs sont réquis";
