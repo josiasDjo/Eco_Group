@@ -50,9 +50,11 @@ if (userSignin) {
 
             const data = response.json();
             if(data.success) {
+                console.log('Message : ',data.message)
                 msg_result.innerText = data.message;
                 msg_result.style.color = "green";
             } else {
+                console.log('Message : ',data.message)
                 msg_result.innerText = data.message;
                 msg_result.style.color = "red";
             }
