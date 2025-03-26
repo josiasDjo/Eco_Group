@@ -10,7 +10,15 @@ exports.createUser = async (req, res) => {
         const password = await bcrypt.hash(password_user, saltRounds);
         const newUser = await User.create({fist_name,last_name,email,password});
 
-        
+        req.session.user = {
+            user_id: newUser.user_id,
+            fist_name: newUser.fist_name,
+            last_name: newUser.last_name,
+            email: newUser.email
+        }
+        const name = newUser.first_name;
+        console.log('Name : ', name);
+        return res.json({ success: true, message: 'Nouvel utilisateur ajouter avec succès'});
     } catch (err) {
         console.log('Une erreur s\'est produite : ', err);
         return res.json({ success: false, message: 'Une erreur s\'est produite'});
