@@ -11,7 +11,7 @@ if (newusersignup) {
         const msg_result = document.getElementById('msg_result');
 
         if (first_name && last_name && email && password && msg_result) {
-            const response = await fetch("", {
+            const response = await fetch("/users/new-user", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ first_name,last_name,email,password })
@@ -20,7 +20,7 @@ if (newusersignup) {
             const data = response.json();
             if(data.success) {
                 msg_result.innerText = data.message;
-                msg_result.style.color = 'red';
+                msg_result.style.color = 'green';
             } else {
                 msg_result.innerText = data.message;
                 msg_result.style.color = 'red';
