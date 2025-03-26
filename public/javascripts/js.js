@@ -4,17 +4,17 @@ if (newusersignup) {
         event.preventDefault();
         alert('Submited');
 
-        const first_name = document.getElementById('firstName').value;
+        const fist_name = document.getElementById('firstName').value;
         const last_name = document.getElementById('lastName').value;
         const email = document.getElementById('email').value;
         const password_user = document.getElementById('password').value;
         const msg_result = document.getElementById('msg_result');
 
-        if (first_name && last_name && email && password_user && msg_result) {
+        if (fist_name && last_name && email && password_user && msg_result) {
             const response = await fetch("/users/new-user", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ first_name,last_name,email,password_user })
+                body: JSON.stringify({ fist_name,last_name,email,password_user })
             });
 
             const data = response.json();
