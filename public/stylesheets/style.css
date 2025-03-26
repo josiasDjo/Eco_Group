@@ -7,7 +7,7 @@
   font-style: normal;
 }
 .height_header {
-  height: 300px;
+  height: 50rem;
 }
 .height_about {
   height: 40rem;
@@ -17,6 +17,9 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.heroHeaderHeight {
+  height: 30rem;
 }
 .bg_navbar {
   background-color: #e0e0e0f6 ;
@@ -58,10 +61,9 @@ nav #two-part ul li:hover::after {
 nav #two-part ul li:hover {
   /* border-bottom: solid 2px #fd6420; */
 }
-
-.parallelogram {
-  /* background: #fd6420; */
-  background: rgb(255, 255, 255, 0.5);
-  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
-  
+@media screen and (min-width: 1024px) {
+  .parallelogram {
+    background: rgb(255, 255, 255, 0.5);
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
 }
