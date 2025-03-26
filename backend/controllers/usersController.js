@@ -8,7 +8,9 @@ exports.createUser = async (req, res) => {
         if (emailExist) return res.json({ success: false, message: 'Cet email existe déjà !!'});
         const saltRounds = 10;
         const password = await bcrypt.hash(password_user, saltRounds);
-        await User.create({fist_name,last_name,email,password})
+        const newUser = await User.create({fist_name,last_name,email,password});
+
+        
     } catch (err) {
         console.log('Une erreur s\'est produite : ', err);
         return res.json({ success: false, message: 'Une erreur s\'est produite'});
