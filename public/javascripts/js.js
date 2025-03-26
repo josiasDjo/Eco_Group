@@ -4,9 +4,17 @@ if (newusersignup) {
         event.preventDefault();
         alert('Submited');
 
-        const first_name = document.getElementById('firstName');
-        const last_name = document.getElementById('lastName');
-        const email = document.getElementById('email');
-        const password = document.getElementById('password');
+        const first_name = document.getElementById('firstName').value;
+        const last_name = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const msg_result = document.getElementById('msg_result');
+
+        if (first_name && last_name && email && password && msg_result) {
+            
+        } else {
+            msg_result.innerText = 'Tous les champs sont réquis';
+            msg_result.style.color = 'red';
+        }
     })
 }
