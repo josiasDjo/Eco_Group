@@ -35,7 +35,6 @@ exports.getUser = async (req, res) => {
         }
         let password_hash = userExist.password;
         const verify_password = await bcrypt.compare(password,password_hash);
-        console.log('Password : ', verify_password);
         if(verify_password != true) return res.json({ success:false, message: 'Mot de passe incorrect'});
 
         req.session.user = {
