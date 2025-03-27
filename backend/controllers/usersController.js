@@ -36,10 +36,8 @@ exports.getUser = async (req, res) => {
         let password_hash = userExist.password;
         const verify_password = await bcrypt.compare(password,password_hash);
         console.log('Password : ', verify_password);
-        if(verify_password != true) {
-            console.log('Mot de passe incorrect')
-            return res.status(500).json({ success:false, message: 'Mot de passe incorrect'});
-        }
+        if(verify_password != true) return res.json({ success:false, message: 'Mot de passe incorrect'});
+
         req.session.user = {
             user_id: userExist.user_id,
             fist_name: userExist.fist_name,
@@ -47,10 +45,10 @@ exports.getUser = async (req, res) => {
             email: userExist.email
         }
         // console.log(userExist);
-        return res.status(200).json({ success:true, message: 'Connexion réussie'});
+        return res.json({ success:true, message: 'Connexion réussie'});
     } catch(err) {
         console.log('Une erreur s\'est produite : ', err);
-        return res.status(200).json({ success: false, message: 'Une erreur s\'est produite'});
+        return res.json({ success: false, message: 'Une erreur s\'est produite'});
     }
 }
 
