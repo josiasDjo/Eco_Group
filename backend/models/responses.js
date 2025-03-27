@@ -12,5 +12,9 @@ const Response = sequelize.define("table_response", {
     timestamp: true
 })
 
+User.hasMany(Response, { foreignKey: 'user_id'});
+Response.belongsTo(User, { foreignKey: 'user_id'});
+Comment.hasMany(Response, { foreignKey: 'comment_id'});
+Response.belongsTo(Comment, { foreignKey: 'comment_id'});
 
 module.exports = Response;
