@@ -36,7 +36,7 @@ const userSignin = document.getElementById('userSignin');
 if (userSignin) {
     userSignin.addEventListener('submit', async (event) => {
         event.preventDefault();
-        alert('submit connexion');
+
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         let msg_result = document.getElementById('msg_result');
@@ -49,17 +49,12 @@ if (userSignin) {
             });
 
             const data = await response.json();
-            console.log('Data : ', data.success);
             if(data.success) {
-                console.log('Message : ',data.message)
                 msg_result.innerText = data.message;
                 msg_result.style.color = "green";
-                alert('Connexion réussie');
             } else {
-                console.log('Message : ', data.message)
-                msg_result.innerText = 'Email ou mot de passe incorrect';
+                msg_result.innerText = data.message;
                 msg_result.style.color = "red";
-                alert('Email ou mot de passe incorrect');
             }
         } else {
             msg_result.innerText = "Tous les champs sont réquis";
