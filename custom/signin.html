@@ -24,21 +24,24 @@
         <title>Impact Eco Group</title>
     </head>
 <body>
-    <main class="w-full h-screen">
+    <main class="w-full h-screen dm_sans">
         <div class="w-full h-full flex flex-row">
             <div class="w-2/4 h-full p-10 items-center justify-center flex flex-col">
-                <ul class="w-full h-12 items-center justify-center flex">
+                <ul class="w-full h-12 items-center justify-center flex my-4">
                     <img src="/images/IEG-logo.webp" alt="Logo de eco-group" class="w-auto h-full">
                 </ul>
-                <h2>Ravie de vous revoir 🤗</h2>
+                <h2 class="text-xl font-medium my-3">Ravie de vous revoir 🤗</h2>
                 <form id="userSignin" class="w-96 px-3 items-center justify-center flex flex-col">
                     <ul class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2 flex flex-row items-center">
-                        <li class=""><i class="fa-solid fa-envelope"></i></li>
+                        <li class="color_blue_foncé"><i class="fa-solid fa-envelope"></i></li>
                         <input type="email" name="email" id="email" placeholder="Email" class="w-full ml-3 ring-transparent focus:outline-none focus:ring-2 focus:ring-bg-yellow-400 focus:ring-opacity-50">    
                     </ul>
                     <ul class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2 flex flex-row items-center">
-                        <li class=""><i class="fa-solid fa-lock"></i></li>
+                        <li class="color_blue_foncé"><i class="fa-solid fa-lock"></i></li>
                         <input type="password" name="password" id="password" placeholder="Mot de passe" class="w-full ml-3 ring-transparent focus:outline-none focus:ring-2 focus:ring-bg-yellow-400 focus:ring-opacity-50">
+                    </ul>
+                    <ul class="w-full">
+                        <li class="cursor-pointer text-right color_blue_foncé">Mot de passe oublié</li>
                     </ul>
                     <ul class="w-full text-center">
                         <p id="msg_result" class="text-md"></p>
