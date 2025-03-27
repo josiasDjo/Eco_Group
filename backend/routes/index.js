@@ -14,7 +14,7 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/s/admin', (req, res) => {
-  res.render('');
+  res.render('indexAdmin');
 }); 
 
 
