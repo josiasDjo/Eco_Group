@@ -18,9 +18,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-/* li,ul,div,a,button,h1,h2,h3 {
+li,ul,div,a,button,h1,h2,h3 {
   opacity: 0;
-} */
+}
 .heroHeaderHeight {
   height: 30rem;
 }

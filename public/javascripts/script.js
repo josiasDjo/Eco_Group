@@ -17,7 +17,7 @@ const part2_conn_page = document.getElementsByClassName('part2_conn_page');
 
 
 if (logo_nav && text_navbar_annim && text_heroHeader && btn_HeroHeader) {
-    gsap.from(['.logo_nav','.text_navbar_annim', '.text_heroHeader', '.btn_HeroHeader'], { 
+    gsap.to(['.logo_nav','.text_navbar_annim', '.text_heroHeader', '.btn_HeroHeader'], { 
         duration: 0.6, delay: 0.2, opacity: 1, stagger: 0.2
     });
 }
