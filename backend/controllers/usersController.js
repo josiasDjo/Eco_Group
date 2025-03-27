@@ -35,8 +35,8 @@ exports.getUser = async (req, res) => {
         }
         let password_hash = userExist.password;
         const saltRounds = 10;
-        const verify_password = await bcrypt.compare(password_hash, password);
-        if(verify_password != true) {
+        const verify_password = await bcrypt.compare(password,password_hash);
+        if(verify_password == true) {
             console.log('Mot de passe incorrect')
             return res.json({ success: false, message: 'Mot de passe incorrect'});
         }
