@@ -48,7 +48,7 @@ if (userSignin) {
                 body: JSON.stringify({ email,password })
             });
 
-            const data = response.json();
+            const data = await response.json();
             console.log('Data : ', data.success);
             if(data.success) {
                 console.log('Message : ',data.message)
