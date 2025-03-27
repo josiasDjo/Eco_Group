@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const isAuthenticated = require('../middlewares/isAuthenticated');
+const authenticateToken = require('../middlewares/authenticateToken');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
