@@ -49,6 +49,7 @@ if (userSignin) {
             });
 
             const data = response.json();
+            console.log('Data : ', data.success);
             if(data.success) {
                 console.log('Message : ',data.message)
                 msg_result.innerText = data.message;
