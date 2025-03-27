@@ -21,6 +21,8 @@ if (newusersignup) {
             if(data.success) {
                 msg_result.innerText = data.message;
                 msg_result.style.color = 'green';
+                // localStorage.setItem('token', data.token);
+                // window.location.href = "/s/admin";
             } else {
                 msg_result.innerText = data.message;
                 msg_result.style.color = 'red';
@@ -52,6 +54,8 @@ if (userSignin) {
             if(data.success) {
                 msg_result.innerText = data.message;
                 msg_result.style.color = "green";
+                localStorage.setItem('token', data.token);
+                window.location.href = "/s/admin";
             } else {
                 msg_result.innerText = data.message;
                 msg_result.style.color = "red";

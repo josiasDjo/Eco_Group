@@ -1,5 +1,6 @@
 const User = require('../models/Users');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 exports.createUser = async (req, res) => {
     try {
@@ -16,9 +17,11 @@ exports.createUser = async (req, res) => {
             last_name: newUser.last_name,
             email: newUser.email
         }
-        const name = newUser.fist_name;
-        console.log('Name : ', name);
-        return res.json({ success: true, message: 'Nouvel utilisateur ajouter avec succès'});
+        const user = { user_id:newUser.user_id, fist_name: newUser.fist_name, last_name: newUser.last_name };
+        // Signature du token avec la charge utile 'user'
+        const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '1d' });
+
+        return res.json({ success: true, message: 'Nouvel utilisateur ajouter avec succès', token:token});
     } catch (err) {
         console.log('Une erreur s\'est produite : ', err);
         return res.json({ success: false, message: 'Une erreur s\'est produite'});
@@ -43,8 +46,16 @@ exports.getUser = async (req, res) => {
             last_name: userExist.last_name,
             email: userExist.email
         }
-        // console.log(userExist);
-        return res.json({ success:true, message: 'Connexion réussie'});
+        const user = { user_id:userExist.user_id, fist_name: userExist.fist_name, last_name: userExist.last_name };
+        // Signature du token avec la charge utile 'user'
+        const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '1d' });
+        // Définir le cookie (ici httpOnly empêche l'accès au cookie via JavaScript côté client)
+        res.cookie('token', token, {
+            httpOnly: true,           // Accessible uniquement par le serveur
+            secure: process.env.NODE_ENV === 'production', // HTTPS en production
+            maxAge: 24 * 60 * 60 * 1000  // Durée de vie du cookie en millisecondes (1 jour)
+        });
+        return res.json({ success:true, message: 'Connexion réussie', token:token });
     } catch(err) {
         console.log('Une erreur s\'est produite : ', err);
         return res.json({ success: false, message: 'Une erreur s\'est produite'});

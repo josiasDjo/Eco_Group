@@ -15,7 +15,7 @@ router.get('/login', (req, res) => {
   // return res.sendFile("../../custom/signin.html");
 });
 
-router.get('/s/admin', isAuthenticated, authenticateToken, (req, res) => {
+router.get('/s/admin', authenticateToken, (req, res) => {
   res.render('indexAdmin');
 }); 
 
