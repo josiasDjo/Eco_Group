@@ -39,7 +39,7 @@ exports.getUser = async (req, res) => {
         console.log('Password : ', verify_password);
         if(verify_password != true) {
             console.log('Mot de passe incorrect')
-            return res.status(500).json({ success:false, message: 'Mot de passe incorrect'});
+            res.status(500).json({ success:false, message: 'Mot de passe incorrect'});
         }
         // req.session.user = {
         //     user_id: userExist.user_id,
@@ -48,10 +48,10 @@ exports.getUser = async (req, res) => {
         //     email: userExist.email
         // }
         // console.log(userExist);
-        return res.status(200).json({ success:true, message: 'Connexion réussie'});
+        res.status(200).json({ success:true, message: 'Connexion réussie'});
     } catch(err) {
         console.log('Une erreur s\'est produite : ', err);
-        return res.json({ success: false, message: 'Une erreur s\'est produite'});
+        res.status(200).json({ success: false, message: 'Une erreur s\'est produite'});
     }
 }
 
