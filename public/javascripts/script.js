@@ -5,7 +5,7 @@ const btn_HeroHeader = document.getElementsByClassName('btn_HeroHeader');
 const svg_inProgress = document.getElementsByClassName('svg_inProgress');
 const spinner_svg = document.getElementsByClassName('spinner_svg');
 const svg_bounce = document.getElementsByClassName('svg_bounce');
-
+const main_conn_page = document.getElementsByClassName('main_conn_page');
 
 if (logo_nav && text_navbar_annim && text_heroHeader && btn_HeroHeader) {
     gsap.from(['.logo_nav','.text_navbar_annim', '.text_heroHeader', '.btn_HeroHeader'], { 
@@ -24,4 +24,7 @@ if (spinner_svg) {
 }
 if (svg_bounce) {
     gsap.to('.svg_bounce', { duration: 0.6, y:-20, ease:"bounce.out", yoyo: true, repeat: -1});
+}
+if (main_conn_page) {
+    
 }

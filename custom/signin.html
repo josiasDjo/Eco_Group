@@ -25,34 +25,34 @@
         <title>Impact Eco Group</title>
     </head>
 <body class="">
-    <main class="w-full max-h-screen dm_sans snap-align-none opacity-0">
+    <main class="main_conn_page w-full max-h-screen dm_sans snap-align-none opacity-0">
         <div class="w-full h-full flex flex-col lg:flex-row relative">
             <button onclick="goBack();" class="cursor-pointer w-10 h-10 rounded-full bg-white absolute top-5 left-5 color_blue_foncé lg:text-white lg:bg-blue-900 "><i class="fa-solid fa-arrow-left"></i></button>
             <div class="w-full lg:w-2/4 h-4/6 lg:h-full bg-white p-10 items-center self-center justify-center flex flex-col rounded-tl-4xl rounded-tr-4xl absolute bottom-0 lg:relative">
-                <ul class="w-full h-12 items-center justify-center flex my-4">
+                <ul class="conn_page_logo w-full h-12 items-center justify-center flex my-4">
                     <img src="/images/IEG-logo.webp" alt="Logo de eco-group" class="w-auto h-full">
                 </ul>
-                <h2 class="text-xl font-medium my-3">Ravie de vous revoir 🤗</h2>
+                <h2 class="conn_page_title text-xl font-medium my-3">Ravie de vous revoir 🤗</h2>
                 <form id="userSignin" class="w-96 px-3 items-center justify-center flex flex-col">
-                    <ul class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2 flex flex-row items-center">
+                    <ul class="conn_page_email w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2 flex flex-row items-center">
                         <li class="color_blue_foncé"><i class="fa-solid fa-envelope"></i></li>
                         <input type="email" name="email" id="email" placeholder="Email" class="w-full ml-3 ring-transparent focus:outline-none focus:ring-2 focus:ring-bg-yellow-400 focus:ring-opacity-50">    
                     </ul>
-                    <ul class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2 flex flex-row items-center">
+                    <ul class="conn_page_pwd w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2 flex flex-row items-center">
                         <li class="color_blue_foncé"><i class="fa-solid fa-lock"></i></li>
                         <input type="password" name="password" id="password" placeholder="Mot de passe" class="w-full ml-3 ring-transparent focus:outline-none focus:ring-2 focus:ring-bg-yellow-400 focus:ring-opacity-50">
                     </ul>
-                    <ul class="w-full">
+                    <ul class="w-full conn_page_mdp">
                         <li class="cursor-pointer text-right color_blue_foncé">Mot de passe oublié</li>
                     </ul>
                     <ul class="w-full text-center">
                         <p id="msg_result" class="text-md"></p>
                     </ul>
-                    <button type="submit" class="btn_bg_color w-full text-white rounded-xl my-5 p-2 border-2 border-solid border-yellow-500 border-opacity-30">Se connecter</button>
+                    <button type="submit" class="conn_page_btn btn_bg_color w-full text-white rounded-xl my-5 p-2 border-2 border-solid border-yellow-500 border-opacity-30">Se connecter</button>
                 </form>
             </div>
             <div id="" class="part2_conn_page w-full lg:w-2/4 pt-20">
-                <h3 class="text-center text-xl text-white hidden">Entrez vos infomations pour vous connecter</h3>
+                <h3 class="conn_page_part2 text-center text-xl text-white hidden">Entrez vos infomations pour vous connecter</h3>
             </div>
         </div>
     </main>
