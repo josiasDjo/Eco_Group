@@ -18,7 +18,7 @@ const part2_conn_page = document.getElementsByClassName('part2_conn_page');
 
 if (logo_nav && text_navbar_annim && text_heroHeader && btn_HeroHeader) {
     gsap.from(['.logo_nav','.text_navbar_annim', '.text_heroHeader', '.btn_HeroHeader'], { 
-        duration: 0.6, delay: 0.2, opacity: 1, stagger: 0.2
+        duration: 0.6, delay: 0.4, opacity: 0, stagger: 0.2
     });
 }
 
@@ -36,7 +36,7 @@ if (svg_bounce) {
 }
 if (main_conn_page && conn_page_logo && conn_page_title && conn_page_email && conn_page_pwd && conn_page_mdp && conn_page_btn && part2_conn_page) {
     gsap.from('.main_conn_page', { duration: 0.2, delay: 0.5, opacity: 0 });
-    gsap.from(['.conn_page_logo','.conn_page_title','.conn_page_email','.conn_page_pwd','.conn_page_mdp','.conn_page_btn','.part2_conn_page'], {
+    gsap.from(['.conn_page_logo','.part2_conn_page','.conn_page_title','.conn_page_email','.conn_page_pwd','.conn_page_mdp','.conn_page_btn'], {
         duration: 0.6, delay: 0.7, opacity: 0, stagger: 0.2
     })
 }
