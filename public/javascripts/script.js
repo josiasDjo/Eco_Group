@@ -35,8 +35,8 @@ if (svg_bounce) {
     gsap.to('.svg_bounce', { duration: 0.6, y:-20, ease:"bounce.out", yoyo: true, repeat: -1});
 }
 if (main_conn_page && conn_page_logo && conn_page_title && conn_page_email && conn_page_pwd && conn_page_mdp && conn_page_btn && part2_conn_page) {
-    gsap.from('.main_conn_page', { duration: 0.2, delay: 0.5, opacity: 0 });
-    gsap.from(['.conn_page_logo','.part2_conn_page','.conn_page_title','.conn_page_email','.conn_page_pwd','.conn_page_mdp','.conn_page_btn'], {
-        duration: 0.6, delay: 0.7, opacity: 0, stagger: 0.2
+    gsap.from('.main_conn_page', { duration: 0.2, delay: 0.4, opacity: 0 });
+    gsap.from(['.container_form_sign','.conn_page_logo','.part2_conn_page','.conn_page_title','.conn_page_email','.conn_page_pwd','.conn_page_mdp','.conn_page_btn'], {
+        duration: 0.6, delay: 0.7, opacity: 0, stagger: 0.3
     })
 }
