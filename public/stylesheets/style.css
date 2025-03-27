@@ -73,3 +73,10 @@ nav #two-part ul li:hover {
     clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 }
+
+#part2_conn_page {
+  background-image: url('/images/bg_conn_page.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
