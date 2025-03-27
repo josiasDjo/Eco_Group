@@ -22,7 +22,7 @@
   height: 30rem;
 }
 .connHeight {
-  height: 100vh;
+  height: calc(100vh - 200px);
 }
 .bg_navbar {
   background-color: #e0e0e0f6 ;
