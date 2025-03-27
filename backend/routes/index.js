@@ -13,5 +13,9 @@ router.get('/login', (req, res) => {
   // return res.sendFile("../../custom/signin.html");
 });
 
+router.get('/s/admin', (req, res) => {
+  res.render('');
+}); 
+
 
 module.exports = router;
