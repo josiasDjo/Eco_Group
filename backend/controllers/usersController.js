@@ -29,11 +29,17 @@ exports.getUser = async (req, res) => {
     try {  
         const { email, password } = req.body;
         const userExist = await User.findOne({ where: {email}});
-        if (!userExist) return res.json({ success: false, message: 'Email incorrect'});
+        if (!userExist) {
+            console.log('Email incorrect')
+            return res.json({ success: false, message: 'Email incorrect'});
+        }
         let password_hash = userExist.password;
         const saltRounds = 10;
         const verify_password = await bcrypt.compare(password_hash, password);
-        if(!verify_password) return res.json({ success: false, message: 'Mot de passe incorrect'});
+        if(!verify_password) {
+            console.log('Mot de passe incorrect')
+            return res.json({ success: false, message: 'Mot de passe incorrect'});
+        }
         req.session.user = {
             user_id: userExist.user_id,
             fist_name: userExist.fist_name,
