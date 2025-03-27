@@ -33,3 +33,7 @@ function navbarShowH (param) {
         console.log('Valeur inconnue');
     }
 }
+
+function goBack() {
+    window.history.back;
+}
