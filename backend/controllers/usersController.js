@@ -41,13 +41,13 @@ exports.getUser = async (req, res) => {
             console.log('Mot de passe incorrect')
             return res.json({ success: false, message: 'Mot de passe incorrect'});
         }
-        req.session.user = {
-            user_id: userExist.user_id,
-            fist_name: userExist.fist_name,
-            last_name: userExist.last_name,
-            email: userExist.email
-        }
-        console.log(userExist);
+        // req.session.user = {
+        //     user_id: userExist.user_id,
+        //     fist_name: userExist.fist_name,
+        //     last_name: userExist.last_name,
+        //     email: userExist.email
+        // }
+        // console.log(userExist);
         return res.json({ success: true, message: 'Connexion réussie'});
     } catch(err) {
         console.log('Une erreur s\'est produite : ', err);
