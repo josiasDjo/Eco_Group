@@ -74,7 +74,7 @@ nav #two-part ul li:hover {
   }
 }
 
-#part2_conn_page {
+.part2_conn_page {
   background-image: url('/images/bg_conn_page.jpeg');
   background-position: center;
   background-repeat: no-repeat;
