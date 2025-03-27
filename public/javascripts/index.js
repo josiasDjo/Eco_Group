@@ -35,5 +35,9 @@ function navbarShowH (param) {
 }
 
 function goBack() {
-    window.history.back;
+    if (window.referrer) {
+        window.location.href = document.referrer;
+    } else {
+        window.history.back();
+    }
 }
