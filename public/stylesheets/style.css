@@ -84,7 +84,7 @@ nav #two-part ul li:hover {
 }
 @media screen and (max-width: 720px) {
   .part2_conn_page {
-    background-image: url('/images/bg_conn_page.jpeg');
+    background-image: url('/images/bg_conn2.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
