@@ -79,4 +79,5 @@ nav #two-part ul li:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  height: calc(100vh - 100px);
 }
