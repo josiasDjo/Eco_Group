@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const sequelize = require('./backend/models/index');
+const sequelize = require('../backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -12,11 +12,11 @@ const session = require('express-session');
 // const jwt = require('jsonwebtoken');
 
 //Importer les modèles
-const Users = require('./backend/models/Users');
+const Users = require('../backend/models/Users');
 
 //Importer les routes
-const indexRouter = require('./backend/routes/index');
-const usersRouter = require('./backend/routes/usersRoute');
+const indexRouter = require('../backend/routes/index');
+const usersRouter = require('../backend/routes/usersRoute');
 
 const app = express();
 const port = process.env.PORT || 3000;
