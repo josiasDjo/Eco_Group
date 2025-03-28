@@ -74,8 +74,8 @@ app.use(function(err, req, res, next) {
 // })
 
 // Synchronisation avec MySQL
-sequelize.sync({ force: false })
-    .then(() => console.log('✅ Base de données synchronisée avec Sequelize !'))
-    .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+// sequelize.sync({ force: false })
+//     .then(() => console.log('✅ Base de données synchronisée avec Sequelize !'))
+//     .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
 
 module.exports = app;
