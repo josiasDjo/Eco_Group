@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Commande pour lancer l'application (avec nodemon si nécessaire)
-CMD ["node", "app.js"]
+CMD ["node", "api/app.js"]
