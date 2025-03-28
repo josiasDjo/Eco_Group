@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node api/app.js",
-    "build": "echo 'Pas de build nécessaire'"
+    "start": "node api/app.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
