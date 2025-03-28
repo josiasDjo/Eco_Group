@@ -51,12 +51,12 @@ app.use(session({
 }));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -69,14 +69,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-process.on('uncaughtException', (err) => {
-  console.error('Erreur non attrapée :', err);
-  // Selon la gravité, tu peux arrêter le processus ou tenter de le redémarrer
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Rejet non géré à la promesse :', promise, 'Raison :', reason);
-});
 
 // app.listen(port, () => {
 //   console.log(`✅ App is listening on port ${port}`);
