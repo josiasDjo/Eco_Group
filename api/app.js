@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const sequelize = require('../backend/models/index');
+// const sequelize = require('../backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -12,11 +12,11 @@ const session = require('express-session');
 // const jwt = require('jsonwebtoken');
 
 //Importer les modèles
-const Users = require('../backend/models/Users');
+// const Users = require('../backend/models/Users');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
-const usersRouter = require('../backend/routes/usersRoute');
+// const usersRouter = require('../backend/routes/usersRoute');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -67,6 +67,15 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('Erreur non attrapée :', err);
+  // Selon la gravité, tu peux arrêter le processus ou tenter de le redémarrer
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Rejet non géré à la promesse :', promise, 'Raison :', reason);
 });
 
 // app.listen(port, () => {
