@@ -23,10 +23,10 @@ const port = process.env.PORT || 3000;
 
 // view engine setup
 app.set('views', [
-  path.join(__dirname, 'views'),
-  path.join(__dirname, 'includes'),
-  path.join(__dirname, 'views/admin'),
-  path.join(__dirname, '/views/modals')
+  path.join(__dirname, '../views'),
+  path.join(__dirname, '../includes'),
+  path.join(__dirname, '../views/admin'),
+  path.join(__dirname, '../views/modals')
 ]);
 app.set('view engine', 'ejs');
 
@@ -35,8 +35,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/images', express.static('public/images', {maxAge: '30d'}));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use('/images', express.static('../public/images', {maxAge: '30d'}));
 app.use(bodyParser.json());
 
 // configuration de la session
