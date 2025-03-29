@@ -76,5 +76,9 @@ if(addaProject) {
         const title_project = document.getElementById('title_project').value;
         const description_project = document.getElementById('description_project').value;
         const image_project = document.getElementById('image_project').value;
+
+        if (title_project && title_project == "" && description_project && description_project == "" && image_project && image_project == "") {
+            
+        }
     })
 }
