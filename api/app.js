@@ -9,6 +9,7 @@ const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const flash = require('connect-flash');
 // const jwt = require('jsonwebtoken');
 
 //Importer les modèles
@@ -23,7 +24,6 @@ const equipeRouter = require('../backend/routes/equipeRoute');
 const projectsRouter = require('../backend/routes/projectRoute');
 
 const app = express();
-const port = process.env.PORT || 3000;
 
 // view engine setup
 app.set('views', [
@@ -40,8 +40,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../public')));
-app.use('/images', express.static('../public/images', {maxAge: '30d'}));
-app.use(bodyParser.json());
+app.use('/images', express.static(path.join(__dirname, '../public/images'), { maxAge: '30d' }));
+// app.use(bodyParser.json());
 
 // configuration de la session
 app.use(session({
@@ -54,15 +54,28 @@ app.use(session({
   }
 }));
 
+app.use(flash());
+
+// Middleware pour rendre Flash accessible dans les vues
+app.use((req, res, next) => {
+  res.locals.admin = "";
+  res.locals.error_conn = "";
+  res.locals.success_msg = req.flash('success_msg'); 
+  res.locals.error_msg = req.flash('error_msg');
+  console.log('✅ Middleware Flash exécuté');
+  next();
+});
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/equipe', equipeRouter);
 app.use('/project',projectsRouter);
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -75,25 +88,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.use((req, res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-  next();
-});
 
-// Middleware pour les erreurs
-app.use((err, req, res, next) => {
-  console.error('Erreur détectée:', err);
-  res.status(err.status || 500);
-  res.json({ error: err.message });
-});
-
-// app.listen(port, () => {
-//   console.log(`✅ App is listening on port ${port}`);
-// })
-
-// Synchronisation avec MySQL
-// sequelize.sync({ force: false })
-//     .then(() => console.log('✅ Base de données synchronisée avec Sequelize !'))
-//     .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
-
-module.exports = app;
+if (require.main === module) {
+  const port = process.env.PORT || 3000;
+  sequelize.sync({ force: false })
+    .then(() => {
+      console.log('✅ Base de données synchronisée avec Sequelize !');
+      app.listen(port, () => {
+        console.log(`✅ App is listening on port ${port}`);
+      });
+    })
+    .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+} else {
+  module.exports = app;
+}
