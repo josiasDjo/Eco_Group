@@ -101,6 +101,7 @@ if(addaProject) {
                     if (data.success) {
                         msg_result.innerText = data.message;
                         msg_result.style.color = "red";
+                        window.location.reload();
                     } else {
                         msg_result.innerText = data.message;
                         msg_result.style.color = "red";
