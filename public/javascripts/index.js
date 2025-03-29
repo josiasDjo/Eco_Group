@@ -43,6 +43,26 @@ function goBack() {
 }
 
 // open modal add product
-function openAddProject() {
-    alert('Add project')
+function openAddProject(param) {
+    // alert('Add project');
+
+    const modals_addFields = document.getElementById('modals_addFields');
+    const addProjectId = document.getElementById('addProjectId');
+
+    if (param === "close") {
+        if (addProjectId && modals_addFields) {
+            modals_addFields.classList.add('hidden');
+            modals_addFields.classList.remove('flex');
+            addProjectId.classList.add('hidden');
+            addProjectId.classList.remove.remove('flex'); 
+        }
+    } else {
+        if (addProjectId && modals_addFields) {
+            modals_addFields.classList.remove('hidden');
+            modals_addFields.classList.add('flex');
+            addProjectId.classList.remove('hidden');
+            addProjectId.classList.remove.add('flex');
+        }
+    }
+
 }

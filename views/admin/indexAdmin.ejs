@@ -58,7 +58,9 @@
     <main class="relative w-full px-5 md:p-10 lg:p-20 dm_sans">
         <section id="about" class="w-full items-center justify-center flex relative">
             <%- include('aboutUs', {admin:admin}) %>
-            <%- include('addProject') %>
+            <div id="modals_addFields" class="w-full h-screen z-40 backdrop-blur fixed inset-0 justify-center items-center content-center hidden">
+                <%- include('addProject') %>
+            </div>
         </section>
         <section id="our_service" class="w-full items-center justify-center flex relative">
             <%- include('our_service') %>
