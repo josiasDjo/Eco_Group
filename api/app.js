@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const sequelize = require('../backend/models/index');
+// const sequelize = require('../backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -18,9 +18,9 @@ const Projects = require('../backend/models/projects');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
-const usersRouter = require('../backend/routes/usersRoute');
-const equipeRouter = require('../backend/routes/equipeRoute');
-const projectsRouter = require('../backend/routes/projectRoute');
+// const usersRouter = require('../backend/routes/usersRoute');
+// const equipeRouter = require('../backend/routes/equipeRoute');
+// const projectsRouter = require('../backend/routes/projectRoute');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -55,9 +55,9 @@ app.use(session({
 }));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/equipe', equipeRouter);
-app.use('/project',projectsRouter);
+// app.use('/users', usersRouter);
+// app.use('/equipe', equipeRouter);
+// app.use('/project',projectsRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
@@ -75,25 +75,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.use((req, res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-  next();
-});
-
-// Middleware pour les erreurs
-app.use((err, req, res, next) => {
-  console.error('Erreur détectée:', err);
-  res.status(err.status || 500);
-  res.json({ error: err.message });
-});
-
-// app.listen(port, () => {
-//   console.log(`✅ App is listening on port ${port}`);
-// })
-
 // Synchronisation avec MySQL
 // sequelize.sync({ force: false })
 //     .then(() => console.log('✅ Base de données synchronisée avec Sequelize !'))
 //     .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
 
-module.exports = app;
+
+if (require.main === module) {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`✅ App is listening on port ${port}`);
+  });
+} else {
+  module.exports = app;
+}
