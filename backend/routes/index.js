@@ -18,7 +18,10 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/s/admin', isAuthenticated, authenticateToken, (req, res) => {
-  res.render('indexAdmin');
+  const ad = 'adminConfig';
+  res.render('indexAdmin', {
+    admin: ad
+  });
 }); 
 
 
