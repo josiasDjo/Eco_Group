@@ -121,3 +121,19 @@ if(addaProject) {
         }
     })
 }
+
+const addToTeam = document.getElementById('addToTeam');
+if(addToTeam) {
+    addToTeam.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const first_name = document.getElementById('prenom').value;	
+        const last_name = document.getElementById('nom').value;	
+        const image = document.getElementById('image_perso');
+        const msg_result = document.getElementById('msg_result');
+
+        if(first_name && first_name != "" && last_name && last_name != "" && image.files.length != 0) {
+            
+        }
+    })
+}
