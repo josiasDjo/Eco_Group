@@ -77,14 +77,14 @@ app.use(function(err, req, res, next) {
 
 if (require.main === module) {
   const port = process.env.PORT || 3000;
-  app.listen(port, () => {
-    console.log(`✅ App is listening on port ${port}`);
-  });
+  sequelize.sync({ force: false })
+    .then(() => {
+      console.log('✅ Base de données synchronisée avec Sequelize !');
+      app.listen(port, () => {
+        console.log(`✅ App is listening on port ${port}`);
+      });
+    })
+    .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
 } else {
   module.exports = app;
 }
-
-// Synchronisation avec MySQL
-sequelize.sync({ force: false })
-    .then(() => console.log('✅ Base de données synchronisée avec Sequelize !'))
-    .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
