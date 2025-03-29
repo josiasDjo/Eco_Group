@@ -144,7 +144,7 @@ if(addToTeam) {
                 const newName = await response1.json();
                 console.log('Value : ', newName);
                 const image = newName.newname;
-                const response = await fetch("", {
+                const response = await fetch("/equipe/", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ first_name,last_name,image })
