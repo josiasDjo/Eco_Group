@@ -73,18 +73,22 @@ if(addaProject) {
         event.preventDefault();
         // alert('Submit');
 
-        const title_project = document.getElementById('title_project').value;
-        const description_project = document.getElementById('description_project').value;
-        const image_project = document.getElementById('image_project').value;
+        const title = document.getElementById('title_project').value;
+        const description = document.getElementById('description_project').value;
+        const image = document.getElementById('image');
+        const msg_result = document.getElementById('msg_result');
 
-        if (title_project && title_project == "" && description_project && description_project == "" && image_project && image_project == "") {
-
-
+        if (title && title != "" && description && description != "" && image && image.files.length != 0) {
+            const formData = new FormData();
+            formData.append('image', image.files[0]);
             const response = await fetch("", {
                 method: "POST", 
                 headers: { "Content-Type": "application/json" },
-                body: {}
+                body: { title,description,image }
             });
+        } else {
+            msg_result.innerText = "Tous les champs sont réquis !! ";
+            msg_result.style.color = "red";
         }
     })
 }

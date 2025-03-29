@@ -4,7 +4,10 @@
     <form id="addaProject" class="w-full flex flex-col" enctype="multipart/form-data">
         <input type="text" name="title" id="title_project" placeholder="Titre : " required class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2">
         <textarea name="description" id="description_project" rows="5" cols="50" required placeholder="Description du projet : " class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2"></textarea>
-        <input type="file" name="image" id="image_project" required class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2">
+        <input type="file" name="image" id="image" required class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2" accept="image/*">
+        <ul class="w-full text-center">
+            <p id="msg_result" class="text-md"></p>
+        </ul>
         <button type="submit" class="btn_bg_color w-full rounded-xl border-2 border-solid border-yellow-500 px-3 py-2">Ajouter</button>
     </form>
 </div>
