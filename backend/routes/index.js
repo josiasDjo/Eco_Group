@@ -54,5 +54,8 @@ router.get('/s/admin', isAuthenticated, authenticateToken, async (req, res) => {
   });
 }); 
 
+// Uploader les images
 
+
+router.post('/upload/image', )
 module.exports = router;

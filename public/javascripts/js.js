@@ -81,11 +81,23 @@ if(addaProject) {
         if (title && title != "" && description && description != "" && image && image.files.length != 0) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
-            const response = await fetch("", {
-                method: "POST", 
-                headers: { "Content-Type": "application/json" },
-                body: { title,description,image }
-            });
+
+            try {
+                const response1 = await fetch("/upload/image", {
+                    method: "POST", 
+                    body: { formData }
+                });
+
+                const response = await fetch("", {
+                    method: "POST", 
+                    headers: { "Content-Type": "application/json" },
+                    body: { title,description,image }
+                });
+
+            } catch(err) {
+                msg_result.innerText = "Une erreur s'est produite !! ";
+                msg_result.style.color = "red";
+            }
         } else {
             msg_result.innerText = "Tous les champs sont réquis !! ";
             msg_result.style.color = "red";
