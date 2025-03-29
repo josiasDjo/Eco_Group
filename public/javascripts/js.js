@@ -93,7 +93,7 @@ if(addaProject) {
                     const image = newName.newname;
                     console.log('New name : ', image);
 
-                    const response = await fetch("/project/addProject", {
+                    const response = await fetch("/addProject", {
                         method: "POST", 
                         headers: { "Content-Type": "application/json" },
                         body: { title,description,image }
