@@ -69,7 +69,7 @@ function openAddProject(param) {
 
 function openAddToTeam(param) {
     alert('Modal add person');
-    const modals_addFields = document.getElementById('modals_addFields');
+    const modals_addFields = document.getElementById('modals_addMember');
     const addTeamId = document.getElementById('addTeamId');
 
     if(param === 'close') {
