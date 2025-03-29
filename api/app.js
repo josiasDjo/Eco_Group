@@ -23,7 +23,6 @@ const equipeRouter = require('../backend/routes/equipeRoute');
 const projectsRouter = require('../backend/routes/projectRoute');
 
 const app = express();
-const port = process.env.PORT || 3000;
 
 // view engine setup
 app.set('views', [
@@ -60,9 +59,9 @@ app.use('/equipe', equipeRouter);
 app.use('/project',projectsRouter);
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -75,11 +74,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// Synchronisation avec MySQL
-// sequelize.sync({ force: false })
-//     .then(() => console.log('✅ Base de données synchronisée avec Sequelize !'))
-//     .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
-
 
 if (require.main === module) {
   const port = process.env.PORT || 3000;
@@ -89,3 +83,9 @@ if (require.main === module) {
 } else {
   module.exports = app;
 }
+
+// Synchronisation avec MySQL
+sequelize.sync({ force: false })
+    .then(() => console.log('✅ Base de données synchronisée avec Sequelize !'))
+    .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+
