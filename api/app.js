@@ -9,6 +9,7 @@ const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const flash = require('connect-flash');
 // const jwt = require('jsonwebtoken');
 
 //Importer les modèles
@@ -52,6 +53,19 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24 * 15
   }
 }));
+
+app.use(flash());
+
+// Middleware pour rendre Flash accessible dans les vues
+app.use((req, res, next) => {
+  res.locals.admin = "";
+  res.locals.error_conn = "";
+  res.locals.success_msg = req.flash('success_msg'); 
+  res.locals.error_msg = req.flash('error_msg');
+  console.log('✅ Middleware Flash exécuté');
+  next();
+});
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
