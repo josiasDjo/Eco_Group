@@ -75,6 +75,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
+// Middleware pour les erreurs
+app.use((err, req, res, next) => {
+  console.error('Erreur détectée:', err);
+  res.status(err.status || 500);
+  res.json({ error: err.message });
+});
 
 // app.listen(port, () => {
 //   console.log(`✅ App is listening on port ${port}`);
