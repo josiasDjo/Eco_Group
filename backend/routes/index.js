@@ -57,7 +57,22 @@ router.get('/s/admin', isAuthenticated, authenticateToken, async (req, res) => {
 }); 
 
 // Uploader les images
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/images');
+  },
+  filename: function(req, file, cb) {
+    const newName = DataTransfer.now() + path.extname(file.originalname);
+    cb(null, newName);
+  }
+});
 
+const upload = multer({ storage: storage });
 
-router.post('/upload/image', )
+router.post('/upload/image', upload.single('image'), (req, res) => {
+  if (!req.file) {
+    return res.json(success: false, message: 'Aucun fichier réçu');
+  }
+  return 
+})
 module.exports = router;
