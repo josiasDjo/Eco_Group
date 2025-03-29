@@ -4,10 +4,10 @@ const Equipe = require('../models/equipe');
 exports.addToTeam = async (req, res) => {
     try {
         const { first_name,last_name,image } = req.body;
-        const newMember = await Equipe.create({first_name,last_name,image});
+        await Equipe.create({first_name,last_name,image});
         return res.json({ success: true, message: 'Membre ajouté'});
     } catch (err) {
-        console.log('Une erreur d\'est produite : ', err);
+        console.log('Une erreur s\'est produite : ', err);
         return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
     }
 }

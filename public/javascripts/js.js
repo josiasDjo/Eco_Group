@@ -142,7 +142,7 @@ if(addToTeam) {
                     body: formData
                 });
                 const newName = await response1.json();
-                console.log('Value : ', newName);
+                // console.log('Value : ', newName);
                 const image = newName.newname;
                 const response = await fetch("/equipe/add_member", {
                     method: "POST",
