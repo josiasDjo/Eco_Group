@@ -18,6 +18,7 @@ const Equipe = require('../backend/models/equipe');
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
 const usersRouter = require('../backend/routes/usersRoute');
+const equipeRouter = require('../backend/routes/equipeRoute');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -53,6 +54,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/equipe', equipeRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
