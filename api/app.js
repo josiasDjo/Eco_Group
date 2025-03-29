@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-// const sequelize = require('../backend/models/index');
+const sequelize = require('../backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
