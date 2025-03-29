@@ -85,19 +85,20 @@ if(addaProject) {
             try {
                 const response1 = await fetch("/upload/image", {
                     method: "POST", 
-                    body: { formData }
+                    body: formData
                 });
-                const newName = response1.json();
+                const newName = await response1.json();
+                console.log('Value : ', newName);
                 if(newName.success) {
                     const image = newName.newname;
                     console.log('New name : ', image);
 
-                    const response = await fetch("", {
+                    const response = await fetch("/project/addProject", {
                         method: "POST", 
                         headers: { "Content-Type": "application/json" },
                         body: { title,description,image }
                     });
-                    const data = response.json();
+                    const data = await response.json();
                     if (data.success) {
                         msg_result.innerText = data.message;
                         msg_result.style.color = "red";
@@ -107,11 +108,11 @@ if(addaProject) {
                         msg_result.style.color = "red";
                     }
                 } else {
-                    msg_result.innerText = "Une erreur s'est produite !! ";
+                    msg_result.innerText = "Une erreur s'est produite !! upload image ";
                     msg_result.style.color = "red";
                 }
             } catch(err) {
-                msg_result.innerText = "Une erreur s'est produite !! ";
+                msg_result.innerText = "Une erreur s'est produite !! catch exc ";
                 msg_result.style.color = "red";
             }
         } else {

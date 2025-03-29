@@ -61,7 +61,7 @@ function openAddProject(param) {
             modals_addFields.classList.remove('hidden');
             modals_addFields.classList.add('flex');
             addProjectId.classList.remove('hidden');
-            addProjectId.classList.remove.add('flex');
+            addProjectId.classList.add('flex');
         }
     }
 

@@ -18,7 +18,7 @@ exports.getAllProjects = async (req, res) => {
         return { success: true, AllProject: AllProject};
     } catch(err) {
         console.log('Une erreur d\'est produite : ', err);
-        return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
+        return { success: false, message: 'Erreur serveur, réesayer plus tard !! '};
     }
 }
 

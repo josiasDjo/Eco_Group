@@ -61,7 +61,7 @@ const storage = multer.diskStorage({
     cb(null, 'public/images');
   },
   filename: function(req, file, cb) {
-    const newName = DataTransfer.now() + path.extname(file.originalname);
+    const newName = Date.now() + path.extname(file.originalname);
     cb(null, newName);
   }
 });
@@ -69,6 +69,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.post('/upload/image', upload.single('image'), (req, res) => {
+  console.log('Req.file => ', req.file);
+  console.log('Req.body => ', req.body);
   if (!req.file) {
     return res.json({ success: false, message: 'Aucun fichier réçu' });
   }
