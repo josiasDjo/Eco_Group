@@ -12,7 +12,7 @@ exports.addToTeam = async (req, res) => {
     }
 }
 
-exports.updateMember = async (req, re) => {
+exports.updateMember = async (req, res) => {
     try {
         const { equipe_id,first_name,last_name,image } = req.body;
         const memberExist = await Equipe.findByPk(equipe_id);
@@ -20,6 +20,19 @@ exports.updateMember = async (req, re) => {
         await Equipe.update({first_name,last_name,image}, {where: {equipe_id:equipe_id}});
         return res.json({ success: true, message: false });
     } catch(err) {
+        console.log('Une erreur d\'est produite : ', err);
+        return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
+    }
+}
+
+exports.deleteMember = async (req, res) => {
+    try {
+        const { equipe_id } = req.body;
+        const memberExist = await Equipe.findByPk(equipe_id);
+        if(!memberExist) return res.json({ success: false, message: 'Membre introuvable'});
+        await Equipe.destroy({where: { equipe_id: equipe_id}});
+        return 
+    } catch (err) {
         console.log('Une erreur d\'est produite : ', err);
         return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
     }
