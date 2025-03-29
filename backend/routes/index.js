@@ -71,8 +71,11 @@ const upload = multer({ storage: storage });
 
 router.post('/upload/image', upload.single('image'), (req, res) => {
   if (!req.file) {
-    return res.json(success: false, message: 'Aucun fichier réçu');
+    return res.json({ success: false, message: 'Aucun fichier réçu' });
   }
-  return 
-})
+  const newname = req.file.filename;
+  return res.json({ success: true, newname: newname});
+});
+
+
 module.exports = router;
