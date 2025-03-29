@@ -36,5 +36,14 @@ exports.updateProjects = async (req, res) => {
 }
 
 exports.deleteProjects = async (req, res) => {
-
+    try {
+        const { project_id } = req.body;
+        const projectExist = await Project.findByPk(project_id);
+        if(!projectExist) return res.json({ success: false, message: 'Projet introuvable'});
+        await Project.destroy({where: project_id});
+        return res.json({ success: true, message: 'Suppression réussie'});
+    } catch (err) {
+        console.log('Une erreur d\'est produite : ', err);
+        return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
+    }
 }
