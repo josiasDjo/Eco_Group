@@ -89,7 +89,10 @@ if(addaProject) {
                 });
                 const newName = response1.json();
                 if(newName.success) {
-                    
+                    const image = newName.newname;
+                    console.log('New name : ', image);
+                } else {
+
                 }
                 const response = await fetch("", {
                     method: "POST", 
