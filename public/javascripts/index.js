@@ -66,3 +66,24 @@ function openAddProject(param) {
     }
 
 }
+
+function openAddToTeam(param) {
+    const modals_addFields = document.getElementById('modals_addFields');
+    const addTeamId = document.getElementById('addTeamId');
+
+    if(param === 'close') {
+        if(modals_addFields && addTeamId) {
+            modals_addFields.classList.add('hidden');
+            modals_addFields.classList.remove('flex');
+            addTeamId.classList.add('hidden');
+            addTeamId.classList.remove('flex');
+        }
+    } else {
+        if(modals_addFields && addTeamId) {
+            modals_addFields.classList.remove('hidden');
+            modals_addFields.classList.add('flex');
+            addTeamId.classList.remove('hidden');
+            addTeamId.classList.add('flex');
+        }
+    }
+}
