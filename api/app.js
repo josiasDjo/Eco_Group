@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-// const sequelize = require('../backend/models/index');
+const sequelize = require('../backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -65,20 +65,20 @@ app.use('/project',projectsRouter);
 // });
 
 // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 
-// app.listen(port, () => {
-//   console.log(`✅ App is listening on port ${port}`);
-// })
+app.listen(port, () => {
+  console.log(`✅ App is listening on port ${port}`);
+})
 
 // Synchronisation avec MySQL
 // sequelize.sync({ force: false })
