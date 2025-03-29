@@ -41,3 +41,8 @@ function goBack() {
         window.history.back();
     }
 }
+
+// open modal add product
+function openAddProject() {
+    alert('Add project')
+}
