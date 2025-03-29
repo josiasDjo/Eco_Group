@@ -87,7 +87,10 @@ if(addaProject) {
                     method: "POST", 
                     body: { formData }
                 });
-
+                const newName = response1.json();
+                if(newName.success) {
+                    
+                }
                 const response = await fetch("", {
                     method: "POST", 
                     headers: { "Content-Type": "application/json" },
