@@ -12,6 +12,15 @@ exports.addToTeam = async (req, res) => {
     }
 }
 
+exports.getAllMember = async (req, res) => {
+    try {
+
+    } catch(err) {
+        console.log('Une erreur d\'est produite : ', err);
+        return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
+    }
+}
+
 exports.updateMember = async (req, res) => {
     try {
         const { equipe_id,first_name,last_name,image } = req.body;
