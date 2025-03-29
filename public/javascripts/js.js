@@ -69,7 +69,7 @@ if (userSignin) {
 
 const addaProject = document.getElementById('addaProject');
 if(addaProject) {
-    addaProject.addEventListener('submit', (event) => {
+    addaProject.addEventListener('submit', async (event) => {
         event.preventDefault();
         // alert('Submit');
 
@@ -78,7 +78,13 @@ if(addaProject) {
         const image_project = document.getElementById('image_project').value;
 
         if (title_project && title_project == "" && description_project && description_project == "" && image_project && image_project == "") {
-            
+
+
+            const response = await fetch("", {
+                method: "POST", 
+                headers: { "Content-Type": "application/json" },
+                body: {}
+            });
         }
     })
 }
