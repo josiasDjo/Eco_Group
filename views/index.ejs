@@ -2,7 +2,7 @@
 <html lang="fr">
 <%- include('head') %>
 <body>
-    <header class="w-full height_header relative">
+    <header id="#header" class="w-full height_header relative">
         <nav id="navbarContainer" class="bg-white h-16 lg:h-20 flex flex-col lg:flex-row px-5 lg:px-10 py-3 justify-between">
             <div class="h-10 lg:h-16 lg:py-2 items-center flex">
                 <img src="/images/IEG-logo.webp" alt="Loge de l'entreprise Impact Eco Group" class="logo_nav h-full w-auto object-contain">
@@ -13,9 +13,11 @@
                     <button id="fa_xmark_menu" onclick="navbarShowH('close');" class="text-3xl hidden lg:hidden"><li><i class="fa-solid fa-xmark"></i></li></button>
                 </ul>
                 <ul id="navbar_part2" class="hidden lg:flex flex-col lg:flex-row lg:items-center relative">
-                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#">Accueil</a></li>
-                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#">Nos Projets</a></li>
-                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#">A Propos</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="header">Accueil</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="about">A Propos</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="our_service">Nos services</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="projects">Nos Projets</a></li>
+
                     <button type="button" class="text_navbar_annim relative text-lg mx-3 my-2 lg:my-0 dm_sans btn_bg_color py-2 px-3 rounded-lg text-white font-medium cursor-pointer">
                         <span>Contact</span> 
                         <span class="text-md"><i class='bx bxs-phone-call'></i></span>
