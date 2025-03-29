@@ -130,7 +130,7 @@ if(addToTeam) {
         const first_name = document.getElementById('prenom').value;	
         const last_name = document.getElementById('nom').value;	
         const image = document.getElementById('image_perso');
-        const msg_result = document.getElementById('msg_result');
+        const msg_result = document.getElementById('msg_result_team');
 
         if(first_name && first_name != "" && last_name && last_name != "" && image.files.length != 0) {
             const formData = new FormData();
@@ -159,7 +159,7 @@ if(addToTeam) {
                 }
             } catch (err) {
                 msg_result.innerText = 'Une erreur est survenue';
-                msg_result.style.color = red;
+                msg_result.style.color = 'red';
             }
         }
     })
