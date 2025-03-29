@@ -76,9 +76,9 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(port, () => {
-  console.log(`✅ App is listening on port ${port}`);
-})
+// app.listen(port, () => {
+//   console.log(`✅ App is listening on port ${port}`);
+// })
 
 // Synchronisation avec MySQL
 // sequelize.sync({ force: false })
