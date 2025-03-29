@@ -13,6 +13,7 @@ const session = require('express-session');
 
 //Importer les modèles
 const Users = require('../backend/models/Users');
+const Equipe = require('../backend/models/equipe');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
