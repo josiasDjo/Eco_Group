@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-// const sequelize = require('../backend/models/index');
+const sequelize = require('../backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -88,4 +88,3 @@ if (require.main === module) {
 sequelize.sync({ force: false })
     .then(() => console.log('✅ Base de données synchronisée avec Sequelize !'))
     .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
-
