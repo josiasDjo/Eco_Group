@@ -39,8 +39,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../public')));
-app.use('/images', express.static('../public/images', {maxAge: '30d'}));
-app.use(bodyParser.json());
+app.use('/images', express.static(path.join(__dirname, '../public/images'), { maxAge: '30d' }));
+// app.use(bodyParser.json());
 
 // configuration de la session
 app.use(session({
