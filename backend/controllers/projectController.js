@@ -11,3 +11,13 @@ exports.addProjects = async (req, res) => {
         return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
     }
 }
+
+exports.getAllProjects = async (req, res) => {
+    try {
+        const AllProject = await Project.findAll();
+        return { success: true, AllProject: AllProject};
+    } catch(err) {
+        console.log('Une erreur d\'est produite : ', err);
+        return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
+    }
+}
