@@ -3,7 +3,11 @@
     <h3 class="text-black font-bold text-xl lg:text-2xl mt-2">
         Découvrez l'équipe passioné qui concrétise notre mission
     </h3>
-
+    <% if(admin) { %>
+        <div class="w-full my-3">
+            <button type="button" id="add_mission" class="color_blue_foncé border_blue_foncé border-2 border-solid relative text-lg mx-3 my-2 lg:my-0 dm_sans py-2 px-3 rounded-lg font-medium cursor-pointer">Ajouter un membre</button>
+        </div>  
+    <% } %>
     <div class="w-full my-5 lg:my-10 relative flex flex-row items-center justify-center">
         <div class="w-24 h-24 mx-4 rounded-full border-6 border-solid border-blue-900 items-center justify-center text-center flex flex-col relative">
             <p class="text-xl font-bold">65%</p>
