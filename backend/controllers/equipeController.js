@@ -31,7 +31,7 @@ exports.deleteMember = async (req, res) => {
         const memberExist = await Equipe.findByPk(equipe_id);
         if(!memberExist) return res.json({ success: false, message: 'Membre introuvable'});
         await Equipe.destroy({where: { equipe_id: equipe_id}});
-        return 
+        return res.json({ success: true, message: 'Suppression réussie !! '});
     } catch (err) {
         console.log('Une erreur d\'est produite : ', err);
         return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
