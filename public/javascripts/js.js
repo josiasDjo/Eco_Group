@@ -91,15 +91,24 @@ if(addaProject) {
                 if(newName.success) {
                     const image = newName.newname;
                     console.log('New name : ', image);
+
+                    const response = await fetch("", {
+                        method: "POST", 
+                        headers: { "Content-Type": "application/json" },
+                        body: { title,description,image }
+                    });
+                    const data = response.json();
+                    if (data.success) {
+                        msg_result.innerText = data.message;
+                        msg_result.style.color = "red";
+                    } else {
+                        msg_result.innerText = data.message;
+                        msg_result.style.color = "red";
+                    }
                 } else {
-
+                    msg_result.innerText = "Une erreur s'est produite !! ";
+                    msg_result.style.color = "red";
                 }
-                const response = await fetch("", {
-                    method: "POST", 
-                    headers: { "Content-Type": "application/json" },
-                    body: { title,description,image }
-                });
-
             } catch(err) {
                 msg_result.innerText = "Une erreur s'est produite !! ";
                 msg_result.style.color = "red";
