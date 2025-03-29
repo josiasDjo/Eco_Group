@@ -66,3 +66,15 @@ if (userSignin) {
         }
     });
 }
+
+const addaProject = document.getElementById('addaProject');
+if(addaProject) {
+    addaProject.addEventListener('submit', (event) => {
+        event.preventDefault();
+        // alert('Submit');
+
+        const title_project = document.getElementById('title_project').value;
+        const description_project = document.getElementById('description_project').value;
+        const image_project = document.getElementById('image_project').value;
+    })
+}
