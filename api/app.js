@@ -68,9 +68,9 @@ app.use((req, res, next) => {
 
 
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-// app.use('/equipe', equipeRouter);
-// app.use('/project',projectsRouter);
+app.use('/users', usersRouter);
+app.use('/equipe', equipeRouter);
+app.use('/project',projectsRouter);
 
 // error handler
 // app.use(function(err, req, res, next) {
@@ -86,14 +86,14 @@ app.use('/', indexRouter);
 
 if (require.main === module) {
   const port = process.env.PORT || 3000;
-  // sequelize.sync({ force: false })
-  //   .then(() => {
-  //     console.log('✅ Base de données synchronisée avec Sequelize !');
-  //     app.listen(port, () => {
-  //       console.log(`✅ App is listening on port ${port}`);
-  //     });
-  //   })
-  //   .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+  sequelize.sync({ force: false })
+    .then(() => {
+      console.log('✅ Base de données synchronisée avec Sequelize !');
+      app.listen(port, () => {
+        console.log(`✅ App is listening on port ${port}`);
+      });
+    })
+    .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
 } else {
   module.exports = app;
 }
