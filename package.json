@@ -29,6 +29,7 @@
     "mysql2": "^3.14.0",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
+    "pg": "^8.14.1",
     "postgres": "^3.4.5",
     "sequelize": "^6.37.5",
     "session": "^0.1.0"
