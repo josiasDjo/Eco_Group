@@ -2,8 +2,8 @@
 <html lang="fr">
 <%- include('head') %>
 <body>
-    <header id="#header" class="w-full height_header relative">
-        <nav id="navbarContainer" class="bg-white h-16 lg:h-20 flex flex-col lg:flex-row px-5 lg:px-10 py-3 justify-between">
+    <header id="#header" class="w-full relative">
+        <nav id="navbarContainer" class="fixed top-0 inset-0 z-50 backdrop-blur bg-white h-16 lg:h-20 flex flex-col lg:flex-row px-5 lg:px-10 py-3 justify-between">
             <div class="h-10 lg:h-16 lg:py-2 items-center flex">
                 <img src="/images/IEG-logo.webp" alt="Loge de l'entreprise Impact Eco Group" class="logo_nav h-full w-auto object-contain">
             </div>
@@ -13,63 +13,38 @@
                     <button id="fa_xmark_menu" onclick="navbarShowH('close');" class="text-3xl hidden lg:hidden"><li><i class="fa-solid fa-xmark"></i></li></button>
                 </ul>
                 <ul id="navbar_part2" class="hidden lg:flex flex-col lg:flex-row lg:items-center relative">
-                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="header">Accueil</a></li>
-                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="about">A Propos</a></li>
-                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="our_service">Nos services</a></li>
-                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="projects">Nos Projets</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="/">Accueil</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#about">A Propos</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#our_service">Nos services</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#projects">Nos Projets</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#modals_addMember">Gestion de l'Equipe</a></li>
 
-                    <!-- <div type="button" class="text_navbar_annim relative text-lg mx-3 my-2 lg:my-0 dm_sans btn_bg_color py-2 px-3 rounded-lg text-white font-medium cursor-pointer w-14 h-14 rounded-full">
-                        <span class="text-md"><i class='bx bxs-phone-call'></i></span>
-                    </div> -->
-                    <div class="w-14 h-14 rounded-full btn_bg_color items-center justify-center flex text-center text-white">
+                    <div class="w-14 h-14 rounded-full bg-gray-300 items-center justify-center flex text-center text-white">
                         <span class="text-md"><i class='bx bxs-phone-call'></i></span>
                     </div>
                 </ul>
             </div>
         </nav>
-        <div id="heroHeader" class="w-full heroHeaderHeight header_bg_image relative text-center justify-center items-center flex flex-col relative">
-            <img src="/images/undraw_in-progress_cdfz.svg" alt="" class="svg_inProgress h-42 absolute left-1/6 bottom-0 opacity-90">
-            <img src="/images/validation-svgrepo-com.svg" alt="" class="svg_bounce h-8 absolute right-30 bottom-10 opacity-90">
-
-            <div class="spinner_svg size-6 absolute top-10 text-blue-900">
-                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2V22M19.0711 4.92893L4.92893 19.0711M22 12H2M19.0711 19.0711L4.92893 4.92893" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <div class="size-6 absolute top-10 right-10 text-blue-900">
-                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-
-            <div class="bg-white_opac parallelogram heroHeaderHeight w-full md:w-10/12 lg:w-8/12 justify-center align-center flex flex-col items-center text-right absolute right-0 z-20">
-                <ul class="flex flex-col items-center absolute top-28 right-10 z-40">
-                    <h1 class="text_heroHeader text-center text-black font-medium dm_sans text-xl md:text-3xl lg:text-4xl">
-                        Ensemble, propulsons la RD Congo vers un  <br>avenir  <span class="txt_color_orange font-bold px-2">audacieux</span> grâce à des projets <br> novateurs et <span class="txt_color_orange font-bold px-2">durables.</span>
-                    </h1>
-                    <button type="button" class="btn_HeroHeader w-fit my-4 relative text-lg mx-2 dm_sans btn_bg_color py-2 px-3 rounded-lg text-white font-medium cursor-pointer">
-                        Découvrez-nous
-                    </button>
-                </ul>
-            </div>
-        </div>
     </header>
 
     <main class="relative w-full px-5 md:p-10 lg:p-20 dm_sans">
-        <section id="about" class="w-full items-center justify-center flex relative">
+        <!-- <section id="about" class="w-full items-center justify-center flex relative">
             <%- include('aboutUs', {admin:admin}) %>
             <div id="modals_addFields" class="w-full h-screen z-40 backdrop-blur fixed inset-0 justify-center items-center content-center hidden">
                 <%- include('addProject') %>
             </div>
-        </section>
-        <section id="our_service" class="w-full items-center justify-center flex relative">
+        </section> -->
+        <!-- <section id="our_service" class="w-full items-center justify-center flex relative">
             <%- include('our_service') %>
-        </section>
+        </section> -->
         <section id="business_objective" class="w-full items-center justify-center flex relative">
             <%- include('business_objective') %>
         </section>
         <section id="meet_the_team" class="w-full items-center justify-center flex relative">
             <%- include('meet_the_team') %>
+            <div id="modals_addMember" class="w-full h-screen z-40 backdrop-blur fixed inset-0 justify-center items-center content-center hidden">
+                <%- include('addToTeam') %>
+            </div>
         </section>
         <section id="projects" class="w-full items-center justify-center flex relative">
             <%- include('project') %>

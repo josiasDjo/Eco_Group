@@ -101,7 +101,7 @@ if(addaProject) {
                     const data = await response.json();
                     if (data.success) {
                         msg_result.innerText = data.message;
-                        msg_result.style.color = "red";
+                        msg_result.style.color = "green";
                         window.location.reload();
                     } else {
                         msg_result.innerText = data.message;
@@ -118,6 +118,49 @@ if(addaProject) {
         } else {
             msg_result.innerText = "Tous les champs sont réquis !! ";
             msg_result.style.color = "red";
+        }
+    })
+}
+
+const addToTeam = document.getElementById('addToTeam');
+if(addToTeam) {
+    addToTeam.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const first_name = document.getElementById('prenom').value;	
+        const last_name = document.getElementById('nom').value;	
+        const image = document.getElementById('image_perso');
+        const msg_result = document.getElementById('msg_result_team');
+
+        if(first_name && first_name != "" && last_name && last_name != "" && image.files.length != 0) {
+            const formData = new FormData();
+            formData.append('image', image.files[0]);
+
+            try {
+                const response1 = await fetch("/upload/image", {
+                    method: "POST", 
+                    body: formData
+                });
+                const newName = await response1.json();
+                // console.log('Value : ', newName);
+                const image = newName.newname;
+                const response = await fetch("/equipe/add_member", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ first_name,last_name,image })
+                });
+
+                const data = await response.jon();
+
+                if(data.success) {
+                    msg_result.innerText = data.message;
+                    msg_result.style.color = 'green';
+                    window.location.reload();
+                }
+            } catch (err) {
+                msg_result.innerText = 'Une erreur est survenue';
+                msg_result.style.color = 'red';
+            }
         }
     })
 }

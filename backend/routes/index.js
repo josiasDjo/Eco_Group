@@ -69,8 +69,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.post('/upload/image', upload.single('image'), (req, res) => {
-  console.log('Req.file => ', req.file);
-  console.log('Req.body => ', req.body);
   if (!req.file) {
     return res.json({ success: false, message: 'Aucun fichier réçu' });
   }
