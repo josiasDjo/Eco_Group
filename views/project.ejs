@@ -18,10 +18,12 @@
         <div class="w-full flex flex-wrap items-center relative">
             <% projects.forEach((pro) => { %>
                 <div class="w-full md:w-56 h-auto m-2 md:m-3 lg:m-6 border-2 border-solid border-gray-200 shadow-lg relative">
-                    <ul class="h-12 w-8 backdrop-blur bg-transparent text-center justify-center items-center absolute top-0 right-0">
-                        <li class="text-black"><i class="fa-solid fa-pen-to-square"></i></li>
-                        <li class="text-red-500"><i class="fa-solid fa-trash"></i></li>
-                    </ul>
+                    <% if(admin) { %>
+                        <ul class="h-12 w-8 backdrop-blur bg-transparent text-center justify-center items-center absolute top-0 right-0">
+                            <li class="text-black"><i class="fa-solid fa-pen-to-square"></i></li>
+                            <li class="text-red-500"><i class="fa-solid fa-trash"></i></li>
+                        </ul>
+                    <% } %>
                     <div class="w-full">
                         <img src="/images/<%=pro.image%>" class="w-full h-auto" alt="">
                     </div>
