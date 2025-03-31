@@ -83,17 +83,21 @@ app.use('/', indexRouter);
 //   res.render('error');
 // });
 
-
-if (require.main === module) {
-  const port = process.env.PORT || 3000;
-  sequelize.sync({ force: false })
-    .then(() => {
-      console.log('✅ Base de données synchronisée avec Sequelize !');
-      app.listen(port, () => {
-        console.log(`✅ App is listening on port ${port}`);
-      });
-    })
-    .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
-} else {
-  module.exports = app;
+try {
+  if (require.main === module) {
+    const port = process.env.PORT || 3000;
+    sequelize.sync({ force: false })
+      .then(() => {
+        console.log('✅ Base de données synchronisée avec Sequelize !');
+        app.listen(port, () => {
+          console.log(`✅ App is listening on port ${port}`);
+        });
+      })
+      .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+  }
+  
+} catch(err) {
+  console.log('Erreur serveur : ', err);
 }
+
+module.exports = app;
