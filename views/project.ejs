@@ -13,87 +13,32 @@
             <button type="button" onclick="openAddProject();" id="add_mission" class="color_blue_foncé border_blue_foncé border-2 border-solid relative text-lg mx-3 my-2 lg:my-0 dm_sans py-2 px-3 rounded-lg font-medium cursor-pointer">Ajouter un projet ou une activité</button>
         </div>  
     <% } %>
-    <div class="w-full flex flex-wrap items-center">
-        <div class="w-full md:w-56 h-auto m-2 md:m-3 lg:m-6 border-2 border-solid border-gray-200 shadow-lg">
-            <div class="w-full">
-                <img src="/images/accompagnement.jpg" class="w-full h-auto" alt="">
-            </div>
-            <div class="w-full h-fit flex flex-col color_blue_foncé border-t-2 border-solid border-gray-200 p-2">
-                <h4 class="text-center text-md font-medium">Diagnostic et Accompagnement</h4>
-                <p class="text-black text-sm mt-2">
-                    Réalisation d'audits et de diagnostics pour mesurer l'empreinte écologique des entreprises et proposer
-                    des plans d'action personnalisés.
-                </p>
-                <button type="button" class="btn_bg_color p-2 mt-2 text-white rounded-lg">En savoir plus</button>
-            </div>
-        </div>
-
-        <div class="w-full md:w-56 h-auto m-2 md:m-3 lg:m-6 border-2 border-solid border-gray-200 shadow-lg">
-            <div class="w-full">
-                <img src="/images/impacts.jpg" class="w-full h-auto" alt="">
-            </div>
-            <div class="w-full h-fit flex flex-col color_blue_foncé border-t-2 border-solid border-gray-200 p-2">
-                <h4 class="text-center text-md font-medium">Développement d'outils d'évaluation</h4>
-                <p class="text-black text-sm mt-2">
-                    Création et mise en oeuvre de méthodologies innovantes pour évaluer l'impact environnemental et social
-                </p>
-                <button type="button" class="btn_bg_color p-2 mt-2 text-white rounded-lg">En savoir plus</button>
-            </div>
-        </div>
-
-        <div class="w-full md:w-56 h-auto m-2 md:m-3 lg:m-6 border-2 border-solid border-gray-200 shadow-lg">
-            <div class="w-full">
-                <img src="/images/formation.jpg" class="w-full h-auto" alt="">
-            </div>
-            <div class="w-full h-fit flex flex-col color_blue_foncé border-t-2 border-solid border-gray-200 p-2">
-                <h4 class="text-center text-md font-medium">Programme de formation et ateliers</h4>
-                <p class="text-black text-sm mt-2">
-                    Conception de sessions de formation d'atéliers intéractifs pour instaurer une culture de durabilité au 
-                    sein des organisations.
-                </p>
-                <button type="button" class="btn_bg_color p-2 mt-2 text-white rounded-lg">En savoir plus</button>
-            </div>
-        </div>
-
-        <div class="w-full md:w-56 h-auto m-2 md:m-3 lg:m-6 border-2 border-solid border-gray-200 shadow-lg">
-            <div class="w-full">
-                <img src="/images/image_ (2).jpg" class="w-full h-auto" alt="">
-            </div>
-            <div class="w-full h-fit flex flex-col color_blue_foncé border-t-2 border-solid border-gray-200 p-2">
-                <h4 class="text-center text-md font-medium">Initiatives d'innovation en transition écologique</h4>
-                <p class="text-black text-sm mt-2">
-                    Projets pilotes visant à intégrer de nouvelles technologies et pratiques durables dans le modème économique
-                    des entreprises.
-                </p>
-                <button type="button" class="btn_bg_color p-2 mt-2 text-white rounded-lg">En savoir plus</button>
-            </div>
-        </div>
-
-        <div class="w-full md:w-56 h-auto m-2 md:m-3 lg:m-6 border-2 border-solid border-gray-200 shadow-lg">
-            <div class="w-full">
-                <img src="/images/concours.jpg" class="w-full h-auto" alt="">
-            </div>
-            <div class="w-full h-fit flex flex-col color_blue_foncé border-t-2 border-solid border-gray-200 p-2">
-                <h4 class="text-center text-md font-medium">Investir dans l'éducation des jeunes africains</h4>
-                <p class="text-black text-sm mt-2">
-                    Organisation des concours en développementdes logiciels
-                </p>
-                <button type="button" class="btn_bg_color p-2 mt-2 text-white rounded-lg">En savoir plus</button>
-            </div>
-        </div>
-
-        <div class="w-full md:w-56 h-auto m-2 md:m-3 lg:m-6 border-2 border-solid border-gray-200 shadow-lg">
-            <div class="w-full">
-                <img src="/images/image_ (6).jpg" class="w-full h-auto" alt="">
-            </div>
-            <div class="w-full h-fit flex flex-col color_blue_foncé border-t-2 border-solid border-gray-200 p-2">
-                <h4 class="text-center text-md font-medium">Economie</h4>
-                <p class="text-black text-sm mt-2">
-                    Organisation d'un forum économique à Génève en Partenariat avec la chambre de commerce de Génève et la 
-                    Haute Ecole de Génève
-                </p>
-                <button type="button" class="btn_bg_color p-2 mt-2 text-white rounded-lg">En savoir plus</button>
-            </div>
-        </div>
-    </div>
+    
+    <% if(projects.length > 0) { %>
+        <div class="w-full flex flex-wrap items-center relative">
+            <% projects.forEach((pro) => { %>
+                <div class="w-full md:w-56 h-auto m-2 md:m-3 lg:m-6 border-2 border-solid border-gray-200 shadow-lg relative">
+                    <% if(admin) { %>
+                        <ul class="h-12 w-8 backdrop-blur bg-transparent text-center justify-center items-center absolute top-0 right-0">
+                            <li class="text-black"><i class="fa-solid fa-pen-to-square"></i></li>
+                            <li class="text-red-500"><i class="fa-solid fa-trash"></i></li>
+                        </ul>
+                    <% } %>
+                    <div class="w-full">
+                        <img src="/images/<%=pro.image%>" class="w-full h-auto" alt="">
+                    </div>
+                    <div class="w-full h-fit flex flex-col color_blue_foncé border-t-2 border-solid border-gray-200 p-2">
+                        <h4 class="text-center text-md font-medium"><%= pro.title %></h4>
+                        <p class="text-black text-sm mt-2">
+                            <%= pro.description %>
+                        </p>
+                        <button type="button" class="btn_bg_color p-2 mt-2 text-white rounded-lg">En savoir plus</button>
+                    </div>
+                </div>
+            <% }) %>
+        </div>  
+    <% } else { %>
+        <p class="text-red-500 text-lg">Aucun projet pour le moment</p>
+    <% } %>
+    <!-- </div> -->
 </div>

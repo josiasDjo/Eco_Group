@@ -17,10 +17,10 @@
                     <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#about">A Propos</a></li>
                     <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#our_service">Nos services</a></li>
                     <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#projects">Nos Projets</a></li>
-                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#modals_addMember">Gestion de l'Equipe</a></li>
+                    <li class="text_navbar_annim mx-3 my-2 lg:my-0 text-lg dm_sans font-medium relative cursor-pointer"><a href="#teamManagement">Gestion de l'Equipe</a></li>
 
-                    <div class="w-14 h-14 rounded-full bg-gray-300 items-center justify-center flex text-center text-white">
-                        <span class="text-md"><i class='bx bxs-phone-call'></i></span>
+                    <div class="w-14 h-14 rounded-full items-center justify-center flex text-center text-white">
+                        <span class="text-md text-3xl text-black"><i class="fa-solid fa-circle-user"></i></span>
                     </div>
                 </ul>
             </div>
@@ -33,14 +33,14 @@
             <div id="modals_addFields" class="w-full h-screen z-40 backdrop-blur fixed inset-0 justify-center items-center content-center hidden">
                 <%- include('addProject') %>
             </div>
-        </section> -->
-        <!-- <section id="our_service" class="w-full items-center justify-center flex relative">
+        </section>
+        <section id="our_service" class="w-full items-center justify-center flex relative">
             <%- include('our_service') %>
         </section> -->
         <section id="business_objective" class="w-full items-center justify-center flex relative">
             <%- include('business_objective') %>
         </section>
-        <section id="meet_the_team" class="w-full items-center justify-center flex relative">
+        <section id="teamManagement" class="w-full items-center justify-center flex relative">
             <%- include('meet_the_team') %>
             <div id="modals_addMember" class="w-full h-screen z-40 backdrop-blur fixed inset-0 justify-center items-center content-center hidden">
                 <%- include('addToTeam') %>

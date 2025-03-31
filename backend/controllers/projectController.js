@@ -16,7 +16,7 @@ exports.addProjects = async (req, res) => {
 exports.getAllProjects = async (req, res) => {
     try {
         const AllProject = await Project.findAll();
-        return { success: true, AllProject: AllProject};
+        return AllProject;
     } catch(err) {
         console.log('Une erreur d\'est produite : ', err);
         return { success: false, message: 'Erreur serveur, réesayer plus tard !! '};

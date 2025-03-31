@@ -18,9 +18,10 @@ router.get('/', async function(req, res, next) {
     return await EquipeController.getAllMember();
   }
 
-  const ad = 'adminConfig';
   const projects = await getProjects();
   const members = await getEquipe();
+
+  console.log('Projet : ', projects);
 
   res.render('index', {
     projects: projects,
@@ -48,6 +49,8 @@ router.get('/s/admin', isAuthenticated, authenticateToken, async (req, res) => {
   const ad = 'adminConfig';
   const projects = await getProjects();
   const members = await getEquipe();
+
+  console.log('Projet : ', projects);
 
   res.render('indexAdmin', {
     admin: ad,
