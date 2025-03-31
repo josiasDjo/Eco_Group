@@ -86,7 +86,7 @@ app.use(function(err, req, res, next) {
 try {
   if (require.main === module) {
     const port = process.env.PORT || 3000;
-    sequelize.sync({ force: true })
+    sequelize.sync({ force: false })
       .then(() => {
         console.log('✅ Base de données synchronisée avec Sequelize !');
         app.listen(port, () => {
