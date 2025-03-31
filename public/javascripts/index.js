@@ -1,3 +1,13 @@
+// Sélectionner tous les éléments du document
+const allElements = document.querySelectorAll('*');
+
+// Parcourir et ajouter la classe 'animable'
+allElements.forEach(el => {
+    el.classList.add('animable');
+});
+
+
+
 function navbarShowH (param) {
     const fa_xmark_menu = document.getElementById('fa_xmark_menu');
     const fa_bars_menu = document.getElementById('fa_bars_menu');

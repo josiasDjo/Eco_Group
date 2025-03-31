@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 const logo_nav = document.getElementsByClassName('logo_nav');
 const text_navbar_annim = document.getElementsByClassName('text_navbar_annim');
 const text_heroHeader = document.getElementsByClassName('text_heroHeader');
@@ -40,3 +42,17 @@ if (main_conn_page && conn_page_logo && conn_page_title && conn_page_email && co
         duration: 0.6, delay: 0.7, opacity: 0, stagger: 0.3
     })
 }
+
+
+
+gsap.from('.animable', {
+    scrollTrigger: {
+        trigger: '.animable',    // Vous pouvez aussi définir un conteneur parent
+        start: "top 80%",         // Déclenchement quand le haut de l'élément atteint 80% de la fenêtre
+        toggleActions: "play none none reverse",
+    },
+    opacity: 0,
+    y: 20,                     // Animation de translation verticale
+    duration: 1,
+    stagger: 0.3,              // Délai de 0.3 seconde entre l'animation de chaque élément
+});
