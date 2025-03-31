@@ -19,9 +19,9 @@ const Projects = require('../backend/models/projects');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
-// const usersRouter = require('../backend/routes/usersRoute');
-// const equipeRouter = require('../backend/routes/equipeRoute');
-// const projectsRouter = require('../backend/routes/projectRoute');
+const usersRouter = require('../backend/routes/usersRoute');
+const equipeRouter = require('../backend/routes/equipeRoute');
+const projectsRouter = require('../backend/routes/projectRoute');
 
 const app = express();
 
@@ -68,25 +68,25 @@ app.use((req, res, next) => {
 
 
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-// app.use('/equipe', equipeRouter);
-// app.use('/project',projectsRouter);
+app.use('/users', usersRouter);
+app.use('/equipe', equipeRouter);
+app.use('/project',projectsRouter);
 
 // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 try {
   if (require.main === module) {
     const port = process.env.PORT || 3000;
-    sequelize.sync({ force: false })
+    sequelize.sync({ force: true })
       .then(() => {
         console.log('✅ Base de données synchronisée avec Sequelize !');
         app.listen(port, () => {
