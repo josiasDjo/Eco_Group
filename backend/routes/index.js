@@ -49,6 +49,8 @@ router.get('/s/admin', isAuthenticated, authenticateToken, async (req, res) => {
   const projects = await getProjects();
   const members = await getEquipe();
 
+  console.log('Projet : ', projects);
+
   res.render('indexAdmin', {
     admin: ad,
     projects: projects,
