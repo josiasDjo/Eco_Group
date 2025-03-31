@@ -19,9 +19,9 @@ const Projects = require('../backend/models/projects');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
-// const usersRouter = require('../backend/routes/usersRoute');
-// const equipeRouter = require('../backend/routes/equipeRoute');
-// const projectsRouter = require('../backend/routes/projectRoute');
+const usersRouter = require('../backend/routes/usersRoute');
+const equipeRouter = require('../backend/routes/equipeRoute');
+const projectsRouter = require('../backend/routes/projectRoute');
 
 const app = express();
 
