@@ -19,12 +19,12 @@ router.get('/', async function(req, res, next) {
   }
 
   const ad = 'adminConfig';
-  const projects = await getProjects();
-  const members = await getEquipe();
+  // const projects = await getProjects();
+  // const members = await getEquipe();
 
   res.render('index', {
-    projects: projects,
-    members: members
+    // projects: projects,
+    // members: members
   });
 });
 
