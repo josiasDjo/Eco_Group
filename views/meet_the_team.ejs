@@ -25,65 +25,22 @@
         </div>
     </div>
 
-    <div class="w-full h-96 my-10 flex flex-wrap items-center justify-center overflow-y-scroll">
-        <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg">
-            <div>
-                <img src="/images/team/team (3).jpeg" class="w-auto h-full" alt="">
-            </div>
-            <div class="items-center justify-center flex text-center">
-                <h5 class="font-bold text-center">John Doe</h5>
-                <p></p>
-            </div>
-        </div>
+    <% if(members.length > 0) { %>
+        <div class="w-full h-96 my-10 flex flex-wrap items-center justify-center overflow-y-scroll">
+            <% members.forEach((mbr) => { %>
 
-        <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg">
-            <div>
-                <img src="/images/team/team (2).jpeg" class="w-full h-auto" alt="">
-            </div>
-            <div class="items-center justify-center flex text-center">
-                <h5 class="font-bold text-center">Mattew Doe</h5>
-                <p></p>
-            </div>
+                <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg">
+                    <div>
+                        <img src="/images/team/<%= mbr.image %>" class="w-auto h-full" alt="">
+                    </div>
+                    <div class="items-center justify-center flex text-center">
+                        <h5 class="font-bold text-center"><%= mbr.first_name %> <span><%= mbr.last_name %></span></h5>
+                        <p></p>
+                    </div>
+                </div>
+            <% }) %>
         </div>
-
-        <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg">
-            <div>
-                <img src="/images/team/team (1).jpeg" class="w-full h-auto" alt="">
-            </div>
-            <div class="items-center justify-center flex text-center">
-                <h5 class="font-bold text-center">Anna Doe</h5>
-                <p></p>
-            </div>
-        </div>
-
-        <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg">
-            <div>
-                <img src="/images/team/team (4).jpeg" class="w-full h-auto" alt="">
-            </div>
-            <div class="items-center justify-center flex text-center">
-                <h5 class="font-bold text-center">Smith Doe</h5>
-                <p></p>
-            </div>
-        </div>
-
-        <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg">
-            <div>
-                <img src="/images/team/team (5).jpeg" class="w-full h-auto" alt="">
-            </div>
-            <div class="items-center justify-center flex text-center">
-                <h5 class="font-bold text-center">Aaron Doe</h5>
-                <p></p>
-            </div>
-        </div>
-
-        <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg">
-            <div>
-                <img src="/images/team/team (6).jpeg" class="w-full h-auto" alt="">
-            </div>
-            <div class="items-center justify-center flex text-center">
-                <h5 class="font-bold text-center">Anna Doe</h5>
-                <p></p>
-            </div>
-        </div>
-    </div>
+    <% } else { %>
+        <p class="text-red-500 text-lg">Aucun membre pour le moment</p>
+    <% } %>
 </div>

@@ -45,14 +45,17 @@ if (main_conn_page && conn_page_logo && conn_page_title && conn_page_email && co
 
 
 
-gsap.from('.animable', {
-    scrollTrigger: {
-        trigger: '.animable',    // Vous pouvez aussi définir un conteneur parent
-        start: "top 80%",         // Déclenchement quand le haut de l'élément atteint 80% de la fenêtre
-        toggleActions: "play none none reverse",
-    },
-    opacity: 0,
-    y: 20,                     // Animation de translation verticale
-    duration: 1,
-    stagger: 0.3,              // Délai de 0.3 seconde entre l'animation de chaque élément
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.animable', {
+        scrollTrigger: {
+            trigger: '.animable',
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+        },
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        stagger: 0.3,
+    });
 });
