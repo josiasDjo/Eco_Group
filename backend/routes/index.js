@@ -10,22 +10,23 @@ const EquipeController = require('../controllers/equipeController');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  const getProjects = async () => {
-    return await projectController.getAllProjects();
-  }
+  // const getProjects = async () => {
+  //   return await projectController.getAllProjects();
+  // }
 
-  const getEquipe = async () => {
-    return await EquipeController.getAllMember();
-  }
+  // const getEquipe = async () => {
+  //   return await EquipeController.getAllMember();
+  // }
 
-  const ad = 'adminConfig';
+  // const ad = 'adminConfig';
   // const projects = await getProjects();
   // const members = await getEquipe();
 
-  res.render('index', {
-    // projects: projects,
-    // members: members
-  });
+  // res.render('index', {
+  //   projects: projects,
+  //   members: members
+  // });
+  res.render('index');
 });
 
 // Get connexion page
@@ -36,22 +37,22 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/s/admin', isAuthenticated, authenticateToken, async (req, res) => {
-  const getProjects = async () => {
-    return await projectController.getAllProjects();
-  }
+  // const getProjects = async () => {
+  //   return await projectController.getAllProjects();
+  // }
 
-  const getEquipe = async () => {
-    return await EquipeController.getAllMember();
-  }
+  // const getEquipe = async () => {
+  //   return await EquipeController.getAllMember();
+  // }
 
   const ad = 'adminConfig';
-  const projects = await getProjects();
-  const members = await getEquipe();
+  // const projects = await getProjects();
+  // const members = await getEquipe();
 
   res.render('indexAdmin', {
     admin: ad,
-    projects: projects,
-    members: members
+    // projects: projects,
+    // members: members
   });
 }); 
 
