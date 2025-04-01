@@ -21,7 +21,7 @@ router.get('/', async function(req, res, next) {
   const projects = await getProjects();
   const members = await getEquipe();
 
-  console.log('Projet : ', members);
+  // console.log('Projet : ', members);
 
   res.render('index', {
     projects: projects,
