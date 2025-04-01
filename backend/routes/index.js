@@ -21,7 +21,7 @@ router.get('/', async function(req, res, next) {
   const projects = await getProjects();
   const members = await getEquipe();
 
-  console.log('Projet : ', projects);
+  console.log('Projet : ', members);
 
   res.render('index', {
     projects: projects,
@@ -50,7 +50,7 @@ router.get('/s/admin', isAuthenticated, authenticateToken, async (req, res) => {
   const projects = await getProjects();
   const members = await getEquipe();
 
-  console.log('Projet : ', projects);
+  // console.log('Projet : ', projects);
 
   res.render('indexAdmin', {
     admin: ad,
