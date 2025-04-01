@@ -1,4 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
 
 const logo_nav = document.getElementsByClassName('logo_nav');
 const text_navbar_annim = document.getElementsByClassName('text_navbar_annim');
@@ -45,17 +44,17 @@ if (main_conn_page && conn_page_logo && conn_page_title && conn_page_email && co
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from('.animable', {
-        scrollTrigger: {
-            trigger: '.animable',
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        stagger: 0.3,
-    });
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     gsap.registerPlugin(ScrollTrigger);
+//     gsap.from('.animable', {
+//         scrollTrigger: {
+//             trigger: '.animable',
+//             start: "top 80%",
+//             toggleActions: "play none none reverse",
+//         },
+//         opacity: 0,
+//         y: 20,
+//         duration: 1,
+//         stagger: 0.3,
+//     });
+// });
