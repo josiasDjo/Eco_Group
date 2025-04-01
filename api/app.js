@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-// const sequelize = require('../backend/models/index');
+const sequelize = require('../backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -19,9 +19,9 @@ const flash = require('connect-flash');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
-// const usersRouter = require('../backend/routes/usersRoute');
-// const equipeRouter = require('../backend/routes/equipeRoute');
-// const projectsRouter = require('../backend/routes/projectRoute');
+const usersRouter = require('../backend/routes/usersRoute');
+const equipeRouter = require('../backend/routes/equipeRoute');
+const projectsRouter = require('../backend/routes/projectRoute');
 
 const app = express();
 
@@ -68,9 +68,9 @@ app.use((req, res, next) => {
 
 
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-// app.use('/equipe', equipeRouter);
-// app.use('/project',projectsRouter);
+app.use('/users', usersRouter);
+app.use('/equipe', equipeRouter);
+app.use('/project',projectsRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -83,21 +83,21 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// try {
-//   if (require.main === module) {
-//     const port = process.env.PORT || 3000;
-//     sequelize.sync({ force: false })
-//       .then(() => {
-//         console.log('✅ Base de données synchronisée avec Sequelize !');
-//         app.listen(port, () => {
-//           console.log(`✅ App is listening on port ${port}`);
-//         });
-//       })
-//       .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
-//   }
+try {
+  if (require.main === module) {
+    const port = process.env.PORT || 3000;
+    sequelize.sync({ force: false })
+      .then(() => {
+        console.log('✅ Base de données synchronisée avec Sequelize !');
+        app.listen(port, () => {
+          console.log(`✅ App is listening on port ${port}`);
+        });
+      })
+      .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+  }
   
-// } catch(err) {
-//   console.log('Erreur serveur : ', err);
-// }
+} catch(err) {
+  console.log('Erreur serveur : ', err);
+}
 
 module.exports = app;
