@@ -15,7 +15,7 @@ exports.addToTeam = async (req, res) => {
 exports.getAllMember = async (req, res) => {
     try {
         const AllMembers = await Equipe.findAll();
-        return { success: true, AllMembers: AllMembers};
+        return AllMembers;
     } catch(err) {
         console.log('Une erreur d\'est produite : ', err);
         return { success: false, message: 'Erreur serveur, réesayer plus tard !! '};
