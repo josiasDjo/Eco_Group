@@ -1,4 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
 
 const logo_nav = document.getElementsByClassName('logo_nav');
 const text_navbar_annim = document.getElementsByClassName('text_navbar_annim');
@@ -17,6 +16,9 @@ const conn_page_mdp = document.getElementsByClassName('conn_page_mdp');
 const conn_page_btn = document.getElementsByClassName('conn_page_btn');
 const part2_conn_page = document.getElementsByClassName('part2_conn_page');
 
+gsap.from('animable', { 
+    duration: 0.6, delay: 0.4, opacity: 0, stagger: 0.2
+});
 
 if (logo_nav && text_navbar_annim && text_heroHeader && btn_HeroHeader) {
     gsap.from(['.logo_nav','.text_navbar_annim', '.text_heroHeader', '.btn_HeroHeader'], { 
@@ -45,17 +47,17 @@ if (main_conn_page && conn_page_logo && conn_page_title && conn_page_email && co
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from('.animable', {
-        scrollTrigger: {
-            trigger: '.animable',
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        stagger: 0.3,
-    });
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     gsap.registerPlugin(ScrollTrigger);
+//     gsap.from('.animable', {
+//         scrollTrigger: {
+//             trigger: '.animable',
+//             start: "top 80%",
+//             toggleActions: "play none none reverse",
+//         },
+//         opacity: 0,
+//         y: 20,
+//         duration: 1,
+//         stagger: 0.3,
+//     });
+// });

@@ -21,7 +21,7 @@ router.get('/', async function(req, res, next) {
   const projects = await getProjects();
   const members = await getEquipe();
 
-  console.log('Projet : ', members);
+  // console.log('Projet : ', members);
 
   res.render('index', {
     projects: projects,
@@ -37,7 +37,7 @@ router.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../../custom/signin.html'));
 });
 
-router.get('/s/admin', isAuthenticated, authenticateToken, async (req, res) => {
+router.get('/s/admin', authenticateToken, async (req, res) => {
   const getProjects = async () => {
     return await projectController.getAllProjects();
   }
