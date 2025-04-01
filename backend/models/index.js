@@ -29,5 +29,5 @@ const sequelize = new Sequelize(
 // }
 
 // checkDataBaseConnection();
-
+//
 module.exports = sequelize;
