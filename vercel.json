@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "rootDirectory": "backend",
     "builds": [
         {
             "src": "api/app.js",
