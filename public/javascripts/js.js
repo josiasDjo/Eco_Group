@@ -44,22 +44,32 @@ if (userSignin) {
         let msg_result = document.getElementById('msg_result');
 
         if (email && email != "" && password && password != "" && msg_result) {
-            const response = await fetch("/users/", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email,password })
-            });
+            const loader = document.getElementById("loader");
+            loader.style.display = "block";
 
-            const data = await response.json();
-            if(data.success) {
-                msg_result.innerText = data.message;
-                msg_result.style.color = "green";
-                localStorage.setItem('token', data.token);
-                window.location.href = "/s/admin";
-            } else {
-                msg_result.innerText = data.message;
-                msg_result.style.color = "red";
+            try {
+                const response = await fetch("/users/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email,password })
+                });
+    
+                const data = await response.json();
+                if(data.success) {
+                    msg_result.innerText = data.message;
+                    msg_result.style.color = "green";
+                    localStorage.setItem('token', data.token);
+                    window.location.href = "/s/admin";
+                } else {
+                    msg_result.innerText = data.message;
+                    msg_result.style.color = "red";
+                }
+            } catch (err) {
+                console.log('Erreur : ', err);
+            } finally {
+                loader.style.display = "none";
             }
+
         } else {
             msg_result.innerText = "Tous les champs sont réquis";
             msg_result.style.color = "red";
@@ -81,6 +91,9 @@ if(addaProject) {
         if (title && title != "" && description && description != "" && image && image.files.length != 0) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
+
+            const loader = document.getElementById("loader");
+            loader.style.display = "block";
 
             try {
                 const response1 = await fetch("/upload/image", {
@@ -114,6 +127,8 @@ if(addaProject) {
             } catch(err) {
                 msg_result.innerText = "Une erreur s'est produite !! catch exc ";
                 msg_result.style.color = "red";
+            } finally {
+                loader.style.display = "none";
             }
         } else {
             msg_result.innerText = "Tous les champs sont réquis !! ";
@@ -136,6 +151,9 @@ if(addToTeam) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
+            const loader = document.getElementById("loader");
+            loader.style.display = "block";
+            
             try {
                 const response1 = await fetch("/upload/image", {
                     method: "POST", 
@@ -160,6 +178,8 @@ if(addToTeam) {
             } catch (err) {
                 msg_result.innerText = 'Une erreur est survenue';
                 msg_result.style.color = 'red';
+            } finally {
+                loader.style.display = "none";
             }
         }
     })

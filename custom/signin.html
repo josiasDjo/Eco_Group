@@ -26,6 +26,7 @@
     </head>
 <body class="">
     <main class="main_conn_page w-full max-h-screen dm_sans snap-align-none">
+<!-- HTML -->
         <div class="w-full h-full flex flex-col lg:flex-row relative">
             <button onclick="goBack();" class="cursor-pointer w-10 h-10 rounded-full bg-white absolute top-5 left-5 color_blue_foncé lg:text-white lg:bg-blue-900 "><i class="fa-solid fa-arrow-left"></i></button>
             <div class="container_form_sign w-full lg:w-2/4 h-4/6 lg:h-full bg-white p-10 items-center self-center justify-center flex flex-col rounded-tl-4xl rounded-tr-4xl absolute bottom-0 lg:relative">
@@ -48,6 +49,7 @@
                     <ul class="w-full text-center">
                         <p id="msg_result" class="text-md"></p>
                     </ul>
+                    <div id="loader" class="loader" style="display: none;"></div>
                     <button type="submit" class="conn_page_btn btn_bg_color w-full text-white rounded-xl my-5 p-2 border-2 border-solid border-yellow-500 border-opacity-30">Se connecter</button>
                 </form>
             </div>
