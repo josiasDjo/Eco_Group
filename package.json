@@ -6,6 +6,7 @@
     "node": "22.x"
   },
   "scripts": {
+    "postinstall": "npm install mysql2",
     "start": "node api/app.js"
   },
   "dependencies": {
