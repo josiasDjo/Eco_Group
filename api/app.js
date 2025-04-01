@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const sequelize = require('../backend/models/index');
+// const sequelize = require('../backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -13,9 +13,9 @@ const flash = require('connect-flash');
 // const jwt = require('jsonwebtoken');
 
 //Importer les modèles
-const Users = require('../backend/models/Users');
-const Equipe = require('../backend/models/equipe');
-const Projects = require('../backend/models/projects');
+// const Users = require('../backend/models/Users');
+// const Equipe = require('../backend/models/equipe');
+// const Projects = require('../backend/models/projects');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
@@ -83,21 +83,21 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-try {
-  if (require.main === module) {
-    const port = process.env.PORT || 3000;
-    sequelize.sync({ force: false })
-      .then(() => {
-        console.log('✅ Base de données synchronisée avec Sequelize !');
-        app.listen(port, () => {
-          console.log(`✅ App is listening on port ${port}`);
-        });
-      })
-      .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
-  }
+// try {
+//   if (require.main === module) {
+//     const port = process.env.PORT || 3000;
+//     sequelize.sync({ force: false })
+//       .then(() => {
+//         console.log('✅ Base de données synchronisée avec Sequelize !');
+//         app.listen(port, () => {
+//           console.log(`✅ App is listening on port ${port}`);
+//         });
+//       })
+//       .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+//   }
   
-} catch(err) {
-  console.log('Erreur serveur : ', err);
-}
+// } catch(err) {
+//   console.log('Erreur serveur : ', err);
+// }
 
 module.exports = app;

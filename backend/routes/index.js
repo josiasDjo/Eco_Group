@@ -4,8 +4,8 @@ const path = require('path');
 const multer = require('multer');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 const authenticateToken = require('../middlewares/authenticateToken');
-const projectController = require('../controllers/projectController');
-const EquipeController = require('../controllers/equipeController');
+// const projectController = require('../controllers/projectController');
+// const EquipeController = require('../controllers/equipeController');
 
 
 /* GET home page. */
@@ -21,13 +21,15 @@ router.get('/', async function(req, res, next) {
   // const projects = await getProjects();
   // const members = await getEquipe();
 
-  // console.log('Projet : ', members);
+  const projects = [];
+  const members = [];
 
-  // res.render('index', {
-  //   projects: projects,
-  //   members: members
-  // });
-  res.render('index');
+
+  res.render('index', {
+    projects: projects,
+    members: members
+  });
+  // res.render('index');
 });
 
 // Get connexion page
