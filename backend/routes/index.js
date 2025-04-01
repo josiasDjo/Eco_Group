@@ -37,7 +37,7 @@ router.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../../custom/signin.html'));
 });
 
-router.get('/s/admin', isAuthenticated, authenticateToken, async (req, res) => {
+router.get('/s/admin', isAuthenticated, async (req, res) => {
   const getProjects = async () => {
     return await projectController.getAllProjects();
   }
