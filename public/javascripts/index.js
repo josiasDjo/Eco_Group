@@ -95,8 +95,20 @@ if(modifyProject) {
             const modifyId = document.getElementById('modifyId');
             const modifynom = document.getElementById('modifynom');
             const modifydescription_service = document.getElementById('modifydescription_service');
-            const modifyimage_perso = document.getElementById('modifyimage_perso');
+            const modifyimage_perso = document.getElementById('imageDefault');
 
+            if(addProjectId && modals_addFields) {
+
+                modifyId.textContent = project_id;
+                modifynom.value = project_title;
+                modifydescription_service.value = project_description;
+                modifyimage_perso.value = project_image;
+
+                modals_addFields.classList.remove('hidden');
+                modals_addFields.classList.add('flex');
+                addProjectId.classList.remove('hidden');
+                addProjectId.classList.add('flex');
+            }
         })
     })
 }
