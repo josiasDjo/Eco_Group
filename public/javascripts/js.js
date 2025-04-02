@@ -321,12 +321,12 @@ if(addService) {
     addService.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const title = document.getElementById('prenom').value;	
-        const last_name = document.getElementById('nom').value;	
-        const image = document.getElementById('image_perso');
-        const msg_result = document.getElementById('msg_result_team');
+        const title = document.getElementById('nom_service').value;	
+        const description = document.getElementById('description_service').value;	
+        const image = document.getElementById('image_service');
+        const msg_result = document.getElementById('msg_result_service');
 
-        if(first_name && first_name != "" && last_name && last_name != "" && image.files.length != 0) {
+        if(title && title != "" && description && description != "" && image.files.length != 0) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
@@ -341,10 +341,10 @@ if(addService) {
                 const newName = await response1.json();
                 // console.log('Value : ', newName);
                 const image = newName.newname;
-                const response = await fetch("/equipe/add_member", {
+                const response = await fetch("/service/newService", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ first_name,last_name,image })
+                    body: JSON.stringify({ title,description,image })
                 });
 
                 const data = await response.json();
