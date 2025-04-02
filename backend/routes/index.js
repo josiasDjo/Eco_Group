@@ -6,7 +6,7 @@ const isAuthenticated = require('../middlewares/isAuthenticated');
 const authenticateToken = require('../middlewares/authenticateToken');
 const projectController = require('../controllers/projectController');
 const EquipeController = require('../controllers/equipeController');
-const ServiceController = reqiore('../controllers/servicesControllers');
+const ServiceController = require('../controllers/servicesControllers');
 
 
 /* GET home page. */
