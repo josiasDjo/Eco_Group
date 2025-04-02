@@ -136,7 +136,37 @@ if(addaProject) {
         }
     })
 }
-
+// Supprimer un projet 
+const AllDeleteProject = document.querySelectorAll('.deleteProject');
+if(AllDeleteProject) {
+    AllDeleteProject.forEach((deleteProject) => {
+        deleteProject.addEventListener('click', async (event) => {
+            event.preventDefault();
+            const parentUl = deleteProject.closest("ul");
+            const project_id = parentUl.querySelector(".project_id").textContent.trim();
+    
+            // alert('ID : ' + project_id);
+            if (confirm("Voulez-vous vraiment supprimer ce projet ?")) {
+                const response = await fetch("/project/delete-project", {
+                    method: "DELETE", 
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({project_id})
+                })
+    
+                const data = await response.json();
+                if(data.success) {
+                    console.log("Suppression confirmée pour l'ID :", project_id);
+                    alert(data.message);
+                    window.location.reload();
+                } else {
+                    alert(data.message);
+                }
+            } else {
+                console.log("Suppression annulée.");
+            }
+        })
+    })
+}
 const addToTeam = document.getElementById('addToTeam');
 if(addToTeam) {
     addToTeam.addEventListener('submit', async (event) => {

@@ -56,7 +56,7 @@ function goBack() {
 function openAddProject(param) {
     // alert('Add project');
 
-    const modals_addFields = document.getElementById('modals_addFields');
+    const modals_addFields = document.getElementById('modals_addProject');
     const addProjectId = document.getElementById('addProjectId');
 
     if (param === "close") {
