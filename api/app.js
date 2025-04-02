@@ -26,6 +26,8 @@ const equipeRouter = require('../backend/routes/equipeRoute');
 const projectsRouter = require('../backend/routes/projectRoute');
 
 const app = express();
+const port = process.env.PORT || 3000;
+
 
 // view engine setup
 app.set('views', [
@@ -95,21 +97,32 @@ app.use(function(err, req, res, next) {
 //   console.log('Processus terminé avec succès');
 // });
 
-try {
-  if (require.main === module) {
-    const port = process.env.PORT || 3000;
-    sequelize.sync({ force: false })
-      .then(() => {
-        console.log('✅ Base de données synchronisée avec Sequelize !');
-        app.listen(port, () => {
-          console.log(`✅ App is listening on port ${port}`);
-        });
-      })
-      .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
-  }
+// try {
+//   if (require.main === module) {
+//     const port = process.env.PORT || 3000;
+//     sequelize.sync({ force: false })
+//       .then(() => {
+//         console.log('✅ Base de données synchronisée avec Sequelize !');
+//         app.listen(port, () => {
+//           console.log(`✅ App is listening on port ${port}`);
+//         });
+//       })
+//       .catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+//   }
   
-} catch(err) {
-  console.log('Erreur serveur : ', err);
-}
+// } catch(err) {
+//   console.log('Erreur serveur : ', err);
+// }
+
+app.listen(port, () => {
+  console.log(`✅ App is listening on port ${port}`);
+});
+
+sequelize.sync({ force: false })
+  .then(() => {
+    console.log('✅ Base de données synchronisée avec Sequelize !');
+})
+.catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+
 
 module.exports = app;
