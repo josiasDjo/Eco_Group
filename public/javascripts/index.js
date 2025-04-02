@@ -92,10 +92,10 @@ if(modifyProject) {
             const project_description = parentUl.querySelector(".project_description").textContent.trim();
             const project_image = parentUl.querySelector(".project_image").textContent.trim();
 
+            const modifyId = document.getElementById('modifyId');
             const modifynom = document.getElementById('modifynom');
-            const modifynom = document.getElementById('modifynom');
-            const modifynom = document.getElementById('modifynom');
-            const modifynom = document.getElementById('modifynom');
+            const modifydescription_service = document.getElementById('modifydescription_service');
+            const modifyimage_perso = document.getElementById('modifyimage_perso');
 
         })
     })
