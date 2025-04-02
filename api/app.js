@@ -15,9 +15,9 @@ const { exec } = require('child_process');
 // const jwt = require('jsonwebtoken');
 
 //Importer les modèles
-// const Users = require('../backend/models/Users');
-// const Equipe = require('../backend/models/equipe');
-// const Projects = require('../backend/models/projects');
+const Users = require('../backend/models/Users');
+const Equipe = require('../backend/models/equipe');
+const Projects = require('../backend/models/projects');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');

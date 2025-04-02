@@ -8,6 +8,7 @@ const sequelize = new Sequelize(
     {
         host: process.env.DB_HOST,
         dialect: 'mariadb',
+        port: process.env.DB_PORT,
         logging: false,
         pool: {
             max: 20,
@@ -15,6 +16,9 @@ const sequelize = new Sequelize(
             acquire: 30000,
             idle: 10000
         },
+        dialectOptions: {
+            connectTimeout: 30000
+        }
     }
 );
 
