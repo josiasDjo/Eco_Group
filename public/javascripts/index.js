@@ -83,8 +83,19 @@ if(modifyProject) {
         modify.addEventListener('click', (event) => {
             event.preventDefault();
 
+            const modals_addFields = document.getElementById('modals_addProject');
+            const addProjectId = document.getElementById('ModifyServiceIDservice');
+
             const parentUl = deleteProject.closest("ul");
             const project_id = parentUl.querySelector(".project_id").textContent.trim();
+            const project_title = parentUl.querySelector(".project_title").textContent.trim();
+            const project_description = parentUl.querySelector(".project_description").textContent.trim();
+            const project_image = parentUl.querySelector(".project_image").textContent.trim();
+
+            const modifynom = document.getElementById('modifynom');
+            const modifynom = document.getElementById('modifynom');
+            const modifynom = document.getElementById('modifynom');
+            const modifynom = document.getElementById('modifynom');
 
         })
     })
