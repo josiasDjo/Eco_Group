@@ -23,8 +23,23 @@ exports.getService = async (req, res) => {
 
 exports.updateService = async (req, res) => {
     try {
-        
+        const { service_id,title, description, image } = req.body;
+        const serviceExist = await Service.findByPk(service_id);
+        if(!serviceExist) return res.json({ success: false, message: 'Service introuvable'});
+        await Service.update({title, description, image}, {where: {service_id}});
+        return res.json({ success: true, message: 'Modification réussie'});
     } catch (err) {
+        console.log('Une erreur s\'est produite');
+        return res.json({ success: false, message: 'Une erreur s\est produite'});
+    }
+}
+
+exports.deleteService = async (req, res) => {
+    try {
+        const service_id = req.body.service_id;
+        const serviceExist = await Service.findByPk(service_id);
+        if(!serviceExist) return res.json({ success: false, message: 'Service introuvable'});
+    } catch(err) {
         console.log('Une erreur s\'est produite');
         return res.json({ success: false, message: 'Une erreur s\est produite'});
     }
