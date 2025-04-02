@@ -105,6 +105,8 @@ function openAddService(param) {
     const addService = document.getElementById('addService');
 
     if(param === 'close') {
+        alert('Modal add service close');
+
         if(modals_addFields && addService) {
             modals_addFields.classList.add('hidden');
             modals_addFields.classList.remove('flex');
@@ -114,6 +116,8 @@ function openAddService(param) {
             console.log('modals_addFields && addService ', modals_addFields, addService)
         }
     } else if (param === 'open') {
+        alert('Modal add service open');
+
         if(modals_addFields && addService) {
             modals_addFields.classList.remove('hidden');
             modals_addFields.classList.add('flex');
