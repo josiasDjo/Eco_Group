@@ -327,7 +327,7 @@ if(addService) {
         const image = document.getElementById('image_service');
         const msg_result = document.getElementById('msg_result_service');
 
-        if(title && title != "" && description  && image.files.length != 0) {
+        if(title && title != "" && image.files.length != 0) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
