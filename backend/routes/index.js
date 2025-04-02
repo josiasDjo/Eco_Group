@@ -4,8 +4,8 @@ const path = require('path');
 const multer = require('multer');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 const authenticateToken = require('../middlewares/authenticateToken');
-// const projectController = require('../controllers/projectController');
-// const EquipeController = require('../controllers/equipeController');
+const projectController = require('../controllers/projectController');
+const EquipeController = require('../controllers/equipeController');
 
 
 /* GET home page. */

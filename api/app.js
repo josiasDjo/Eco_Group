@@ -86,14 +86,14 @@ app.use(function(err, req, res, next) {
 });
 
 
-exec('taskkill /pid 563404 /T /F', (err, stdout, stderr) => {
-  if (err) {
-    // Gérer l'erreur ici (par exemple, vérifier si c'est une erreur "process not found" et l'ignorer)
-    console.error('Erreur lors de la terminaison du processus:', err.message);
-    return;
-  }
-  console.log('Processus terminé avec succès');
-});
+// exec('taskkill /pid 563404 /T /F', (err, stdout, stderr) => {
+//   if (err) {
+//     // Gérer l'erreur ici (par exemple, vérifier si c'est une erreur "process not found" et l'ignorer)
+//     console.error('Erreur lors de la terminaison du processus:', err.message);
+//     return;
+//   }
+//   console.log('Processus terminé avec succès');
+// });
 
 try {
   if (require.main === module) {
