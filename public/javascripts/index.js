@@ -98,3 +98,25 @@ function openAddToTeam(param) {
         }
     }
 }
+
+function openAddService(param) {
+    // alert('Modal add person');
+    const modals_addFields = document.getElementById('modals_addMember');
+    const addService = document.getElementById('addService');
+
+    if(param === 'close') {
+        if(modals_addFields && addTeamId) {
+            modals_addFields.classList.add('hidden');
+            modals_addFields.classList.remove('flex');
+            addService.classList.add('hidden');
+            addService.classList.remove('flex');
+        }
+    } else {
+        if(modals_addFields && addTeamId) {
+            modals_addFields.classList.remove('hidden');
+            modals_addFields.classList.add('flex');
+            addService.classList.remove('hidden');
+            addService.classList.add('flex');
+        }
+    }
+}
