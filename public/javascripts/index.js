@@ -112,6 +112,16 @@ if(modifyProject) {
         })
     })
 }
+function closeModifyProjects() {
+    const modals_addFields = document.getElementById('modals_addProject');
+    const addProjectId = document.getElementById('addProjectId');
+    if (addProjectId && modals_addFields) {
+        modals_addFields.classList.add('hidden');
+        modals_addFields.classList.remove('flex');
+        addProjectId.classList.add('hidden');
+        addProjectId.classList.remove.remove('flex'); 
+    }
+}
 function openAddToTeam(param) {
     // alert('Modal add person');
     const modals_addFields = document.getElementById('modals_addMember');
