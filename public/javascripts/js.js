@@ -321,12 +321,13 @@ if(addService) {
     addService.addEventListener('submit', async (event) => {
         event.preventDefault();
 
+        alert('Submit add service')
         const title = document.getElementById('nom_service').value;	
         const description = document.getElementById('description_service').value;	
         const image = document.getElementById('image_service');
         const msg_result = document.getElementById('msg_result_service');
 
-        if(title && title != "" && description && description != "" && image.files.length != 0) {
+        if(title && title != "" && description  && image.files.length != 0) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
