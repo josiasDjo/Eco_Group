@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-// const sequelize = require('../backend/models/index');
+const sequelize = require('../backend/models/index');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -10,20 +10,24 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
+const { exec } = require('child_process');
+
 // const jwt = require('jsonwebtoken');
 
 //Importer les modèles
-// const Users = require('../backend/models/Users');
-// const Equipe = require('../backend/models/equipe');
-// const Projects = require('../backend/models/projects');
+const Users = require('../backend/models/Users');
+const Equipe = require('../backend/models/equipe');
+const Projects = require('../backend/models/projects');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
-// const usersRouter = require('../backend/routes/usersRoute');
-// const equipeRouter = require('../backend/routes/equipeRoute');
-// const projectsRouter = require('../backend/routes/projectRoute');
+const usersRouter = require('../backend/routes/usersRoute');
+const equipeRouter = require('../backend/routes/equipeRoute');
+const projectsRouter = require('../backend/routes/projectRoute');
 
 const app = express();
+const port = process.env.PORT || 3000;
+
 
 // view engine setup
 app.set('views', [
@@ -68,9 +72,9 @@ app.use((req, res, next) => {
 
 
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-// app.use('/equipe', equipeRouter);
-// app.use('/project',projectsRouter);
+app.use('/users', usersRouter);
+app.use('/equipe', equipeRouter);
+app.use('/project',projectsRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -82,6 +86,16 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+// exec('taskkill /pid 563404 /T /F', (err, stdout, stderr) => {
+//   if (err) {
+//     // Gérer l'erreur ici (par exemple, vérifier si c'est une erreur "process not found" et l'ignorer)
+//     console.error('Erreur lors de la terminaison du processus:', err.message);
+//     return;
+//   }
+//   console.log('Processus terminé avec succès');
+// });
 
 // try {
 //   if (require.main === module) {
@@ -99,5 +113,16 @@ app.use(function(err, req, res, next) {
 // } catch(err) {
 //   console.log('Erreur serveur : ', err);
 // }
+
+app.listen(port, () => {
+  console.log(`✅ App is listening on port ${port}`);
+});
+
+sequelize.sync({ force: false })
+  .then(() => {
+    console.log('✅ Base de données synchronisée avec Sequelize !');
+})
+.catch(err => console.error('❌ Erreur de synchronisation de la BDD :', err));
+
 
 module.exports = app;
