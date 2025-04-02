@@ -83,6 +83,8 @@ if(modifyProject) {
         modify.addEventListener('click', (event) => {
             event.preventDefault();
 
+            const parentUl = deleteProject.closest("ul");
+            const project_id = parentUl.querySelector(".project_id").textContent.trim();
 
         })
     })
