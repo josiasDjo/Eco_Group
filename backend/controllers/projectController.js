@@ -26,7 +26,7 @@ exports.getAllProjects = async (req, res) => {
 exports.updateProjects = async (req, res) => {
     try {
         const { project_id,title,description,image } = req.body;
-        const projectExist = await Project.findByPk({project_id});
+        const projectExist = await Project.findByPk(project_id);
         if (!projectExist) return res.json({ success: false, message: 'Projet introuvable'});
         await Project.update({ title,description,image }, {where: {project_id}});
         return res.jon({ success: true, message: 'Modification réussie'});
