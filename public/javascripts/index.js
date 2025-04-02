@@ -100,23 +100,29 @@ function openAddToTeam(param) {
 }
 
 function openAddService(param) {
-    // alert('Modal add person');
+    alert('Modal add service');
     const modals_addFields = document.getElementById('modals_addMember');
     const addService = document.getElementById('addService');
 
     if(param === 'close') {
-        if(modals_addFields && addTeamId) {
+        if(modals_addFields && addService) {
             modals_addFields.classList.add('hidden');
             modals_addFields.classList.remove('flex');
             addService.classList.add('hidden');
             addService.classList.remove('flex');
+        } else {
+            console.log('modals_addFields && addService ', modals_addFields, addService)
         }
-    } else {
-        if(modals_addFields && addTeamId) {
+    } else if (param === 'open') {
+        if(modals_addFields && addService) {
             modals_addFields.classList.remove('hidden');
             modals_addFields.classList.add('flex');
             addService.classList.remove('hidden');
             addService.classList.add('flex');
+        } else {
+            console.log('modals_addFields && addService ', modals_addFields, addService)
         }
+    } else {
+        console.log('Valeur inattendu');
     }
 }
