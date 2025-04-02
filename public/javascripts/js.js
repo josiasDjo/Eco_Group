@@ -198,40 +198,23 @@ if(ModifyService) {
                 msg_result.style.color = "red";
             }
         } else {
-            if (title && title != "" && description && description != "") {
-                const formData = new FormData();
-                formData.append('image', image.files[0]);
-    
+            if (title && title != "" && description && description != "") {    
                 const loader = document.getElementById("loader");
                 loader.style.display = "block";
     
                 try {
-                    const response1 = await fetch("/upload/image", {
+                    const response = await fetch("/project/addProject", {
                         method: "POST", 
-                        body: formData
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ title,description,image })
                     });
-                    const newName = await response1.json();
-                    console.log('Value : ', newName);
-                    if(newName.success) {
-                        const image = newName.newname;
-                        console.log('New name : ', image);
-    
-                        const response = await fetch("/project/addProject", {
-                            method: "POST", 
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({ title,description,image })
-                        });
-                        const data = await response.json();
-                        if (data.success) {
-                            msg_result.innerText = data.message;
-                            msg_result.style.color = "green";
-                            window.location.reload();
-                        } else {
-                            msg_result.innerText = data.message;
-                            msg_result.style.color = "red";
-                        }
+                    const data = await response.json();
+                    if (data.success) {
+                        msg_result.innerText = data.message;
+                        msg_result.style.color = "green";
+                        window.location.reload();
                     } else {
-                        msg_result.innerText = "Une erreur s'est produite !! upload image ";
+                        msg_result.innerText = data.message;
                         msg_result.style.color = "red";
                     }
                 } catch(err) {
