@@ -100,29 +100,24 @@ function openAddToTeam(param) {
 }
 
 function openAddService(param) {
-    alert('Modal add service');
-    const modals_addFields = document.getElementById('modals_addMember');
-    const addService = document.getElementById('addService');
+    const modals_addFields = document.getElementById('modals_addService');
+    const addService = document.getElementById('addServiceIDservice');
 
     if(param === 'close') {
-        alert('Modal add service close');
-
         if(modals_addFields && addService) {
             modals_addFields.classList.add('hidden');
             modals_addFields.classList.remove('flex');
             addService.classList.add('hidden');
             addService.classList.remove('flex');
         } else {
-            console.log('modals_addFields && addService ', modals_addFields, addService)
+            console.log('modals_addFields && addService ', modals_addFields, addService);
         }
     } else if (param === 'open') {
-        alert('Modal add service open');
-
         if(modals_addFields && addService) {
-            modals_addFields.classList.remove('hidden');
-            modals_addFields.classList.add('flex');
             addService.classList.remove('hidden');
             addService.classList.add('flex');
+            modals_addFields.classList.remove('hidden');
+            modals_addFields.classList.add('flex');
         } else {
             console.log('modals_addFields && addService ', modals_addFields, addService)
         }
