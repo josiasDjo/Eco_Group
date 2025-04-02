@@ -147,7 +147,7 @@ if(ModifyService) {
         const title = document.getElementById('modifynom').value;
         const description = document.getElementById('modifydescription_service').value;
         const image = document.getElementById('modifyimage_perso');
-        const imageD = document.getElementById('imageDefault');
+        const imageD = document.getElementById('imageDefault').textContent;
         const msg_result = document.getElementById('msg_result');
 
         if (image && image.files.length != 0) {
@@ -201,10 +201,11 @@ if(ModifyService) {
             if (title && title != "" && description && description != "") {    
                 const loader = document.getElementById("loader");
                 loader.style.display = "block";
-    
+                
+                const image = imageD;
                 try {
                     const response = await fetch("/project/addProject", {
-                        method: "POST", 
+                        method: "PUT", 
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ title,description,image })
                     });
