@@ -142,7 +142,7 @@ const ModifyService = document.getElementById('ModifyService');
 if(ModifyService) {
     ModifyService.addEventListener('submit', async (event) => {
         event.preventDefault();
-        // alert('Submit');
+        alert('Submit');
 
         const title = document.getElementById('modifynom').value;
         const description = document.getElementById('modifydescription_service').value;
