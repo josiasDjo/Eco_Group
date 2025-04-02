@@ -77,7 +77,7 @@ function openAddProject(param) {
 
 }
 // open modal modify project
-const modifyProject = document.querySelectorAll('#modifyProject');
+const modifyProject = document.querySelectorAll('.modifyProject');
 if(modifyProject) {
     modifyProject.forEach((modify) => {
         modify.addEventListener('click', (event) => {
