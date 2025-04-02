@@ -6,6 +6,7 @@ const isAuthenticated = require('../middlewares/isAuthenticated');
 const authenticateToken = require('../middlewares/authenticateToken');
 const projectController = require('../controllers/projectController');
 const EquipeController = require('../controllers/equipeController');
+const ServiceController = reqiore('../controllers/servicesControllers');
 
 
 /* GET home page. */
@@ -18,8 +19,12 @@ router.get('/', async function(req, res, next) {
     return await EquipeController.getAllMember();
   }
 
+  const getService = async() => {
+    return await ServiceController.getService();
+  }
   const projects = await getProjects();
   const members = await getEquipe();
+  const services = await getService();
 
   // const projects = [];
   // const members = [];
@@ -27,7 +32,8 @@ router.get('/', async function(req, res, next) {
 
   res.render('index', {
     projects: projects,
-    members: members
+    members: members,
+    services: services
   });
   // res.render('index');
 });
@@ -48,16 +54,22 @@ router.get('/s/admin', authenticateToken, async (req, res) => {
     return await EquipeController.getAllMember();
   }
 
+  const getService = async() => {
+    return await ServiceController.getService();
+  }
+
   const ad = 'adminConfig';
   const projects = await getProjects();
   const members = await getEquipe();
+  const services = await getService();
 
   // console.log('Projet : ', projects);
 
   res.render('indexAdmin', {
     admin: ad,
     projects: projects,
-    members: members
+    members: members,
+    services: services
   });
   // res.render('indexAdmin');
 }); 
