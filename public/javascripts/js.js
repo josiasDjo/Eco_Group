@@ -319,7 +319,7 @@ if(addToTeam) {
 const addService = document.getElementById('addService');
 if(addService) {
     addService.addEventListener('submit', async (event) => {
-        event.preventDefault();
+        // event.preventDefault();
 
         alert('Submit add service')
         const title = document.getElementById('nom_service').value;	

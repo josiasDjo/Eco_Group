@@ -21,7 +21,7 @@
         <div class="w-full flex flex-col md:flex-row py-10 items-center justify-center">
             <% if (services.length > 0) { %>
                 <% services.forEach((ser) => { %>
-                    <div class="w-full md:w-56 lg:w-64 min-h-56 shadow-lg my-3 m-2 mb-10">
+                    <div class="w-full md:w-56 lg:w-64 min-h-56 shadow-lg my-3 m-2 mb-10 relative">
                         <% if(admin) { %>
                             <ul class="containerSubAction h-12 w-8 backdrop-blur bg-transparent text-center justify-center items-center absolute top-0 right-0">
                                 <li id="" class="modifyProject text-black cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></li>
