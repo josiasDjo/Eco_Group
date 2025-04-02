@@ -169,8 +169,8 @@ if(ModifyService) {
                         const image = newName.newname;
                         console.log('New name : ', image);
     
-                        const response = await fetch("/project/addProject", {
-                            method: "POST", 
+                        const response = await fetch("/project/update-project", {
+                            method: "PUT", 
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({ title,description,image })
                         });
@@ -204,7 +204,7 @@ if(ModifyService) {
                 
                 const image = imageD;
                 try {
-                    const response = await fetch("/project/addProject", {
+                    const response = await fetch("/project/update-project", {
                         method: "PUT", 
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ title,description,image })
