@@ -136,6 +136,68 @@ if(addaProject) {
         }
     })
 }
+
+// Modifier un projet
+const ModifyService = document.getElementById('ModifyService');
+if(ModifyService) {
+    ModifyService.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        // alert('Submit');
+
+        const title = document.getElementById('title_project').value;
+        const description = document.getElementById('description_project').value;
+        const image = document.getElementById('image');
+        const msg_result = document.getElementById('msg_result');
+
+        if (title && title != "" && description && description != "" && image && image.files.length != 0) {
+            const formData = new FormData();
+            formData.append('image', image.files[0]);
+
+            const loader = document.getElementById("loader");
+            loader.style.display = "block";
+
+            try {
+                const response1 = await fetch("/upload/image", {
+                    method: "POST", 
+                    body: formData
+                });
+                const newName = await response1.json();
+                console.log('Value : ', newName);
+                if(newName.success) {
+                    const image = newName.newname;
+                    console.log('New name : ', image);
+
+                    const response = await fetch("/project/addProject", {
+                        method: "POST", 
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ title,description,image })
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        msg_result.innerText = data.message;
+                        msg_result.style.color = "green";
+                        window.location.reload();
+                    } else {
+                        msg_result.innerText = data.message;
+                        msg_result.style.color = "red";
+                    }
+                } else {
+                    msg_result.innerText = "Une erreur s'est produite !! upload image ";
+                    msg_result.style.color = "red";
+                }
+            } catch(err) {
+                msg_result.innerText = "Une erreur s'est produite !! catch exc ";
+                msg_result.style.color = "red";
+            } finally {
+                loader.style.display = "none";
+            }
+        } else {
+            msg_result.innerText = "Tous les champs sont réquis !! ";
+            msg_result.style.color = "red";
+        }
+    })
+}
+
 // Supprimer un projet 
 const AllDeleteProject = document.querySelectorAll('.deleteProject');
 if(AllDeleteProject) {

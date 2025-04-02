@@ -86,7 +86,7 @@ if(modifyProject) {
             const modals_addFields = document.getElementById('modals_addProject');
             const addProjectId = document.getElementById('ModifyServiceIDservice');
 
-            const parentUl = deleteProject.closest("ul");
+            const parentUl = modify.closest("ul");
             const project_id = parentUl.querySelector(".project_id").textContent.trim();
             const project_title = parentUl.querySelector(".project_title").textContent.trim();
             const project_description = parentUl.querySelector(".project_description").textContent.trim();
@@ -102,7 +102,7 @@ if(modifyProject) {
                 modifyId.textContent = project_id;
                 modifynom.value = project_title;
                 modifydescription_service.value = project_description;
-                modifyimage_perso.value = project_image;
+                modifyimage_perso.textContent = project_image;
 
                 modals_addFields.classList.remove('hidden');
                 modals_addFields.classList.add('flex');
