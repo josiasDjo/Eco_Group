@@ -150,7 +150,12 @@ if(ModifyService) {
         const imageD = document.getElementById('imageDefault');
         const msg_result = document.getElementById('msg_result');
 
-        if (title && title != "" && description && description != "" && image && image.files.length != 0) {
+        if (image && image.files.length != 0) {
+
+        } else {
+            
+        }
+        if (title && title != "" && description && description != "") {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
