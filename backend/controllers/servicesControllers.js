@@ -1,4 +1,4 @@
-const Service = require('../models/objectifs');
+const Service = require('../models/services');
 
 exports.addService = async (req, res) => {
     try {
