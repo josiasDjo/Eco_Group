@@ -144,9 +144,10 @@ if(ModifyService) {
         event.preventDefault();
         // alert('Submit');
 
-        const title = document.getElementById('title_project').value;
-        const description = document.getElementById('description_project').value;
-        const image = document.getElementById('image');
+        const title = document.getElementById('modifynom').value;
+        const description = document.getElementById('modifydescription_service').value;
+        const image = document.getElementById('modifyimage_perso');
+        const imageD = document.getElementById('imageDefault');
         const msg_result = document.getElementById('msg_result');
 
         if (title && title != "" && description && description != "" && image && image.files.length != 0) {
