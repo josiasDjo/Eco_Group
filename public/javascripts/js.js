@@ -188,3 +188,55 @@ if(addToTeam) {
         }
     })
 }
+
+const addService = document.getElementById('addService');
+if(addService) {
+    addService.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const title = document.getElementById('prenom').value;	
+        const last_name = document.getElementById('nom').value;	
+        const image = document.getElementById('image_perso');
+        const msg_result = document.getElementById('msg_result_team');
+
+        if(first_name && first_name != "" && last_name && last_name != "" && image.files.length != 0) {
+            const formData = new FormData();
+            formData.append('image', image.files[0]);
+
+            const loader = document.getElementById("loader");
+            loader.style.display = "block";
+            
+            try {
+                const response1 = await fetch("/upload/image", {
+                    method: "POST", 
+                    body: formData
+                });
+                const newName = await response1.json();
+                // console.log('Value : ', newName);
+                const image = newName.newname;
+                const response = await fetch("/equipe/add_member", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ first_name,last_name,image })
+                });
+
+                const data = await response.json();
+
+                if(data.success) {
+                    msg_result.innerText = data.message;
+                    msg_result.style.color = 'green';
+                    window.location.reload();
+                } else {
+                    msg_result.innerText = data.message;
+                    msg_result.style.color = 'red';
+                }
+            } catch (err) {
+                msg_result.innerText = 'Une erreur est survenue';
+                msg_result.style.color = 'red';
+                console.log('Erreur : ', err);
+            } finally {
+                loader.style.display = "none";
+            }
+        }
+    })
+}
