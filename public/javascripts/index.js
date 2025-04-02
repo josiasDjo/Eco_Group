@@ -76,6 +76,7 @@ function openAddProject(param) {
     }
 
 }
+// open modal modify project
 
 function openAddToTeam(param) {
     // alert('Modal add person');
