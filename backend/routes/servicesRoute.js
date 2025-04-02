@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const servicesControllers = require('../controllers/servicesControllers');
 
-router.post('', servicesControllers);
-router.get('/', servicesControllers);
-router.put('/modify-service', servicesControllers);
-router.delete('/delete-service', servicesControllers);
+router.post('', servicesControllers.addService);
+router.get('/', servicesControllers.getService);
+router.put('/modify-service', servicesControllers.updateService);
+router.delete('/delete-service', servicesControllers.deleteService);
 
 module.exports = router;
