@@ -168,16 +168,20 @@ if(addToTeam) {
                     body: JSON.stringify({ first_name,last_name,image })
                 });
 
-                const data = await response.jon();
+                const data = await response.json();
 
                 if(data.success) {
                     msg_result.innerText = data.message;
                     msg_result.style.color = 'green';
                     window.location.reload();
+                } else {
+                    msg_result.innerText = data.message;
+                    msg_result.style.color = 'red';
                 }
             } catch (err) {
                 msg_result.innerText = 'Une erreur est survenue';
                 msg_result.style.color = 'red';
+                console.log('Erreur : ', err);
             } finally {
                 loader.style.display = "none";
             }
