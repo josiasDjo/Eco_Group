@@ -39,6 +39,8 @@ exports.deleteService = async (req, res) => {
         const service_id = req.body.service_id;
         const serviceExist = await Service.findByPk(service_id);
         if(!serviceExist) return res.json({ success: false, message: 'Service introuvable'});
+        await Service.destroy({where: {service_id}});
+        return res.json({ success: true, message: 'Service supprimé'});
     } catch(err) {
         console.log('Une erreur s\'est produite');
         return res.json({ success: false, message: 'Une erreur s\est produite'});
