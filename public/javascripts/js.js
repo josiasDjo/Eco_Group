@@ -144,11 +144,12 @@ if(ModifyService) {
         event.preventDefault();
         alert('Submit');
 
+        const project_id = document.getElementById('modifyId').textContent.split();
         const title = document.getElementById('modifynom').value;
         const description = document.getElementById('modifydescription_service').value;
         const image = document.getElementById('modifyimage_perso');
         const imageD = document.getElementById('imageDefault').textContent;
-        const msg_result = document.getElementById('msg_result');
+        const msg_result = document.getElementById('msg_result_project_modify');
 
         if (image && image.files.length != 0) {
             if (title && title != "" && description && description != "") {
@@ -172,7 +173,7 @@ if(ModifyService) {
                         const response = await fetch("/project/update-project", {
                             method: "PUT", 
                             headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({ title,description,image })
+                            body: JSON.stringify({ project_id,title,description,image })
                         });
                         const data = await response.json();
                         if (data.success) {
@@ -207,7 +208,7 @@ if(ModifyService) {
                     const response = await fetch("/project/update-project", {
                         method: "PUT", 
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ title,description,image })
+                        body: JSON.stringify({ project_id,title,description,image })
                     });
                     const data = await response.json();
                     if (data.success) {
