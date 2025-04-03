@@ -40,10 +40,15 @@ router.get('/', async function(req, res, next) {
 
 // Get connexion page
 router.get('/login', (req, res) => {
-  console.log('Page de connexion');
+  // console.log('Page de connexion');
   // res.render('sign');
   res.sendFile(path.join(__dirname, '../../custom/signin.html'));
 });
+
+// Signout router
+router.get('/signout', req, res) => {
+  
+}
 
 router.get('/s/admin', authenticateToken, async (req, res) => {
   const getProjects = async () => {
