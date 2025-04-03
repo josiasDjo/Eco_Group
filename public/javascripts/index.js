@@ -179,7 +179,7 @@ if(modifyService) {
             event.preventDefault();
             alert('Click')
             const modals_addFields = document.getElementById('modals_addProject');
-            const ModifyService = document.getElementById('ModifyService');
+            const ModifyServiceShow = document.getElementById('ModifyServiceShow');
 
             const parentUl = modify.closest("ul");
             const service_id = parentUl.querySelector(".service_id").textContent.trim();
@@ -192,7 +192,7 @@ if(modifyService) {
             const modifydescription_service = document.getElementById('modifydescription_service');
             const modifyimage_perso = document.getElementById('modifyimage_service');
 
-            if(ModifyService && modals_addFields) {
+            if(ModifyServiceShow && modals_addFields) {
 
                 modifyId.textContent = service_id;
                 modifynom.value = service_title;
@@ -201,8 +201,8 @@ if(modifyService) {
 
                 modals_addFields.classList.remove('hidden');
                 modals_addFields.classList.add('flex');
-                ModifyService.classList.remove('hidden');
-                ModifyService.classList.add('flex');
+                ModifyServiceShow.classList.remove('hidden');
+                ModifyServiceShow.classList.add('flex');
             }
         })
     })
