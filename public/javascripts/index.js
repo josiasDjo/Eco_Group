@@ -145,6 +145,44 @@ function openAddToTeam(param) {
     }
 }
 
+// open modal modify team
+const modifyteam = document.querySelectorAll('.modifyService');
+if(modifyService) {
+    modifyService.forEach((modify) => {
+        modify.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const modals_addFields = document.getElementById('modals_addService');
+            const ModifyServiceShow = document.getElementById('ModifyServiceShow');
+
+            const parentUl = modify.closest("ul");
+            const service_id = parentUl.querySelector(".service_id").textContent.trim();
+            const service_title = parentUl.querySelector(".service_title").textContent.trim();
+            const service_description = parentUl.querySelector(".service_description").textContent.trim();
+            const service_image = parentUl.querySelector(".service_image").textContent.trim();
+
+            const modifyId = document.getElementById('modifyId_service');
+            const modifynom = document.getElementById('modifynom_service');
+            const modifydescription_service = document.getElementById('modifydescription_service');
+            const modifyimage_perso = document.getElementById('imageDefaultService');
+
+            if(ModifyServiceShow && modals_addFields) {
+
+                modifyId.textContent = service_id;
+                modifynom.value = service_title;
+                modifydescription_service.value = service_description;
+                modifyimage_perso.textContent = service_image;
+
+                modals_addFields.classList.remove('hidden');
+                modals_addFields.classList.add('flex');
+                ModifyServiceShow.classList.remove('hidden');
+                ModifyServiceShow.classList.add('flex');
+            }
+        })
+    })
+}
+
+// ajouter un service
 function openAddService(param) {
     const modals_addFields = document.getElementById('modals_addService');
     const addService = document.getElementById('addServiceIDservice');
