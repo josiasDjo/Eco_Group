@@ -29,9 +29,19 @@
         <div class="w-full h-96 my-10 flex flex-wrap items-center justify-center overflow-y-scroll">
             <% members.forEach((mbr) => { %>
 
-                <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg">
+                <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg relative">
+                    <% if(admin) { %>
+                        <ul class="containerSubAction h-12 w-8 backdrop-blur bg-transparent text-center justify-center items-center absolute top-0 right-0 z-40">
+                            <li id="" class="modifyTeam text-black cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></li>
+                            <li id="" class="deleteTeam text-red-500 cursor-pointer"><i class="fa-solid fa-trash"></i></li>
+                            <li id="" class="Team_id hidden"><%= mbr.equipe_id %></li>
+                            <li id="" class="Team_last_name hidden"><%= mbr.last_name %></li>
+                            <li id="" class="Team_first_name hidden"><%= mbr.first_name %></li>
+                            <li id="" class="Team_image hidden"><%= mbr.image %></li>
+                        </ul>
+                    <% } %>
                     <div>
-                        <img src="/images/<%=mbr.image%>" class="w-auto h-full" alt="<%= mbr.first_name %>">
+                        <img src="/images/<%=mbr.image%>" loading="lazy" class="w-auto h-full" alt="<%= mbr.first_name %>">
                     </div>
                     <div class="items-center justify-center flex text-center">
                         <h5 class="font-bold text-center"><span><%= mbr.last_name %></span> <%= mbr.first_name %></h5>

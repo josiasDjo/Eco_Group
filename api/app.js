@@ -18,12 +18,14 @@ const { exec } = require('child_process');
 const Users = require('../backend/models/Users');
 const Equipe = require('../backend/models/equipe');
 const Projects = require('../backend/models/projects');
+const Services = require('../backend/models/services');
 
 //Importer les routes
 const indexRouter = require('../backend/routes/index');
 const usersRouter = require('../backend/routes/usersRoute');
 const equipeRouter = require('../backend/routes/equipeRoute');
 const projectsRouter = require('../backend/routes/projectRoute');
+const serviceRouter = require('../backend/routes/servicesRoute');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -75,6 +77,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/equipe', equipeRouter);
 app.use('/project',projectsRouter);
+app.use('/service', serviceRouter);
 
 // error handler
 app.use(function(err, req, res, next) {

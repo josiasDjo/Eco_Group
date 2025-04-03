@@ -2,10 +2,13 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
+const fs = require('fs').promises;
+// const path = require('path');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 const authenticateToken = require('../middlewares/authenticateToken');
 const projectController = require('../controllers/projectController');
 const EquipeController = require('../controllers/equipeController');
+const ServiceController = require('../controllers/servicesControllers');
 
 
 /* GET home page. */
@@ -18,8 +21,12 @@ router.get('/', async function(req, res, next) {
     return await EquipeController.getAllMember();
   }
 
+  const getService = async() => {
+    return await ServiceController.getService();
+  }
   const projects = await getProjects();
   const members = await getEquipe();
+  const services = await getService();
 
   // const projects = [];
   // const members = [];
@@ -27,16 +34,29 @@ router.get('/', async function(req, res, next) {
 
   res.render('index', {
     projects: projects,
-    members: members
+    members: members,
+    services: services
   });
   // res.render('index');
 });
 
 // Get connexion page
 router.get('/login', (req, res) => {
-  console.log('Page de connexion');
+  // console.log('Page de connexion');
   // res.render('sign');
   res.sendFile(path.join(__dirname, '../../custom/signin.html'));
+});
+
+// Signout router
+router.get('/signout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.clearCookie('connect.sid');
+    res.redirect('/');
+  });
 });
 
 router.get('/s/admin', authenticateToken, async (req, res) => {
@@ -48,16 +68,22 @@ router.get('/s/admin', authenticateToken, async (req, res) => {
     return await EquipeController.getAllMember();
   }
 
+  const getService = async() => {
+    return await ServiceController.getService();
+  }
+
   const ad = 'adminConfig';
   const projects = await getProjects();
   const members = await getEquipe();
+  const services = await getService();
 
   // console.log('Projet : ', projects);
 
   res.render('indexAdmin', {
     admin: ad,
     projects: projects,
-    members: members
+    members: members,
+    services: services
   });
   // res.render('indexAdmin');
 }); 
@@ -83,5 +109,20 @@ router.post('/upload/image', upload.single('image'), (req, res) => {
   return res.json({ success: true, newname: newname});
 });
 
+
+router.post('/s/delete/image/onServer', (req, res) => {
+  const fileName = req.body.fileName;
+  console.log('Nom : ', fileName);
+  const filePath = path.join(__dirname, `../../public/images/${fileName}`);
+
+  fs.unlink(filePath)
+    .then(() => {
+      return res.json({ success: true, message: 'Fichier supprimé avec succès' });
+    })
+    .catch(err => {
+      console.error('Erreur lors de la suppression du fichier :', err);
+      return res.json({ success: false, message: 'Erreur lors de la suppression du fichier' });
+    });
+})
 
 module.exports = router;
