@@ -94,8 +94,8 @@ if(modifyProject) {
             const project_image = parentUl.querySelector(".project_image").textContent.trim();
 
             const modifyId = document.getElementById('modifyId');
-            const modifynom = document.getElementById('modifynom');
-            const modifydescription_service = document.getElementById('modifydescription_service');
+            const modifynom = document.getElementById('modifynom_project');
+            const modifydescription_service = document.getElementById('modifydescription_project');
             const modifyimage_perso = document.getElementById('imageDefault');
 
             if(addProjectId && modals_addFields) {

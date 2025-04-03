@@ -1,0 +1,16 @@
+<div id="ModifyService" class="w-96 h-auto px-10 py-5 bg-white items-center justify-center hidden flex-col shadow-lg z-50 rounded-lg shadow-lg relative">
+    <button type="button" class="absolute top-3 left-4 text-2xl txt_color_orange cursor-pointer" onclick="closeModifyProjects();"><i class="fa-solid fa-rectangle-xmark"></i></button>
+    <h4 class="text-xl font-medium my-3">Modifier un projet</h4>
+    <form id="ModifyService" class="w-full flex flex-col" enctype="multipart/form-data">
+        <li class="hidden" id="modifyId"></li>
+        <input type="text" name="title" id="modifynom_service" placeholder="Titre : " required class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2">
+        <textarea name="description" id="modifydescription_service" rows="5" cols="50" placeholder="Description (optionnel) : " class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2"></textarea>
+        <p>Image Séléctionnée : <span class="text-black" id="imageDefaultService"></span></p>
+        <input type="file" name="image" id="modifyimage_service" class="w-full rounded-xl border-2 border-solid border-gray-200 px-3 py-2 my-2" accept="image/*">
+        <ul class="w-full text-center">
+            <p id="msg_result_project_modify" class="text-md"></p>
+        </ul>
+        <%- include('loader') %>
+        <button type="submit" class="btn_bg_color w-full text-white rounded-xl border-2 border-solid border-yellow-500 px-3 py-2">Ajouter</button>
+    </form>
+</div>
