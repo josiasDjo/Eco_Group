@@ -138,7 +138,7 @@ if(addaProject) {
 }
 
 // Modifier un projet
-const ModifyProject = document.getElementById('ModifyService');
+const ModifyProject = document.getElementById('ModifyProject');
 if(ModifyProject) {
     ModifyProject.addEventListener('submit', async (event) => {
         event.preventDefault();
