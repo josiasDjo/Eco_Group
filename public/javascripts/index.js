@@ -172,14 +172,14 @@ function openAddService(param) {
     }
 }
 // open modal modify project
-const modifyService = document.querySelectorAll('.modifyProject');
-if(modifyProject) {
-    modifyProject.forEach((modify) => {
+const modifyService = document.querySelectorAll('.modifyService');
+if(modifyService) {
+    modifyService.forEach((modify) => {
         modify.addEventListener('click', (event) => {
             event.preventDefault();
 
             const modals_addFields = document.getElementById('modals_addProject');
-            const addProjectId = document.getElementById('ModifyServiceIDservice');
+            const ModifyService = document.getElementById('ModifyService');
 
             const parentUl = modify.closest("ul");
             const project_id = parentUl.querySelector(".project_id").textContent.trim();
@@ -192,7 +192,7 @@ if(modifyProject) {
             const modifydescription_service = document.getElementById('modifydescription_project');
             const modifyimage_perso = document.getElementById('imageDefault');
 
-            if(addProjectId && modals_addFields) {
+            if(ModifyService && modals_addFields) {
 
                 modifyId.textContent = project_id;
                 modifynom.value = project_title;
@@ -201,8 +201,8 @@ if(modifyProject) {
 
                 modals_addFields.classList.remove('hidden');
                 modals_addFields.classList.add('flex');
-                addProjectId.classList.remove('hidden');
-                addProjectId.classList.add('flex');
+                ModifyService.classList.remove('hidden');
+                ModifyService.classList.add('flex');
             }
         })
     })
