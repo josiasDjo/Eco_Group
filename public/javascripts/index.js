@@ -177,8 +177,8 @@ if(modifyService) {
     modifyService.forEach((modify) => {
         modify.addEventListener('click', (event) => {
             event.preventDefault();
-            alert('Click')
-            const modals_addFields = document.getElementById('modals_addProject');
+
+            const modals_addFields = document.getElementById('modals_addService');
             const ModifyServiceShow = document.getElementById('ModifyServiceShow');
 
             const parentUl = modify.closest("ul");
@@ -190,7 +190,7 @@ if(modifyService) {
             const modifyId = document.getElementById('modifyId_service');
             const modifynom = document.getElementById('modifynom_service');
             const modifydescription_service = document.getElementById('modifydescription_service');
-            const modifyimage_perso = document.getElementById('modifyimage_service');
+            const modifyimage_perso = document.getElementById('imageDefaultService');
 
             if(ModifyServiceShow && modals_addFields) {
 
@@ -207,7 +207,16 @@ if(modifyService) {
         })
     })
 }
-
+function closeModifyService() {
+    const modals_addFields = document.getElementById('modals_addService');
+    const addProjectId = document.getElementById('ModifyServiceShow');
+    if (addProjectId && modals_addFields) {
+        modals_addFields.classList.add('hidden');
+        modals_addFields.classList.remove('flex');
+        addProjectId.classList.add('hidden');
+        addProjectId.classList.remove.remove('flex'); 
+    }
+}
 const showParameters = document.getElementById('showParameters');
 if(showParameters) {
     showParameters.addEventListener('click', (event) => {
