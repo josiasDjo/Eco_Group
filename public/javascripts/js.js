@@ -150,7 +150,6 @@ if(ModifyProject) {
         const imageD = document.getElementById('imageDefault').textContent;
         const msg_result = document.getElementById('msg_result_project_modify');
 
-        alert(typeof project_id);
         if (image && image.files.length != 0) {
             if (title && title != "" && description && description != "") {
                 const formData = new FormData();
