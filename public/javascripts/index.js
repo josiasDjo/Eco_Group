@@ -177,7 +177,7 @@ if(modifyService) {
     modifyService.forEach((modify) => {
         modify.addEventListener('click', (event) => {
             event.preventDefault();
-
+            alert('Click')
             const modals_addFields = document.getElementById('modals_addProject');
             const ModifyService = document.getElementById('ModifyService');
 
