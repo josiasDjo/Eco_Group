@@ -238,14 +238,14 @@ if(ModifyService) {
     ModifyService.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const project_id = parseInt(document.getElementById('modifyId').textContent.trim(), 10);
-        const title = document.getElementById('modifynom').value;
+        const project_id = parseInt(document.getElementById('modifyId_service').textContent.trim(), 10);
+        const title = document.getElementById('modifynom_service').value;
         const description = document.getElementById('modifydescription_service').value;
-        const image = document.getElementById('modifyimage_perso');
-        const imageD = document.getElementById('imageDefault').textContent;
-        const msg_result = document.getElementById('msg_result_project_modify');
+        const image = document.getElementById('modifyimage_service');
+        const imageD = document.getElementById('imageDefaultService').textContent;
+        const msg_result = document.getElementById('msg_result_service_modify');
 
-        alert(typeof project_id);
+        // alert(typeof project_id);
         if (image && image.files.length != 0) {
             if (title && title != "" && description && description != "") {
                 const formData = new FormData();
