@@ -476,26 +476,26 @@ if(addToTeam) {
 }
 
 // Supprimer un membre 
-const deleteAMember = document.querySelectorAll('.deleteProject');
+const deleteAMember = document.querySelectorAll('.deleteTeam');
 if(deleteAMember) {
     deleteAMember.forEach((deleteMmb) => {
         deleteMmb.addEventListener('click', async (event) => {
             event.preventDefault();
             const parentUl = deleteMmb.closest("ul");
-            const project_id = parentUl.querySelector(".project_id").textContent.trim();
-            const fileName = parentUl.querySelector(".project_image").textContent.trim();
+            const equipe_id = parseInt(document.querySelector('.Team_id').textContent.trim(), 10);
+            const fileName = document.querySelector('.Team_image').textContent;
 
             // alert('ID : ' + project_id);
-            if (confirm("Voulez-vous vraiment supprimer ce projet ?")) {
-                const response = await fetch("/project/delete-project", {
+            if (confirm("Voulez-vous vraiment supprimer ce membre ?")) {
+                const response = await fetch("/equipe/deleteMember", {
                     method: "DELETE", 
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({project_id})
+                    body: JSON.stringify({equipe_id})
                 })
     
                 const data = await response.json();
                 if(data.success) {
-                    console.log("Suppression confirmée pour l'ID :", project_id);
+                    console.log("Suppression confirmée pour l'ID :", equipe_id);
                     alert(data.message);
                     alert(fileName);
                     const test = "Test1"
