@@ -171,6 +171,42 @@ function openAddService(param) {
         console.log('Valeur inattendu');
     }
 }
+// open modal modify project
+const modifyService = document.querySelectorAll('.modifyProject');
+if(modifyProject) {
+    modifyProject.forEach((modify) => {
+        modify.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const modals_addFields = document.getElementById('modals_addProject');
+            const addProjectId = document.getElementById('ModifyServiceIDservice');
+
+            const parentUl = modify.closest("ul");
+            const project_id = parentUl.querySelector(".project_id").textContent.trim();
+            const project_title = parentUl.querySelector(".project_title").textContent.trim();
+            const project_description = parentUl.querySelector(".project_description").textContent.trim();
+            const project_image = parentUl.querySelector(".project_image").textContent.trim();
+
+            const modifyId = document.getElementById('modifyIdProject');
+            const modifynom = document.getElementById('modifynom_project');
+            const modifydescription_service = document.getElementById('modifydescription_project');
+            const modifyimage_perso = document.getElementById('imageDefault');
+
+            if(addProjectId && modals_addFields) {
+
+                modifyId.textContent = project_id;
+                modifynom.value = project_title;
+                modifydescription_service.value = project_description;
+                modifyimage_perso.textContent = project_image;
+
+                modals_addFields.classList.remove('hidden');
+                modals_addFields.classList.add('flex');
+                addProjectId.classList.remove('hidden');
+                addProjectId.classList.add('flex');
+            }
+        })
+    })
+}
 
 const showParameters = document.getElementById('showParameters');
 if(showParameters) {

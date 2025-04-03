@@ -23,9 +23,9 @@
                 <% services.forEach((ser) => { %>
                     <div class="w-full md:w-56 lg:w-64 min-h-56 shadow-lg my-3 m-2 mb-10 relative">
                         <% if(admin) { %>
-                            <ul class="containerSubAction h-12 w-8 backdrop-blur bg-transparent text-center justify-center items-center absolute top-0 right-0">
-                                <li id="" class="modifyProject text-black cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></li>
-                                <li id="" class="deleteProject text-red-500 cursor-pointer"><i class="fa-solid fa-trash"></i></li>
+                            <ul class="containerSubAction h-12 w-8 backdrop-blur bg-transparent text-center justify-center items-center absolute top-0 right-0 z-40">
+                                <li id="" class="modifyService text-black cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></li>
+                                <li id="" class="deleteService text-red-500 cursor-pointer"><i class="fa-solid fa-trash"></i></li>
                                 <li id="" class="project_id hidden"><%= ser.service_id %></li>
                                 <li id="" class="project_title hidden"><%= ser.title %></li>
                                 <li id="" class="project_description hidden"><%= ser.description %></li>
