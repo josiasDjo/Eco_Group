@@ -191,3 +191,14 @@ if(showParameters) {
         }
     });
 }
+
+const signout = document.getElementById('signout');
+if(signout) {
+    signout.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        window.location.href('/signout');
+    })
+} else {
+    console.log('Element not found');
+}
