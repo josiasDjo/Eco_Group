@@ -335,20 +335,20 @@ if(DeleteService) {
         delService.addEventListener('click', async (event) => {
             event.preventDefault();
             const parentUl = delService.closest("ul");
-            const project_id = parentUl.querySelector(".service_id").textContent.trim();
+            const service_id = parentUl.querySelector(".service_id").textContent.trim();
             const fileName = parentUl.querySelector(".service_image").textContent.trim();
 
             // alert('ID : ' + project_id);
-            if (confirm("Voulez-vous vraiment supprimer ce projet ?")) {
+            if (confirm("Voulez-vous vraiment supprimer ce service ?")) {
                 const response = await fetch("/service/delete-service", {
                     method: "DELETE", 
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({project_id})
+                    body: JSON.stringify({service_id})
                 })
     
                 const data = await response.json();
                 if(data.success) {
-                    console.log("Suppression confirmée pour l'ID :", project_id);
+                    console.log("Suppression confirmée pour l'ID :", service_id);
                     alert(data.message);
                     // alert(fileName);
                     const test = "Test1"
