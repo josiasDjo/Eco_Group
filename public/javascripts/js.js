@@ -352,7 +352,7 @@ if(AllDeleteProject) {
                     alert(data.message);
                     alert(fileName);
                     const test = "Test1"
-                    // window.location.reload();
+
                     const responseDeleteFiles = await fetch("delete/image/onServer", { 
                         method: "POST", 
                         headers: { "Content-Type": "application/json" },
