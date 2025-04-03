@@ -368,3 +368,12 @@ if(addService) {
         }
     })
 }
+
+const signout = document.getElementById('signout');
+if(signout) {
+    signout.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        
+    })
+}
