@@ -197,7 +197,7 @@ if(signout) {
     signout.addEventListener('click', (event) => {
         event.preventDefault();
 
-        window.location.href('/signout');
+        window.location.href = "/signout";
     })
 } else {
     console.log('Element not found');
