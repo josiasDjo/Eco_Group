@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs').promises;
-const path = require('path');
+// const path = require('path');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 const authenticateToken = require('../middlewares/authenticateToken');
 const projectController = require('../controllers/projectController');
@@ -110,9 +110,10 @@ router.post('/upload/image', upload.single('image'), (req, res) => {
 });
 
 
-router.post('delete/image/onServer', (req, res) => {
+router.post('/s/delete/image/onServer', (req, res) => {
   const fileName = req.body.fileName;
-  const filePath = path.join(__dirname, `public/images/${fileName}`);
+  console.log('Nom : ', fileName);
+  const filePath = path.join(__dirname, `../../public/images/${fileName}`);
 
   fs.unlink(filePath)
     .then(() => {

@@ -351,12 +351,14 @@ if(AllDeleteProject) {
                     console.log("Suppression confirmée pour l'ID :", project_id);
                     alert(data.message);
                     alert(fileName);
+                    const test = "Test1"
                     // window.location.reload();
-                    const responseDeleteFiles = await fetch("", { 
+                    const responseDeleteFiles = await fetch("delete/image/onServer", { 
                         method: "POST", 
-                        body: fileName
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ fileName, test })
                     });
-                    const data2 = responseDeleteFiles.json();
+                    const data2 = await responseDeleteFiles.json();
                     if(data2.success) {
                         console.log('Success : ', data2.message);
                         window.location.reload();
