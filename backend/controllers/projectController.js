@@ -28,10 +28,14 @@ exports.updateProjects = async (req, res) => {
         const { project_id,title,description,image } = req.body;
         const projectExist = await Project.findByPk(project_id);
         if (!projectExist) return res.json({ success: false, message: 'Projet introuvable'});
-        await Project.update({ title,description,image }, {where: {project_id}});
-        return res.jon({ success: true, message: 'Modification réussie'});
+        const [updated] = await Project.update({ title,description,image }, {where: {project_id}});
+        if (updated) {
+            return res.json({ success: true, message: 'Modification réussie' });
+        } else {
+            return res.json({ success: false, message: 'Aucune modification effectuée' });
+        }
     } catch (err) {
-        console.log('Une erreur d\'est produite : ', err);
+        console.log('Une erreur s\'est produite : ', err);
         return res.json({ success: false, message: 'Erreur serveur, réesayer plus tard !! '});
     }
 }
