@@ -182,10 +182,10 @@ if(modifyService) {
             const ModifyService = document.getElementById('ModifyService');
 
             const parentUl = modify.closest("ul");
-            const project_id = parentUl.querySelector(".project_id").textContent.trim();
-            const project_title = parentUl.querySelector(".project_title").textContent.trim();
-            const project_description = parentUl.querySelector(".project_description").textContent.trim();
-            const project_image = parentUl.querySelector(".project_image").textContent.trim();
+            const project_id = parentUl.querySelector(".service_id").textContent.trim();
+            const project_title = parentUl.querySelector(".service_title").textContent.trim();
+            const project_description = parentUl.querySelector(".service_description").textContent.trim();
+            const project_image = parentUl.querySelector(".service_image").textContent.trim();
 
             const modifyId = document.getElementById('modifyIdProject');
             const modifynom = document.getElementById('modifynom_project');
