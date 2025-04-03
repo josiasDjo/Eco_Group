@@ -142,15 +142,15 @@ const ModifyService = document.getElementById('ModifyService');
 if(ModifyService) {
     ModifyService.addEventListener('submit', async (event) => {
         event.preventDefault();
-        // alert('Submit');
 
-        const project_id = document.getElementById('modifyId').textContent.split();
+        const project_id = parseInt(document.getElementById('modifyId').textContent.trim(), 10);
         const title = document.getElementById('modifynom').value;
         const description = document.getElementById('modifydescription_service').value;
         const image = document.getElementById('modifyimage_perso');
         const imageD = document.getElementById('imageDefault').textContent;
         const msg_result = document.getElementById('msg_result_project_modify');
 
+        alert(typeof project_id);
         if (image && image.files.length != 0) {
             if (title && title != "" && description && description != "") {
                 const formData = new FormData();
