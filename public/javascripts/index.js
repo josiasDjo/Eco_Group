@@ -4,6 +4,7 @@ const allElements = document.querySelectorAll('*');
 // Parcourir et ajouter la classe 'animable'
 allElements.forEach(el => {
     el.classList.add('animable');
+    el.classList.add('opacity-100');
 });
 
 
