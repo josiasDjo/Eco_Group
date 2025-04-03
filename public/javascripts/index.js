@@ -182,22 +182,22 @@ if(modifyService) {
             const ModifyService = document.getElementById('ModifyService');
 
             const parentUl = modify.closest("ul");
-            const project_id = parentUl.querySelector(".service_id").textContent.trim();
-            const project_title = parentUl.querySelector(".service_title").textContent.trim();
-            const project_description = parentUl.querySelector(".service_description").textContent.trim();
-            const project_image = parentUl.querySelector(".service_image").textContent.trim();
+            const service_id = parentUl.querySelector(".service_id").textContent.trim();
+            const service_title = parentUl.querySelector(".service_title").textContent.trim();
+            const service_description = parentUl.querySelector(".service_description").textContent.trim();
+            const service_image = parentUl.querySelector(".service_image").textContent.trim();
 
-            const modifyId = document.getElementById('modifyIdProject');
-            const modifynom = document.getElementById('modifynom_project');
-            const modifydescription_service = document.getElementById('modifydescription_project');
-            const modifyimage_perso = document.getElementById('imageDefault');
+            const modifyId = document.getElementById('modifyId_service');
+            const modifynom = document.getElementById('modifynom_service');
+            const modifydescription_service = document.getElementById('modifydescription_service');
+            const modifyimage_perso = document.getElementById('modifyimage_service');
 
             if(ModifyService && modals_addFields) {
 
-                modifyId.textContent = project_id;
-                modifynom.value = project_title;
-                modifydescription_service.value = project_description;
-                modifyimage_perso.textContent = project_image;
+                modifyId.textContent = service_id;
+                modifynom.value = service_title;
+                modifydescription_service.value = service_description;
+                modifyimage_perso.textContent = service_image;
 
                 modals_addFields.classList.remove('hidden');
                 modals_addFields.classList.add('flex');
