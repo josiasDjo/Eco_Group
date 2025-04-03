@@ -349,7 +349,10 @@ if(AllDeleteProject) {
                 if(data.success) {
                     console.log("Suppression confirmée pour l'ID :", project_id);
                     alert(data.message);
-                    window.location.reload();
+                    // window.location.reload();
+                    const responseDeleteFiles = await fetch("", {
+                        
+                    })
                 } else {
                     alert(data.message);
                 }
