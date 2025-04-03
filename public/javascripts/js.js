@@ -143,10 +143,10 @@ if(ModifyProject) {
     ModifyProject.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const project_id = parseInt(document.getElementById('modifyId').textContent.trim(), 10);
-        const title = document.getElementById('modifynom').value;
-        const description = document.getElementById('modifydescription_service').value;
-        const image = document.getElementById('modifyimage_perso');
+        const project_id = parseInt(document.getElementById('modifyIdProject').textContent.trim(), 10);
+        const title = document.getElementById('modifynom_project').value;
+        const description = document.getElementById('modifydescription_project').value;
+        const image = document.getElementById('modifyimage_project');
         const imageD = document.getElementById('imageDefault').textContent;
         const msg_result = document.getElementById('msg_result_project_modify');
 

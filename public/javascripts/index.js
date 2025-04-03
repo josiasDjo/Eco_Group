@@ -93,7 +93,7 @@ if(modifyProject) {
             const project_description = parentUl.querySelector(".project_description").textContent.trim();
             const project_image = parentUl.querySelector(".project_image").textContent.trim();
 
-            const modifyId = document.getElementById('modifyId');
+            const modifyId = document.getElementById('modifyIdProject');
             const modifynom = document.getElementById('modifynom_project');
             const modifydescription_service = document.getElementById('modifydescription_project');
             const modifyimage_perso = document.getElementById('imageDefault');
