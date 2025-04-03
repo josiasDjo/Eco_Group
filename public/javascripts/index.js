@@ -179,8 +179,13 @@ if(showParameters) {
 
         const parameter = document.getElementById('parameter');
         if(parameter) {
-            parameter.classList.remove('hidden');
-            parameter.classList.add('flex'); 
+            if(parameter.classList.contains('hidden')) {
+                parameter.classList.remove('hidden');
+                parameter.classList.add('flex');
+            } else {
+                parameter.classList.add('hidden');
+                parameter.classList.remove('flex');
+            }
         } else {
             console.log('Element not found');
         }
