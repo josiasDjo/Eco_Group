@@ -473,6 +473,104 @@ if(addToTeam) {
     })
 }
 
+
+// Modifier un service
+const ModifyTeam = document.getElementById('ModifyTeamId');
+if(ModifyService) {
+    ModifyService.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const equipe_id = parseInt(document.getElementById('modifyIdTeam').textContent.trim(), 10);
+        const last_name = document.getElementById('nom_modify').value;
+        const first_name = document.getElementById('prenom_modify').value;
+        const image = document.getElementById('image_perso_modify');
+        const imageD = document.getElementById('imageDefaultTeam').textContent;
+        const msg_result = document.getElementById('msg_result_team_modify');
+
+        // alert(typeof project_id);
+        if (image && image.files.length != 0) {
+            if (title && title != "" && description && description != "") {
+                const formData = new FormData();
+                formData.append('image', image.files[0]);
+    
+                const loader = document.getElementById("loader");
+                loader.style.display = "block";
+    
+                try {
+                    const response1 = await fetch("/upload/image", {
+                        method: "POST", 
+                        body: formData
+                    });
+                    const newName = await response1.json();
+                    console.log('Value : ', newName);
+                    if(newName.success) {
+                        const image = newName.newname;
+                        console.log('New name : ', image);
+    
+                        const response = await fetch("/equipe/updateMember", {
+                            method: "PUT", 
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ equipe_id,first_name,last_name,image })
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                            msg_result.innerText = data.message;
+                            msg_result.style.color = "green";
+                            window.location.reload();
+                        } else {
+                            msg_result.innerText = data.message;
+                            msg_result.style.color = "red";
+                        }
+                    } else {
+                        msg_result.innerText = "Une erreur s'est produite !! upload image ";
+                        msg_result.style.color = "red";
+                    }
+                } catch(err) {
+                    msg_result.innerText = "Une erreur s'est produite !! catch exc ";
+                    msg_result.style.color = "red";
+                } finally {
+                    loader.style.display = "none";
+                }
+            } else {
+                msg_result.innerText = "Tous les champs sont réquis !! ";
+                msg_result.style.color = "red";
+            }
+        } else {
+            if (title && title != "" && description && description != "") {    
+                const loader = document.getElementById("loader");
+                loader.style.display = "block";
+                
+                const image = imageD;
+                try {
+                    const response = await fetch("/equipe/updateMember", {
+                        method: "PUT", 
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ equipe_id,first_name,last_name,image })
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        msg_result.innerText = data.message;
+                        msg_result.style.color = "green";
+                        window.location.reload();
+                    } else {
+                        msg_result.innerText = data.message;
+                        msg_result.style.color = "red";
+                    }
+                } catch(err) {
+                    msg_result.innerText = "Une erreur s'est produite !! catch exc ";
+                    msg_result.style.color = "red";
+                } finally {
+                    loader.style.display = "none";
+                }
+            } else {
+                msg_result.innerText = "Tous les champs sont réquis !! ";
+                msg_result.style.color = "red";
+            }
+        }
+    })
+}
+
+
 const addService = document.getElementById('addService');
 if(addService) {
     addService.addEventListener('submit', async (event) => {
