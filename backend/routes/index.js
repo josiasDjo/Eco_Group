@@ -46,9 +46,16 @@ router.get('/login', (req, res) => {
 });
 
 // Signout router
-router.get('/signout', req, res) => {
-  
-}
+router.get('/signout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.clearCookie('connect.sid');
+    res.redirect('/');
+  });
+});
 
 router.get('/s/admin', authenticateToken, async (req, res) => {
   const getProjects = async () => {
