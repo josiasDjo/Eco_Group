@@ -171,3 +171,18 @@ function openAddService(param) {
         console.log('Valeur inattendu');
     }
 }
+
+const showParameters = document.getElementById('showParameters');
+if(showParameters) {
+    showParameters.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const parameter = document.getElementById('parameter');
+        if(parameter) {
+            parameter.classList.remove('hidden');
+            parameter.classList.add('flex'); 
+        } else {
+            console.log('Element not found');
+        }
+    });
+}
