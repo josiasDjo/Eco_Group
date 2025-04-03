@@ -336,7 +336,8 @@ if(AllDeleteProject) {
             event.preventDefault();
             const parentUl = deleteProject.closest("ul");
             const project_id = parentUl.querySelector(".project_id").textContent.trim();
-    
+            const fileName = parentUl.querySelector(".project_image").textContent.trim();
+
             // alert('ID : ' + project_id);
             if (confirm("Voulez-vous vraiment supprimer ce projet ?")) {
                 const response = await fetch("/project/delete-project", {
@@ -349,10 +350,19 @@ if(AllDeleteProject) {
                 if(data.success) {
                     console.log("Suppression confirmée pour l'ID :", project_id);
                     alert(data.message);
+                    alert(fileName);
                     // window.location.reload();
-                    const responseDeleteFiles = await fetch("", {
-                        
-                    })
+                    const responseDeleteFiles = await fetch("", { 
+                        method: "POST", 
+                        body: fileName
+                    });
+                    const data2 = responseDeleteFiles.json();
+                    if(data2.success) {
+                        console.log('Success : ', data2.message);
+                        window.location.reload();
+                    } else {
+                        console.log('Success : ', data2.message);
+                    }
                 } else {
                     alert(data.message);
                 }

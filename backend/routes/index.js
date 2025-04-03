@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const multer = require('multer');
+const fs = require('fs').promises;
+const path = require('path');
 const isAuthenticated = require('../middlewares/isAuthenticated');
 const authenticateToken = require('../middlewares/authenticateToken');
 const projectController = require('../controllers/projectController');
@@ -107,5 +109,19 @@ router.post('/upload/image', upload.single('image'), (req, res) => {
   return res.json({ success: true, newname: newname});
 });
 
+
+router.post('delete/image/onServer', (req, res) => {
+  const fileName = req.body.fileName;
+  const filePath = path.join(__dirname, `public/images/${fileName}`);
+
+  fs.unlink(filePath)
+    .then(() => {
+      return res.json({ success: true, message: 'Fichier supprimé avec succès' });
+    })
+    .catch(err => {
+      console.error('Erreur lors de la suppression du fichier :', err);
+      return res.json({ success: false, message: 'Erreur lors de la suppression du fichier' });
+    });
+})
 
 module.exports = router;
