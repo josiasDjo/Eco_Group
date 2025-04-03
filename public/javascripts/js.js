@@ -374,6 +374,6 @@ if(signout) {
     signout.addEventListener('click', (event) => {
         event.preventDefault();
 
-        
+        window.location.href('/signout');
     })
 }
