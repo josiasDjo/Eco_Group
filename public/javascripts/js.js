@@ -421,6 +421,8 @@ if(AllDeleteProject) {
         })
     })
 }
+
+// Ajouter un membre à l'équipe
 const addToTeam = document.getElementById('addToTeam');
 if(addToTeam) {
     addToTeam.addEventListener('submit', async (event) => {
@@ -473,11 +475,57 @@ if(addToTeam) {
     })
 }
 
+// Supprimer un membre 
+const deleteAMember = document.querySelectorAll('.deleteProject');
+if(deleteAMember) {
+    deleteAMember.forEach((deleteMmb) => {
+        deleteMmb.addEventListener('click', async (event) => {
+            event.preventDefault();
+            const parentUl = deleteMmb.closest("ul");
+            const project_id = parentUl.querySelector(".project_id").textContent.trim();
+            const fileName = parentUl.querySelector(".project_image").textContent.trim();
 
-// Modifier un service
+            // alert('ID : ' + project_id);
+            if (confirm("Voulez-vous vraiment supprimer ce projet ?")) {
+                const response = await fetch("/project/delete-project", {
+                    method: "DELETE", 
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({project_id})
+                })
+    
+                const data = await response.json();
+                if(data.success) {
+                    console.log("Suppression confirmée pour l'ID :", project_id);
+                    alert(data.message);
+                    alert(fileName);
+                    const test = "Test1"
+
+                    const responseDeleteFiles = await fetch("delete/image/onServer", { 
+                        method: "POST", 
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ fileName, test })
+                    });
+                    const data2 = await responseDeleteFiles.json();
+                    if(data2.success) {
+                        console.log('Success : ', data2.message);
+                        window.location.reload();
+                    } else {
+                        console.log('Success : ', data2.message);
+                    }
+                } else {
+                    alert(data.message);
+                }
+            } else {
+                console.log("Suppression annulée.");
+            }
+        })
+    })
+}
+
+// Modifier un membre
 const ModifyTeam = document.getElementById('ModifyTeamId');
-if(ModifyService) {
-    ModifyService.addEventListener('submit', async (event) => {
+if(ModifyTeam) {
+    ModifyTeam.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const equipe_id = parseInt(document.getElementById('modifyIdTeam').textContent.trim(), 10);
@@ -536,7 +584,7 @@ if(ModifyService) {
                 msg_result.style.color = "red";
             }
         } else {
-            if (title && title != "" && description && description != "") {    
+            if (first_name && first_name != "" && last_name && last_name != "") {    
                 const loader = document.getElementById("loader");
                 loader.style.display = "block";
                 
