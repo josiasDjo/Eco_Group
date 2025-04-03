@@ -16,7 +16,15 @@ const conn_page_mdp = document.getElementsByClassName('conn_page_mdp');
 const conn_page_btn = document.getElementsByClassName('conn_page_btn');
 const part2_conn_page = document.getElementsByClassName('part2_conn_page');
 
+gsap.registerPlugin(ScrollTrigger);
+
+
 gsap.from(['.logo_nav','.text_navbar_annim', '.text_heroHeader', '.btn_HeroHeader', '.animable'], { 
+    scrollTrigger: {
+        trigger: '.animable',
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+    },
     duration: 0.4, delay: 0.3, opacity: 0, stagger: 0.2
 });
 
