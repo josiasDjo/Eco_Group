@@ -238,7 +238,7 @@ if(ModifyService) {
     ModifyService.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const project_id = parseInt(document.getElementById('modifyId_service').textContent.trim(), 10);
+        const service_id = parseInt(document.getElementById('modifyId_service').textContent.trim(), 10);
         const title = document.getElementById('modifynom_service').value;
         const description = document.getElementById('modifydescription_service').value;
         const image = document.getElementById('modifyimage_service');
@@ -265,10 +265,10 @@ if(ModifyService) {
                         const image = newName.newname;
                         console.log('New name : ', image);
     
-                        const response = await fetch("/project/update-project", {
+                        const response = await fetch("/service/modify-service", {
                             method: "PUT", 
                             headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({ project_id,title,description,image })
+                            body: JSON.stringify({ service_id,title,description,image })
                         });
                         const data = await response.json();
                         if (data.success) {
@@ -300,10 +300,10 @@ if(ModifyService) {
                 
                 const image = imageD;
                 try {
-                    const response = await fetch("/project/update-project", {
+                    const response = await fetch("/service/modify-service", {
                         method: "PUT", 
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ project_id,title,description,image })
+                        body: JSON.stringify({ service_id,title,description,image })
                     });
                     const data = await response.json();
                     if (data.success) {
@@ -325,6 +325,53 @@ if(ModifyService) {
                 msg_result.style.color = "red";
             }
         }
+    })
+}
+
+// Supprimer un service 
+const DeleteService = document.querySelectorAll('.deleteService');
+if(DeleteService) {
+    DeleteService.forEach((delService) => {
+        delService.addEventListener('click', async (event) => {
+            event.preventDefault();
+            const parentUl = delService.closest("ul");
+            const project_id = parentUl.querySelector(".service_id").textContent.trim();
+            const fileName = parentUl.querySelector(".service_image").textContent.trim();
+
+            // alert('ID : ' + project_id);
+            if (confirm("Voulez-vous vraiment supprimer ce projet ?")) {
+                const response = await fetch("/service/delete-service", {
+                    method: "DELETE", 
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({project_id})
+                })
+    
+                const data = await response.json();
+                if(data.success) {
+                    console.log("Suppression confirmée pour l'ID :", project_id);
+                    alert(data.message);
+                    // alert(fileName);
+                    const test = "Test1"
+
+                    const responseDeleteFiles = await fetch("delete/image/onServer", { 
+                        method: "POST", 
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ fileName, test })
+                    });
+                    const data2 = await responseDeleteFiles.json();
+                    if(data2.success) {
+                        console.log('Success : ', data2.message);
+                        window.location.reload();
+                    } else {
+                        console.log('Success : ', data2.message);
+                    }
+                } else {
+                    alert(data.message);
+                }
+            } else {
+                console.log("Suppression annulée.");
+            }
+        })
     })
 }
 
