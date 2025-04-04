@@ -437,7 +437,7 @@ if(addToTeam) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
-            const loader = document.getElementById("loader");
+            const loader = document.getElementById("loader_addToTeam");
             loader.style.display = "block";
             
             try {
