@@ -622,9 +622,9 @@ if(ModifyTeam) {
 const addService = document.getElementById('addService');
 if(addService) {
     addService.addEventListener('submit', async (event) => {
-        // event.preventDefault();
+        event.preventDefault();
 
-        alert('Submit add service')
+        // alert('Submit add service')
         const title = document.getElementById('nom_service').value;	
         const description = document.getElementById('description_service').value;	
         const image = document.getElementById('image_service');
