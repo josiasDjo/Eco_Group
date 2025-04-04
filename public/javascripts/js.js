@@ -92,7 +92,7 @@ if(addaProject) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
-            const loader = document.getElementById("loader");
+            const loader = document.getElementById("loaderAddProject");
             loader.style.display = "block";
 
             try {
@@ -155,7 +155,7 @@ if(ModifyProject) {
                 const formData = new FormData();
                 formData.append('image', image.files[0]);
     
-                const loader = document.getElementById("loader");
+                const loader = document.getElementById("loaderModifyProject");
                 loader.style.display = "block";
     
                 try {
@@ -251,7 +251,7 @@ if(ModifyService) {
                 const formData = new FormData();
                 formData.append('image', image.files[0]);
     
-                const loader = document.getElementById("loader");
+                const loader = document.getElementById("loaderModifyService");
                 loader.style.display = "block";
     
                 try {
@@ -437,7 +437,7 @@ if(addToTeam) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
-            const loader = document.getElementById("loader");
+            const loader = document.getElementById("loader_addToTeam");
             loader.style.display = "block";
             
             try {
@@ -541,7 +541,7 @@ if(ModifyTeam) {
                 const formData = new FormData();
                 formData.append('image', image.files[0]);
     
-                const loader = document.getElementById("loader");
+                const loader = document.getElementById("loaderModifyTeam");
                 loader.style.display = "block";
     
                 try {
@@ -622,9 +622,9 @@ if(ModifyTeam) {
 const addService = document.getElementById('addService');
 if(addService) {
     addService.addEventListener('submit', async (event) => {
-        // event.preventDefault();
+        event.preventDefault();
 
-        alert('Submit add service')
+        // alert('Submit add service')
         const title = document.getElementById('nom_service').value;	
         const description = document.getElementById('description_service').value;	
         const image = document.getElementById('image_service');
@@ -634,7 +634,7 @@ if(addService) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
-            const loader = document.getElementById("loader");
+            const loader = document.getElementById("loaderAddService");
             loader.style.display = "block";
             
             try {
