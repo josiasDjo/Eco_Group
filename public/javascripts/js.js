@@ -92,7 +92,7 @@ if(addaProject) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
-            const loader = document.getElementById("loader");
+            const loader = document.getElementById("loaderAddProject");
             loader.style.display = "block";
 
             try {
@@ -155,7 +155,7 @@ if(ModifyProject) {
                 const formData = new FormData();
                 formData.append('image', image.files[0]);
     
-                const loader = document.getElementById("loader");
+                const loader = document.getElementById("loaderModifyProject");
                 loader.style.display = "block";
     
                 try {
@@ -251,7 +251,7 @@ if(ModifyService) {
                 const formData = new FormData();
                 formData.append('image', image.files[0]);
     
-                const loader = document.getElementById("loader");
+                const loader = document.getElementById("loaderModifyService");
                 loader.style.display = "block";
     
                 try {
@@ -541,7 +541,7 @@ if(ModifyTeam) {
                 const formData = new FormData();
                 formData.append('image', image.files[0]);
     
-                const loader = document.getElementById("loader");
+                const loader = document.getElementById("loaderModifyTeam");
                 loader.style.display = "block";
     
                 try {
@@ -634,7 +634,7 @@ if(addService) {
             const formData = new FormData();
             formData.append('image', image.files[0]);
 
-            const loader = document.getElementById("loader");
+            const loader = document.getElementById("loaderAddService");
             loader.style.display = "block";
             
             try {
