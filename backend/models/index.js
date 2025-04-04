@@ -27,7 +27,7 @@ async function checkDataBaseConnection() {
         await sequelize.authenticate();
         console.log('✅ Connecté à la base de données MySQL');
     } catch(err) {
-        console.error('❌ Erreur de connexion à MariaDB : ', err);
+        console.error('❌ Erreur de connexion à MySQL : ', err);
         process.exit(1);
     }
 }
