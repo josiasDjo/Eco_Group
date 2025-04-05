@@ -181,7 +181,19 @@ if(modifyTeam) {
         })
     })
 }
-
+// Close modal modify member
+function openModifyMember(param) {
+    if(param === 'close') {
+        const modals_addFields = document.getElementById('modals_addMember');
+        const ModifyTeamId = document.getElementById('ModifyTeamId');
+        if(modals_addFields && ModifyTeamId) {
+            modals_addFields.classList.remove('hidden');
+            modals_addFields.classList.add('flex');
+            ModifyTeamId.classList.remove('hidden');
+            ModifyTeamId.classList.add('flex');
+        }
+    }
+}
 // ajouter un service
 function openAddService(param) {
     const modals_addFields = document.getElementById('modals_addService');
