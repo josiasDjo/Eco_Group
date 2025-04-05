@@ -2,10 +2,9 @@
 const allElements = document.querySelectorAll('*');
 
 // Parcourir et ajouter la classe 'animable'
-allElements.forEach(el => {
-    el.classList.add('animable');
-    // el.classList.add('opacity-95');
-});
+// allElements.forEach(el => {
+//     el.classList.add('animable');
+// });
 
 
 
@@ -181,7 +180,19 @@ if(modifyTeam) {
         })
     })
 }
-
+// Close modal modify member
+function openModifyMember(param) {
+    if(param === 'close') {
+        const modals_addFields = document.getElementById('modals_addMember');
+        const ModifyTeamId = document.getElementById('ModifyTeamId');
+        if(modals_addFields && ModifyTeamId) {
+            modals_addFields.classList.add('hidden');
+            modals_addFields.classList.remove('flex');
+            ModifyTeamId.classList.add('hidden');
+            ModifyTeamId.classList.remove('flex');
+        }
+    }
+}
 // ajouter un service
 function openAddService(param) {
     const modals_addFields = document.getElementById('modals_addService');
