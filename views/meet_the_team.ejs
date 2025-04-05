@@ -26,7 +26,7 @@
     </div>
 
     <% if(members.length > 0) { %>
-        <div class="w-full h-96 my-10 flex flex-wrap items-center justify-center overflow-y-scroll">
+        <div class="w-full h-96 my-10 flex flex-row items-center justify-center overflow-x-scroll">
             <% members.forEach((mbr) => { %>
 
                 <div class="w-full md:w-44 h-auto m-2 border-2 border-solid border-gray-200 shadow-lg relative">
@@ -40,8 +40,8 @@
                             <li id="" class="Team_image hidden"><%= mbr.image %></li>
                         </ul>
                     <% } %>
-                    <div>
-                        <img src="/images/<%=mbr.image%>" loading="lazy" class="w-auto h-full" alt="<%= mbr.first_name %>">
+                    <div class="w-full h-40 overflow-hidden">
+                        <img src="/images/<%=mbr.image%>" loading="lazy" class="w-full h-auto" alt="<%= mbr.first_name %>">
                     </div>
                     <div class="items-center justify-center flex text-center">
                         <h5 class="font-bold text-center"><span><%= mbr.last_name %></span> <%= mbr.first_name %></h5>
