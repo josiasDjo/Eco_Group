@@ -183,6 +183,7 @@ if(modifyTeam) {
 }
 // Close modal modify member
 function openModifyMember(param) {
+    alert('openModifyMember');
     if(param === 'close') {
         const modals_addFields = document.getElementById('modals_addMember');
         const ModifyTeamId = document.getElementById('ModifyTeamId');
